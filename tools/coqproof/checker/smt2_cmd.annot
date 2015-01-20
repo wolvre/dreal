@@ -1,0 +1,1056 @@
+"smt2_cmd.ml" 16 267 271 "smt2_cmd.ml" 16 267 278
+type(
+  string -> float -> t
+)
+ident(
+  def make_lb "smt2_cmd.ml" 17 319 319 "smt2_cmd.ml" 1 0 -1
+)
+"smt2_cmd.ml" 16 267 279 "smt2_cmd.ml" 16 267 283
+type(
+  string
+)
+ident(
+  def name "smt2_cmd.ml" 16 267 284 "smt2_cmd.ml" 16 267 318
+)
+"smt2_cmd.ml" 16 267 284 "smt2_cmd.ml" 16 267 285
+type(
+  float
+)
+ident(
+  def v "smt2_cmd.ml" 16 267 288 "smt2_cmd.ml" 16 267 318
+)
+"smt2_cmd.ml" 16 267 304 "smt2_cmd.ml" 16 267 305
+type(
+  float
+)
+ident(
+  int_ref v "smt2_cmd.ml" 16 267 284 "smt2_cmd.ml" 16 267 285
+)
+"smt2_cmd.ml" 16 267 300 "smt2_cmd.ml" 16 267 305
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 16 267 312 "smt2_cmd.ml" 16 267 316
+type(
+  string
+)
+ident(
+  int_ref name "smt2_cmd.ml" 16 267 279 "smt2_cmd.ml" 16 267 283
+)
+"smt2_cmd.ml" 16 267 308 "smt2_cmd.ml" 16 267 316
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 16 267 295 "smt2_cmd.ml" 16 267 318
+type(
+  formula
+)
+"smt2_cmd.ml" 16 267 288 "smt2_cmd.ml" 16 267 318
+type(
+  t
+)
+"smt2_cmd.ml" 17 319 323 "smt2_cmd.ml" 17 319 330
+type(
+  string -> float -> t
+)
+ident(
+  def make_ub "smt2_cmd.ml" 19 372 372 "smt2_cmd.ml" 1 0 -1
+)
+"smt2_cmd.ml" 17 319 331 "smt2_cmd.ml" 17 319 335
+type(
+  string
+)
+ident(
+  def name "smt2_cmd.ml" 17 319 336 "smt2_cmd.ml" 17 319 370
+)
+"smt2_cmd.ml" 17 319 336 "smt2_cmd.ml" 17 319 337
+type(
+  float
+)
+ident(
+  def v "smt2_cmd.ml" 17 319 340 "smt2_cmd.ml" 17 319 370
+)
+"smt2_cmd.ml" 17 319 356 "smt2_cmd.ml" 17 319 360
+type(
+  string
+)
+ident(
+  int_ref name "smt2_cmd.ml" 17 319 331 "smt2_cmd.ml" 17 319 335
+)
+"smt2_cmd.ml" 17 319 352 "smt2_cmd.ml" 17 319 360
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 17 319 366 "smt2_cmd.ml" 17 319 367
+type(
+  float
+)
+ident(
+  int_ref v "smt2_cmd.ml" 17 319 336 "smt2_cmd.ml" 17 319 337
+)
+"smt2_cmd.ml" 17 319 362 "smt2_cmd.ml" 17 319 367
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 17 319 347 "smt2_cmd.ml" 17 319 370
+type(
+  formula
+)
+"smt2_cmd.ml" 17 319 340 "smt2_cmd.ml" 17 319 370
+type(
+  t
+)
+"smt2_cmd.ml" 19 372 376 "smt2_cmd.ml" 19 372 387
+type(
+  'a BatInnerIO.output -> logic -> unit
+)
+ident(
+  def print_logic "smt2_cmd.ml" 24 494 494 "smt2_cmd.ml" 1 0 -1
+)
+"smt2_cmd.ml" 19 372 388 "smt2_cmd.ml" 19 372 391
+type(
+  'a BatInnerIO.output
+)
+ident(
+  def out "smt2_cmd.ml" 20 394 396 "smt2_cmd.ml" 22 445 492
+)
+"smt2_cmd.ml" 21 405 409 "smt2_cmd.ml" 21 405 415
+type(
+  logic
+)
+"smt2_cmd.ml" 21 405 419 "smt2_cmd.ml" 21 405 431
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 21 405 432 "smt2_cmd.ml" 21 405 435
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 19 372 388 "smt2_cmd.ml" 19 372 391
+)
+"smt2_cmd.ml" 21 405 436 "smt2_cmd.ml" 21 405 444
+type(
+  string
+)
+"smt2_cmd.ml" 21 405 419 "smt2_cmd.ml" 21 405 444
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 22 445 449 "smt2_cmd.ml" 22 445 459
+type(
+  logic
+)
+"smt2_cmd.ml" 22 445 463 "smt2_cmd.ml" 22 445 475
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 22 445 476 "smt2_cmd.ml" 22 445 479
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 19 372 388 "smt2_cmd.ml" 19 372 391
+)
+"smt2_cmd.ml" 22 445 480 "smt2_cmd.ml" 22 445 492
+type(
+  string
+)
+"smt2_cmd.ml" 22 445 463 "smt2_cmd.ml" 22 445 492
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 20 394 396 "smt2_cmd.ml" 22 445 492
+type(
+  logic -> unit
+)
+"smt2_cmd.ml" 24 494 498 "smt2_cmd.ml" 24 494 503
+type(
+  'a BatInnerIO.output -> t -> unit
+)
+ident(
+  def print "smt2_cmd.ml" 66 1604 1633 "smt2_cmd.ml" 1 0 -1
+)
+"smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+type(
+  'a BatInnerIO.output
+)
+ident(
+  def out "smt2_cmd.ml" 25 510 512 "smt2_cmd.ml" 66 1604 1633
+)
+"smt2_cmd.ml" 26 521 534 "smt2_cmd.ml" 26 521 535
+type(
+  logic
+)
+ident(
+  def l "smt2_cmd.ml" 27 539 543 "smt2_cmd.ml" 31 642 649
+)
+"smt2_cmd.ml" 26 521 525 "smt2_cmd.ml" 26 521 535
+type(
+  t
+)
+"smt2_cmd.ml" 28 549 555 "smt2_cmd.ml" 28 549 567
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 28 549 570 "smt2_cmd.ml" 28 549 573
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 28 549 574 "smt2_cmd.ml" 28 549 587
+type(
+  string
+)
+"smt2_cmd.ml" 28 549 555 "smt2_cmd.ml" 28 549 587
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 29 589 595 "smt2_cmd.ml" 29 589 606
+type(
+  'a BatInnerIO.output -> logic -> unit
+)
+ident(
+  int_ref print_logic "smt2_cmd.ml" 19 372 376 "smt2_cmd.ml" 19 372 387
+)
+"smt2_cmd.ml" 29 589 607 "smt2_cmd.ml" 29 589 610
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 29 589 611 "smt2_cmd.ml" 29 589 612
+type(
+  logic
+)
+ident(
+  int_ref l "smt2_cmd.ml" 26 521 534 "smt2_cmd.ml" 26 521 535
+)
+"smt2_cmd.ml" 29 589 595 "smt2_cmd.ml" 29 589 612
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 30 614 620 "smt2_cmd.ml" 30 614 632
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 30 614 633 "smt2_cmd.ml" 30 614 636
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 30 614 637 "smt2_cmd.ml" 30 614 640
+type(
+  string
+)
+"smt2_cmd.ml" 30 614 620 "smt2_cmd.ml" 30 614 641
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 29 589 595 "smt2_cmd.ml" 30 614 641
+type(
+  unit
+)
+"smt2_cmd.ml" 27 539 543 "smt2_cmd.ml" 31 642 649
+type(
+  unit
+)
+"smt2_cmd.ml" 32 650 663 "smt2_cmd.ml" 32 650 666
+type(
+  string
+)
+ident(
+  def key "smt2_cmd.ml" 33 678 682 "smt2_cmd.ml" 39 839 846
+)
+"smt2_cmd.ml" 32 650 668 "smt2_cmd.ml" 32 650 673
+type(
+  string
+)
+ident(
+  def value "smt2_cmd.ml" 33 678 682 "smt2_cmd.ml" 39 839 846
+)
+"smt2_cmd.ml" 32 650 654 "smt2_cmd.ml" 32 650 674
+type(
+  t
+)
+"smt2_cmd.ml" 34 688 694 "smt2_cmd.ml" 34 688 706
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 34 688 707 "smt2_cmd.ml" 34 688 710
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 34 688 711 "smt2_cmd.ml" 34 688 723
+type(
+  string
+)
+"smt2_cmd.ml" 34 688 694 "smt2_cmd.ml" 34 688 723
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 35 725 731 "smt2_cmd.ml" 35 725 743
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 35 725 744 "smt2_cmd.ml" 35 725 747
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 35 725 748 "smt2_cmd.ml" 35 725 751
+type(
+  string
+)
+ident(
+  int_ref key "smt2_cmd.ml" 32 650 663 "smt2_cmd.ml" 32 650 666
+)
+"smt2_cmd.ml" 35 725 731 "smt2_cmd.ml" 35 725 751
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 36 753 759 "smt2_cmd.ml" 36 753 771
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 36 753 772 "smt2_cmd.ml" 36 753 775
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 36 753 776 "smt2_cmd.ml" 36 753 779
+type(
+  string
+)
+"smt2_cmd.ml" 36 753 759 "smt2_cmd.ml" 36 753 779
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 37 781 787 "smt2_cmd.ml" 37 781 799
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 37 781 800 "smt2_cmd.ml" 37 781 803
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 37 781 804 "smt2_cmd.ml" 37 781 809
+type(
+  string
+)
+ident(
+  int_ref value "smt2_cmd.ml" 32 650 668 "smt2_cmd.ml" 32 650 673
+)
+"smt2_cmd.ml" 37 781 787 "smt2_cmd.ml" 37 781 809
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 38 811 817 "smt2_cmd.ml" 38 811 829
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 38 811 830 "smt2_cmd.ml" 38 811 833
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 38 811 834 "smt2_cmd.ml" 38 811 837
+type(
+  string
+)
+"smt2_cmd.ml" 38 811 817 "smt2_cmd.ml" 38 811 838
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 37 781 787 "smt2_cmd.ml" 38 811 838
+type(
+  unit
+)
+"smt2_cmd.ml" 36 753 759 "smt2_cmd.ml" 38 811 838
+type(
+  unit
+)
+"smt2_cmd.ml" 35 725 731 "smt2_cmd.ml" 38 811 838
+type(
+  unit
+)
+"smt2_cmd.ml" 33 678 682 "smt2_cmd.ml" 39 839 846
+type(
+  unit
+)
+"smt2_cmd.ml" 40 847 862 "smt2_cmd.ml" 40 847 863
+type(
+  string
+)
+ident(
+  def v "smt2_cmd.ml" 41 867 871 "smt2_cmd.ml" 45 983 990
+)
+"smt2_cmd.ml" 40 847 851 "smt2_cmd.ml" 40 847 863
+type(
+  t
+)
+"smt2_cmd.ml" 42 877 883 "smt2_cmd.ml" 42 877 895
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 42 877 898 "smt2_cmd.ml" 42 877 901
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 42 877 902 "smt2_cmd.ml" 42 877 917
+type(
+  string
+)
+"smt2_cmd.ml" 42 877 883 "smt2_cmd.ml" 42 877 917
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 43 919 925 "smt2_cmd.ml" 43 919 937
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 43 919 940 "smt2_cmd.ml" 43 919 943
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 43 919 944 "smt2_cmd.ml" 43 919 945
+type(
+  string
+)
+ident(
+  int_ref v "smt2_cmd.ml" 40 847 862 "smt2_cmd.ml" 40 847 863
+)
+"smt2_cmd.ml" 43 919 925 "smt2_cmd.ml" 43 919 945
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 44 947 953 "smt2_cmd.ml" 44 947 965
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 44 947 966 "smt2_cmd.ml" 44 947 969
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 44 947 970 "smt2_cmd.ml" 44 947 981
+type(
+  string
+)
+"smt2_cmd.ml" 44 947 953 "smt2_cmd.ml" 44 947 982
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 43 919 925 "smt2_cmd.ml" 44 947 982
+type(
+  unit
+)
+"smt2_cmd.ml" 41 867 871 "smt2_cmd.ml" 45 983 990
+type(
+  unit
+)
+"smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+type(
+  formula
+)
+ident(
+  def f "smt2_cmd.ml" 47 1007 1012 "smt2_cmd.ml" 62 1532 1540
+)
+"smt2_cmd.ml" 46 991 995 "smt2_cmd.ml" 46 991 1003
+type(
+  t
+)
+"smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+type(
+  Basic.formula -> unit
+)
+ident(
+  def print "smt2_cmd.ml" 56 1222 1229 "smt2_cmd.ml" 61 1510 1531
+)
+"smt2_cmd.ml" 49 1058 1075 "smt2_cmd.ml" 49 1058 1076
+type(
+  Basic.formula
+)
+ident(
+  def f "smt2_cmd.ml" 50 1079 1088 "smt2_cmd.ml" 54 1199 1211
+)
+"smt2_cmd.ml" 51 1094 1105 "smt2_cmd.ml" 51 1094 1117
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 51 1094 1118 "smt2_cmd.ml" 51 1094 1121
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 51 1094 1122 "smt2_cmd.ml" 51 1094 1132
+type(
+  string
+)
+"smt2_cmd.ml" 51 1094 1105 "smt2_cmd.ml" 51 1094 1132
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 52 1134 1145 "smt2_cmd.ml" 52 1134 1158
+type(
+  'a BatInnerIO.output -> Basic.formula -> unit
+)
+ident(
+  ext_ref Basic.print_formula
+)
+"smt2_cmd.ml" 52 1134 1159 "smt2_cmd.ml" 52 1134 1162
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 52 1134 1163 "smt2_cmd.ml" 52 1134 1164
+type(
+  Basic.formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 49 1058 1075 "smt2_cmd.ml" 49 1058 1076
+)
+"smt2_cmd.ml" 52 1134 1145 "smt2_cmd.ml" 52 1134 1164
+call(
+  stack
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 53 1166 1177 "smt2_cmd.ml" 53 1166 1189
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 53 1166 1190 "smt2_cmd.ml" 53 1166 1193
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 53 1166 1194 "smt2_cmd.ml" 53 1166 1197
+type(
+  string
+)
+"smt2_cmd.ml" 53 1166 1177 "smt2_cmd.ml" 53 1166 1198
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 52 1134 1145 "smt2_cmd.ml" 53 1166 1198
+type(
+  unit
+)
+"smt2_cmd.ml" 50 1079 1088 "smt2_cmd.ml" 54 1199 1211
+type(
+  unit
+)
+"smt2_cmd.ml" 56 1222 1235 "smt2_cmd.ml" 56 1222 1236
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 57 1242 1256 "smt2_cmd.ml" 57 1242 1257
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 57 1242 1263 "smt2_cmd.ml" 57 1242 1264
+type(
+  float
+)
+ident(
+  def x "smt2_cmd.ml" 57 1242 1270 "smt2_cmd.ml" 57 1242 1306
+)
+"smt2_cmd.ml" 57 1242 1259 "smt2_cmd.ml" 57 1242 1264
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 57 1242 1251 "smt2_cmd.ml" 57 1242 1266
+type(
+  formula
+)
+"smt2_cmd.ml" 57 1242 1273 "smt2_cmd.ml" 57 1242 1274
+type(
+  float
+)
+ident(
+  int_ref x "smt2_cmd.ml" 57 1242 1263 "smt2_cmd.ml" 57 1242 1264
+)
+"smt2_cmd.ml" 57 1242 1275 "smt2_cmd.ml" 57 1242 1276
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"smt2_cmd.ml" 57 1242 1277 "smt2_cmd.ml" 57 1242 1285
+type(
+  float
+)
+ident(
+  ext_ref Batteries.infinity
+)
+"smt2_cmd.ml" 57 1242 1273 "smt2_cmd.ml" 57 1242 1285
+type(
+  bool
+)
+"smt2_cmd.ml" 57 1242 1291 "smt2_cmd.ml" 57 1242 1293
+type(
+  unit
+)
+"smt2_cmd.ml" 57 1242 1299 "smt2_cmd.ml" 57 1242 1304
+type(
+  formula -> unit
+)
+ident(
+  int_ref print "smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+)
+"smt2_cmd.ml" 57 1242 1305 "smt2_cmd.ml" 57 1242 1306
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 57 1242 1299 "smt2_cmd.ml" 57 1242 1306
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 57 1242 1270 "smt2_cmd.ml" 57 1242 1306
+type(
+  unit
+)
+"smt2_cmd.ml" 58 1307 1321 "smt2_cmd.ml" 58 1307 1322
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 58 1307 1328 "smt2_cmd.ml" 58 1307 1329
+type(
+  float
+)
+ident(
+  def x "smt2_cmd.ml" 58 1307 1335 "smt2_cmd.ml" 58 1307 1371
+)
+"smt2_cmd.ml" 58 1307 1324 "smt2_cmd.ml" 58 1307 1329
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 58 1307 1316 "smt2_cmd.ml" 58 1307 1331
+type(
+  formula
+)
+"smt2_cmd.ml" 58 1307 1338 "smt2_cmd.ml" 58 1307 1339
+type(
+  float
+)
+ident(
+  int_ref x "smt2_cmd.ml" 58 1307 1328 "smt2_cmd.ml" 58 1307 1329
+)
+"smt2_cmd.ml" 58 1307 1340 "smt2_cmd.ml" 58 1307 1341
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"smt2_cmd.ml" 58 1307 1342 "smt2_cmd.ml" 58 1307 1350
+type(
+  float
+)
+ident(
+  ext_ref Batteries.infinity
+)
+"smt2_cmd.ml" 58 1307 1338 "smt2_cmd.ml" 58 1307 1350
+type(
+  bool
+)
+"smt2_cmd.ml" 58 1307 1356 "smt2_cmd.ml" 58 1307 1358
+type(
+  unit
+)
+"smt2_cmd.ml" 58 1307 1364 "smt2_cmd.ml" 58 1307 1369
+type(
+  formula -> unit
+)
+ident(
+  int_ref print "smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+)
+"smt2_cmd.ml" 58 1307 1370 "smt2_cmd.ml" 58 1307 1371
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 58 1307 1364 "smt2_cmd.ml" 58 1307 1371
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 58 1307 1335 "smt2_cmd.ml" 58 1307 1371
+type(
+  unit
+)
+"smt2_cmd.ml" 59 1372 1390 "smt2_cmd.ml" 59 1372 1391
+type(
+  float
+)
+ident(
+  def x "smt2_cmd.ml" 59 1372 1400 "smt2_cmd.ml" 59 1372 1440
+)
+"smt2_cmd.ml" 59 1372 1386 "smt2_cmd.ml" 59 1372 1391
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 59 1372 1393 "smt2_cmd.ml" 59 1372 1394
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 59 1372 1381 "smt2_cmd.ml" 59 1372 1396
+type(
+  formula
+)
+"smt2_cmd.ml" 59 1372 1403 "smt2_cmd.ml" 59 1372 1404
+type(
+  float
+)
+ident(
+  int_ref x "smt2_cmd.ml" 59 1372 1390 "smt2_cmd.ml" 59 1372 1391
+)
+"smt2_cmd.ml" 59 1372 1405 "smt2_cmd.ml" 59 1372 1406
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"smt2_cmd.ml" 59 1372 1407 "smt2_cmd.ml" 59 1372 1419
+type(
+  float
+)
+ident(
+  ext_ref Batteries.neg_infinity
+)
+"smt2_cmd.ml" 59 1372 1403 "smt2_cmd.ml" 59 1372 1419
+type(
+  bool
+)
+"smt2_cmd.ml" 59 1372 1425 "smt2_cmd.ml" 59 1372 1427
+type(
+  unit
+)
+"smt2_cmd.ml" 59 1372 1433 "smt2_cmd.ml" 59 1372 1438
+type(
+  formula -> unit
+)
+ident(
+  int_ref print "smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+)
+"smt2_cmd.ml" 59 1372 1439 "smt2_cmd.ml" 59 1372 1440
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 59 1372 1433 "smt2_cmd.ml" 59 1372 1440
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 59 1372 1400 "smt2_cmd.ml" 59 1372 1440
+type(
+  unit
+)
+"smt2_cmd.ml" 60 1441 1459 "smt2_cmd.ml" 60 1441 1460
+type(
+  float
+)
+ident(
+  def x "smt2_cmd.ml" 60 1441 1469 "smt2_cmd.ml" 60 1441 1509
+)
+"smt2_cmd.ml" 60 1441 1455 "smt2_cmd.ml" 60 1441 1460
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 60 1441 1462 "smt2_cmd.ml" 60 1441 1463
+type(
+  Basic.exp
+)
+"smt2_cmd.ml" 60 1441 1450 "smt2_cmd.ml" 60 1441 1465
+type(
+  formula
+)
+"smt2_cmd.ml" 60 1441 1472 "smt2_cmd.ml" 60 1441 1473
+type(
+  float
+)
+ident(
+  int_ref x "smt2_cmd.ml" 60 1441 1459 "smt2_cmd.ml" 60 1441 1460
+)
+"smt2_cmd.ml" 60 1441 1474 "smt2_cmd.ml" 60 1441 1475
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"smt2_cmd.ml" 60 1441 1476 "smt2_cmd.ml" 60 1441 1488
+type(
+  float
+)
+ident(
+  ext_ref Batteries.neg_infinity
+)
+"smt2_cmd.ml" 60 1441 1472 "smt2_cmd.ml" 60 1441 1488
+type(
+  bool
+)
+"smt2_cmd.ml" 60 1441 1494 "smt2_cmd.ml" 60 1441 1496
+type(
+  unit
+)
+"smt2_cmd.ml" 60 1441 1502 "smt2_cmd.ml" 60 1441 1507
+type(
+  formula -> unit
+)
+ident(
+  int_ref print "smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+)
+"smt2_cmd.ml" 60 1441 1508 "smt2_cmd.ml" 60 1441 1509
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 60 1441 1502 "smt2_cmd.ml" 60 1441 1509
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 60 1441 1469 "smt2_cmd.ml" 60 1441 1509
+type(
+  unit
+)
+"smt2_cmd.ml" 61 1510 1519 "smt2_cmd.ml" 61 1510 1520
+type(
+  formula
+)
+"smt2_cmd.ml" 61 1510 1524 "smt2_cmd.ml" 61 1510 1529
+type(
+  formula -> unit
+)
+ident(
+  int_ref print "smt2_cmd.ml" 49 1058 1069 "smt2_cmd.ml" 49 1058 1074
+)
+"smt2_cmd.ml" 61 1510 1530 "smt2_cmd.ml" 61 1510 1531
+type(
+  formula
+)
+ident(
+  int_ref f "smt2_cmd.ml" 46 991 1002 "smt2_cmd.ml" 46 991 1003
+)
+"smt2_cmd.ml" 61 1510 1524 "smt2_cmd.ml" 61 1510 1531
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 56 1222 1229 "smt2_cmd.ml" 61 1510 1531
+type(
+  unit
+)
+"smt2_cmd.ml" 47 1007 1012 "smt2_cmd.ml" 62 1532 1540
+type(
+  unit
+)
+"smt2_cmd.ml" 63 1541 1545 "smt2_cmd.ml" 63 1541 1553
+type(
+  t
+)
+"smt2_cmd.ml" 64 1557 1561 "smt2_cmd.ml" 64 1557 1573
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 64 1557 1574 "smt2_cmd.ml" 64 1557 1577
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 64 1557 1578 "smt2_cmd.ml" 64 1557 1591
+type(
+  string
+)
+"smt2_cmd.ml" 64 1557 1561 "smt2_cmd.ml" 64 1557 1591
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 65 1592 1596 "smt2_cmd.ml" 65 1592 1600
+type(
+  t
+)
+"smt2_cmd.ml" 66 1604 1608 "smt2_cmd.ml" 66 1604 1620
+type(
+  'a BatInnerIO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.print
+)
+"smt2_cmd.ml" 66 1604 1621 "smt2_cmd.ml" 66 1604 1624
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "smt2_cmd.ml" 24 494 504 "smt2_cmd.ml" 24 494 507
+)
+"smt2_cmd.ml" 66 1604 1625 "smt2_cmd.ml" 66 1604 1633
+type(
+  string
+)
+"smt2_cmd.ml" 66 1604 1608 "smt2_cmd.ml" 66 1604 1633
+call(
+  tail
+)
+type(
+  unit
+)
+"smt2_cmd.ml" 25 510 512 "smt2_cmd.ml" 66 1604 1633
+type(
+  t -> unit
+)

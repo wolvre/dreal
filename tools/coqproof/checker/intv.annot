@@ -1,0 +1,789 @@
+"intv.ml" 5 51 55 "intv.ml" 5 51 59
+type(
+  float -> float -> interval
+)
+ident(
+  def make "intv.ml" 7 83 83 "intv.ml" 1 0 -1
+)
+"intv.ml" 5 51 60 "intv.ml" 5 51 61
+type(
+  float
+)
+ident(
+  def l "intv.ml" 5 51 62 "intv.ml" 5 51 81
+)
+"intv.ml" 5 51 62 "intv.ml" 5 51 63
+type(
+  float
+)
+ident(
+  def h "intv.ml" 5 51 66 "intv.ml" 5 51 81
+)
+"intv.ml" 5 51 71 "intv.ml" 5 51 72
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 5 51 60 "intv.ml" 5 51 61
+)
+"intv.ml" 5 51 79 "intv.ml" 5 51 80
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 5 51 62 "intv.ml" 5 51 63
+)
+"intv.ml" 5 51 66 "intv.ml" 5 51 81
+type(
+  interval
+)
+"intv.ml" 7 83 87 "intv.ml" 7 83 90
+type(
+  interval
+)
+ident(
+  def top "intv.ml" 9 128 128 "intv.ml" 1 0 -1
+)
+"intv.ml" 7 83 98 "intv.ml" 7 83 110
+type(
+  float
+)
+ident(
+  ext_ref Batteries.neg_infinity
+)
+"intv.ml" 7 83 117 "intv.ml" 7 83 125
+type(
+  float
+)
+ident(
+  ext_ref Batteries.infinity
+)
+"intv.ml" 7 83 93 "intv.ml" 7 83 126
+type(
+  interval
+)
+"intv.ml" 9 128 132 "intv.ml" 9 128 137
+type(
+  interval -> interval -> bool
+)
+ident(
+  def order "intv.ml" 12 200 200 "intv.ml" 1 0 -1
+)
+"intv.ml" 9 128 143 "intv.ml" 9 128 145
+type(
+  float
+)
+ident(
+  def l1 "intv.ml" 9 128 156 "intv.ml" 10 176 198
+)
+"intv.ml" 9 128 152 "intv.ml" 9 128 154
+type(
+  float
+)
+ident(
+  def h1 "intv.ml" 9 128 156 "intv.ml" 10 176 198
+)
+"intv.ml" 9 128 138 "intv.ml" 9 128 155
+type(
+  interval
+)
+"intv.ml" 9 128 161 "intv.ml" 9 128 163
+type(
+  float
+)
+ident(
+  def l2 "intv.ml" 10 176 178 "intv.ml" 10 176 198
+)
+"intv.ml" 9 128 170 "intv.ml" 9 128 172
+type(
+  float
+)
+ident(
+  def h2 "intv.ml" 10 176 178 "intv.ml" 10 176 198
+)
+"intv.ml" 9 128 156 "intv.ml" 9 128 173
+type(
+  interval
+)
+"intv.ml" 10 176 178 "intv.ml" 10 176 180
+type(
+  float
+)
+ident(
+  int_ref l2 "intv.ml" 9 128 161 "intv.ml" 9 128 163
+)
+"intv.ml" 10 176 181 "intv.ml" 10 176 183
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( <= )
+)
+"intv.ml" 10 176 184 "intv.ml" 10 176 186
+type(
+  float
+)
+ident(
+  int_ref l1 "intv.ml" 9 128 143 "intv.ml" 9 128 145
+)
+"intv.ml" 10 176 178 "intv.ml" 10 176 186
+type(
+  bool
+)
+"intv.ml" 10 176 187 "intv.ml" 10 176 189
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Batteries.( && )
+)
+"intv.ml" 10 176 190 "intv.ml" 10 176 192
+type(
+  float
+)
+ident(
+  int_ref h1 "intv.ml" 9 128 152 "intv.ml" 9 128 154
+)
+"intv.ml" 10 176 193 "intv.ml" 10 176 195
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( <= )
+)
+"intv.ml" 10 176 196 "intv.ml" 10 176 198
+type(
+  float
+)
+ident(
+  int_ref h2 "intv.ml" 9 128 170 "intv.ml" 9 128 172
+)
+"intv.ml" 10 176 190 "intv.ml" 10 176 198
+type(
+  bool
+)
+"intv.ml" 10 176 178 "intv.ml" 10 176 198
+type(
+  bool
+)
+"intv.ml" 12 200 204 "intv.ml" 12 200 209
+type(
+  interval -> float
+)
+ident(
+  def width "intv.ml" 14 236 236 "intv.ml" 1 0 -1
+)
+"intv.ml" 12 200 215 "intv.ml" 12 200 216
+type(
+  float
+)
+ident(
+  def l "intv.ml" 12 200 228 "intv.ml" 12 200 234
+)
+"intv.ml" 12 200 223 "intv.ml" 12 200 224
+type(
+  float
+)
+ident(
+  def h "intv.ml" 12 200 228 "intv.ml" 12 200 234
+)
+"intv.ml" 12 200 210 "intv.ml" 12 200 225
+type(
+  interval
+)
+"intv.ml" 12 200 228 "intv.ml" 12 200 229
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 12 200 223 "intv.ml" 12 200 224
+)
+"intv.ml" 12 200 230 "intv.ml" 12 200 232
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Batteries.( -. )
+)
+"intv.ml" 12 200 233 "intv.ml" 12 200 234
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 12 200 215 "intv.ml" 12 200 216
+)
+"intv.ml" 12 200 228 "intv.ml" 12 200 234
+type(
+  float
+)
+"intv.ml" 14 236 240 "intv.ml" 14 236 250
+type(
+  interval -> float
+)
+ident(
+  def left_bound "intv.ml" 16 272 272 "intv.ml" 1 0 -1
+)
+"intv.ml" 14 236 256 "intv.ml" 14 236 257
+type(
+  float
+)
+ident(
+  def l "intv.ml" 14 236 269 "intv.ml" 14 236 270
+)
+"intv.ml" 14 236 264 "intv.ml" 14 236 265
+type(
+  float
+)
+ident(
+  def h "intv.ml" 14 236 269 "intv.ml" 14 236 270
+)
+"intv.ml" 14 236 251 "intv.ml" 14 236 266
+type(
+  interval
+)
+"intv.ml" 14 236 269 "intv.ml" 14 236 270
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 14 236 256 "intv.ml" 14 236 257
+)
+"intv.ml" 16 272 276 "intv.ml" 16 272 287
+type(
+  interval -> float
+)
+ident(
+  def right_bound "intv.ml" 18 309 309 "intv.ml" 1 0 -1
+)
+"intv.ml" 16 272 293 "intv.ml" 16 272 294
+type(
+  float
+)
+ident(
+  def l "intv.ml" 16 272 306 "intv.ml" 16 272 307
+)
+"intv.ml" 16 272 301 "intv.ml" 16 272 302
+type(
+  float
+)
+ident(
+  def h "intv.ml" 16 272 306 "intv.ml" 16 272 307
+)
+"intv.ml" 16 272 288 "intv.ml" 16 272 303
+type(
+  interval
+)
+"intv.ml" 16 272 306 "intv.ml" 16 272 307
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 16 272 301 "intv.ml" 16 272 302
+)
+"intv.ml" 18 309 313 "intv.ml" 18 309 319
+type(
+  interval -> interval -> bool
+)
+ident(
+  def equals "intv.ml" 21 433 433 "intv.ml" 1 0 -1
+)
+"intv.ml" 18 309 327 "intv.ml" 18 309 329
+type(
+  float
+)
+ident(
+  def l1 "intv.ml" 18 309 342 "intv.ml" 19 371 431
+)
+"intv.ml" 18 309 338 "intv.ml" 18 309 340
+type(
+  float
+)
+ident(
+  def h1 "intv.ml" 18 309 342 "intv.ml" 19 371 431
+)
+"intv.ml" 18 309 320 "intv.ml" 18 309 341
+type(
+  interval
+)
+"intv.ml" 18 309 349 "intv.ml" 18 309 351
+type(
+  float
+)
+ident(
+  def l2 "intv.ml" 18 309 364 "intv.ml" 19 371 431
+)
+"intv.ml" 18 309 360 "intv.ml" 18 309 362
+type(
+  float
+)
+ident(
+  def h2 "intv.ml" 18 309 364 "intv.ml" 19 371 431
+)
+"intv.ml" 18 309 342 "intv.ml" 18 309 363
+type(
+  interval
+)
+"intv.ml" 19 371 378 "intv.ml" 19 371 391
+type(
+  float -> float -> int
+)
+ident(
+  ext_ref Batteries.Float.compare
+)
+"intv.ml" 19 371 392 "intv.ml" 19 371 394
+type(
+  float
+)
+ident(
+  int_ref l1 "intv.ml" 18 309 327 "intv.ml" 18 309 329
+)
+"intv.ml" 19 371 395 "intv.ml" 19 371 397
+type(
+  float
+)
+ident(
+  int_ref l2 "intv.ml" 18 309 349 "intv.ml" 18 309 351
+)
+"intv.ml" 19 371 377 "intv.ml" 19 371 398
+call(
+  stack
+)
+type(
+  int
+)
+"intv.ml" 19 371 399 "intv.ml" 19 371 400
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"intv.ml" 19 371 401 "intv.ml" 19 371 402
+type(
+  int
+)
+"intv.ml" 19 371 377 "intv.ml" 19 371 402
+type(
+  bool
+)
+"intv.ml" 19 371 403 "intv.ml" 19 371 405
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Batteries.( && )
+)
+"intv.ml" 19 371 407 "intv.ml" 19 371 420
+type(
+  float -> float -> int
+)
+ident(
+  ext_ref Batteries.Float.compare
+)
+"intv.ml" 19 371 421 "intv.ml" 19 371 423
+type(
+  float
+)
+ident(
+  int_ref h1 "intv.ml" 18 309 338 "intv.ml" 18 309 340
+)
+"intv.ml" 19 371 424 "intv.ml" 19 371 426
+type(
+  float
+)
+ident(
+  int_ref h2 "intv.ml" 18 309 360 "intv.ml" 18 309 362
+)
+"intv.ml" 19 371 406 "intv.ml" 19 371 427
+call(
+  stack
+)
+type(
+  int
+)
+"intv.ml" 19 371 428 "intv.ml" 19 371 429
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"intv.ml" 19 371 430 "intv.ml" 19 371 431
+type(
+  int
+)
+"intv.ml" 19 371 406 "intv.ml" 19 371 431
+type(
+  bool
+)
+"intv.ml" 19 371 377 "intv.ml" 19 371 431
+type(
+  bool
+)
+type(
+  bool
+)
+"intv.ml" 21 433 437 "intv.ml" 21 433 441
+type(
+  Interval.interval -> Interval.interval -> Interval.interval
+)
+ident(
+  def join "intv.ml" 23 464 464 "intv.ml" 1 0 -1
+)
+"intv.ml" 21 433 444 "intv.ml" 21 433 462
+type(
+  Interval.interval -> Interval.interval -> Interval.interval
+)
+ident(
+  ext_ref Interval.union_I_I
+)
+"intv.ml" 23 464 468 "intv.ml" 23 464 472
+type(
+  interval -> interval -> interval
+)
+ident(
+  def meet "intv.ml" 26 550 550 "intv.ml" 1 0 -1
+)
+"intv.ml" 23 464 478 "intv.ml" 23 464 480
+type(
+  float
+)
+ident(
+  def l1 "intv.ml" 23 464 491 "intv.ml" 24 511 548
+)
+"intv.ml" 23 464 487 "intv.ml" 23 464 489
+type(
+  float
+)
+ident(
+  def h1 "intv.ml" 23 464 491 "intv.ml" 24 511 548
+)
+"intv.ml" 23 464 473 "intv.ml" 23 464 490
+type(
+  interval
+)
+"intv.ml" 23 464 496 "intv.ml" 23 464 498
+type(
+  float
+)
+ident(
+  def l2 "intv.ml" 24 511 513 "intv.ml" 24 511 548
+)
+"intv.ml" 23 464 505 "intv.ml" 23 464 507
+type(
+  float
+)
+ident(
+  def h2 "intv.ml" 24 511 513 "intv.ml" 24 511 548
+)
+"intv.ml" 23 464 491 "intv.ml" 23 464 508
+type(
+  interval
+)
+"intv.ml" 24 511 520 "intv.ml" 24 511 523
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Batteries.max
+)
+"intv.ml" 24 511 524 "intv.ml" 24 511 526
+type(
+  float
+)
+ident(
+  int_ref l1 "intv.ml" 23 464 478 "intv.ml" 23 464 480
+)
+"intv.ml" 24 511 527 "intv.ml" 24 511 529
+type(
+  float
+)
+ident(
+  int_ref l2 "intv.ml" 23 464 496 "intv.ml" 23 464 498
+)
+"intv.ml" 24 511 520 "intv.ml" 24 511 529
+call(
+  stack
+)
+type(
+  float
+)
+"intv.ml" 24 511 538 "intv.ml" 24 511 541
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Batteries.min
+)
+"intv.ml" 24 511 542 "intv.ml" 24 511 544
+type(
+  float
+)
+ident(
+  int_ref h1 "intv.ml" 23 464 487 "intv.ml" 23 464 489
+)
+"intv.ml" 24 511 545 "intv.ml" 24 511 547
+type(
+  float
+)
+ident(
+  int_ref h2 "intv.ml" 23 464 505 "intv.ml" 23 464 507
+)
+"intv.ml" 24 511 538 "intv.ml" 24 511 547
+call(
+  stack
+)
+type(
+  float
+)
+"intv.ml" 24 511 513 "intv.ml" 24 511 548
+type(
+  interval
+)
+"intv.ml" 26 550 554 "intv.ml" 26 550 563
+type(
+  interval -> bool
+)
+ident(
+  def contain_z "intv.ml" 27 607 607 "intv.ml" 1 0 -1
+)
+"intv.ml" 26 550 571 "intv.ml" 26 550 572
+type(
+  float
+)
+ident(
+  def l "intv.ml" 26 550 586 "intv.ml" 26 550 606
+)
+"intv.ml" 26 550 581 "intv.ml" 26 550 582
+type(
+  float
+)
+ident(
+  def h "intv.ml" 26 550 586 "intv.ml" 26 550 606
+)
+"intv.ml" 26 550 564 "intv.ml" 26 550 583
+type(
+  interval
+)
+"intv.ml" 26 550 586 "intv.ml" 26 550 587
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 26 550 571 "intv.ml" 26 550 572
+)
+"intv.ml" 26 550 588 "intv.ml" 26 550 590
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( <= )
+)
+"intv.ml" 26 550 591 "intv.ml" 26 550 594
+type(
+  float
+)
+"intv.ml" 26 550 586 "intv.ml" 26 550 594
+type(
+  bool
+)
+"intv.ml" 26 550 595 "intv.ml" 26 550 597
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Batteries.( && )
+)
+"intv.ml" 26 550 598 "intv.ml" 26 550 601
+type(
+  float
+)
+"intv.ml" 26 550 602 "intv.ml" 26 550 604
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( <= )
+)
+"intv.ml" 26 550 605 "intv.ml" 26 550 606
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 26 550 581 "intv.ml" 26 550 582
+)
+"intv.ml" 26 550 598 "intv.ml" 26 550 606
+type(
+  bool
+)
+"intv.ml" 26 550 586 "intv.ml" 26 550 606
+type(
+  bool
+)
+"intv.ml" 27 607 611 "intv.ml" 27 607 621
+type(
+  interval -> bool
+)
+ident(
+  def contain_pz "intv.ml" 28 653 653 "intv.ml" 1 0 -1
+)
+"intv.ml" 27 607 629 "intv.ml" 27 607 630
+type(
+  float
+)
+ident(
+  def l "intv.ml" 27 607 644 "intv.ml" 27 607 652
+)
+"intv.ml" 27 607 639 "intv.ml" 27 607 640
+type(
+  float
+)
+ident(
+  def h "intv.ml" 27 607 644 "intv.ml" 27 607 652
+)
+"intv.ml" 27 607 622 "intv.ml" 27 607 641
+type(
+  interval
+)
+"intv.ml" 27 607 644 "intv.ml" 27 607 645
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 27 607 639 "intv.ml" 27 607 640
+)
+"intv.ml" 27 607 646 "intv.ml" 27 607 648
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( >= )
+)
+"intv.ml" 27 607 649 "intv.ml" 27 607 652
+type(
+  float
+)
+"intv.ml" 27 607 644 "intv.ml" 27 607 652
+type(
+  bool
+)
+"intv.ml" 28 653 657 "intv.ml" 28 653 667
+type(
+  interval -> bool
+)
+ident(
+  def contain_nz "intv.ml" 30 700 700 "intv.ml" 1 0 -1
+)
+"intv.ml" 28 653 675 "intv.ml" 28 653 676
+type(
+  float
+)
+ident(
+  def l "intv.ml" 28 653 690 "intv.ml" 28 653 698
+)
+"intv.ml" 28 653 685 "intv.ml" 28 653 686
+type(
+  float
+)
+ident(
+  def h "intv.ml" 28 653 690 "intv.ml" 28 653 698
+)
+"intv.ml" 28 653 668 "intv.ml" 28 653 687
+type(
+  interval
+)
+"intv.ml" 28 653 690 "intv.ml" 28 653 691
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 28 653 675 "intv.ml" 28 653 676
+)
+"intv.ml" 28 653 692 "intv.ml" 28 653 694
+type(
+  float -> float -> bool
+)
+ident(
+  ext_ref Batteries.( <= )
+)
+"intv.ml" 28 653 695 "intv.ml" 28 653 698
+type(
+  float
+)
+"intv.ml" 28 653 690 "intv.ml" 28 653 698
+type(
+  bool
+)
+"intv.ml" 30 700 704 "intv.ml" 30 700 709
+type(
+  'a BatInnerIO.output -> interval -> unit
+)
+ident(
+  def print "intv.ml" 31 732 773 "intv.ml" 1 0 -1
+)
+"intv.ml" 30 700 710 "intv.ml" 30 700 713
+type(
+  'a BatInnerIO.output
+)
+ident(
+  def out "intv.ml" 30 700 714 "intv.ml" 31 732 773
+)
+"intv.ml" 30 700 719 "intv.ml" 30 700 720
+type(
+  float
+)
+ident(
+  def l "intv.ml" 31 732 734 "intv.ml" 31 732 773
+)
+"intv.ml" 30 700 727 "intv.ml" 30 700 728
+type(
+  float
+)
+ident(
+  def h "intv.ml" 31 732 734 "intv.ml" 31 732 773
+)
+"intv.ml" 30 700 714 "intv.ml" 30 700 729
+type(
+  interval
+)
+"intv.ml" 31 732 734 "intv.ml" 31 732 748
+type(
+  'a BatInnerIO.output ->
+  (float -> float -> unit, 'a BatInnerIO.output, unit) Batteries.Printf.t ->
+  float -> float -> unit
+)
+ident(
+  ext_ref Batteries.Printf.fprintf
+)
+"intv.ml" 31 732 749 "intv.ml" 31 732 752
+type(
+  'a BatInnerIO.output
+)
+ident(
+  int_ref out "intv.ml" 30 700 710 "intv.ml" 30 700 713
+)
+"intv.ml" 31 732 753 "intv.ml" 31 732 769
+type(
+  (float -> float -> unit, 'a BatInnerIO.output, unit) Batteries.Printf.t
+)
+"intv.ml" 31 732 770 "intv.ml" 31 732 771
+type(
+  float
+)
+ident(
+  int_ref l "intv.ml" 30 700 719 "intv.ml" 30 700 720
+)
+"intv.ml" 31 732 772 "intv.ml" 31 732 773
+type(
+  float
+)
+ident(
+  int_ref h "intv.ml" 30 700 727 "intv.ml" 30 700 728
+)
+"intv.ml" 31 732 734 "intv.ml" 31 732 773
+call(
+  tail
+)
+type(
+  unit
+)

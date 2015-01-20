@@ -1,0 +1,56 @@
+Precision:0.001
+(<= (+ 6.283185 (* -1 (* 2 (* x1 (asin (* (cos 0.797) (sin (/ 3.14159265 x1)))))))) (+ (+ 0.591 (* -1 (* 0.0331 x2))) 1.506))
+(<= x2 5)
+(<= -7 x2)
+(<= x1 3.14)
+(<= 3 x1)
+             x1 : [3, 3.14];
+             x2 : [-7, 5];
+
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.91eb851eb851fp+1];
+x2: [-0x1.cp+2, 0x1.4p+2]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.9051ee217b7dap+1];
+x2: [-0x1.cp+2, -0x1.ac6be5da54ecap+1]
+
+[before pruning] 
+x1: [0x1.8p+1, 0x1.9051ee217b7dap+1];
+x2: [-0x1.cp+2, -0x1.ac6be5da54ecap+1]
+[conflict detected]
