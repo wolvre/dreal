@@ -56,18 +56,6 @@ let check_axiom (e : env) (f : formula) : result =
     let v = eval e exp1 exp2 in judge Intv.contain_nz v
   | _ -> raise (Error "check_axiom::Should Not Happen")
 
-let rec coq_check (pt : t) (fl : formula list) =
-  match pt with
-  | Hole -> ()
-  | Axiom e ->
-     Printf.printf "An axiom\n";
-     Env.coq_intv stdout e;
-     List.print ~first:"" ~last:"\n" ~sep:" &&\n"
-		Basic.coq_formula 
-		stdout
-		fl
-  | _ -> Printf.printf "TODO\n"
-
 let rec check (pt : t) (fl : formula list) =
   match pt with
   | Hole -> ()
@@ -121,3 +109,16 @@ let rec check (pt : t) (fl : formula list) =
         List.iter (fun env_ -> check (Axiom env_) fl) remainders;
         check pt' fl
       end
+
+let coq_check (pt : t) (fl : formula list) =
+  match pt with
+  | Hole -> ()
+  | Axiom e ->
+     Printf.printf "An axiom\n";
+     Env.coq_intv stdout e;
+     List.print ~first:"" ~last:"\n" ~sep:" &&\n"
+		Basic.coq_formula 
+		stdout
+		fl
+  | Branch _ -> check pt fl
+  | _ -> Printf.printf "TODO\n"

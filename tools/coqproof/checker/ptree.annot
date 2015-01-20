@@ -1174,100 +1174,1469 @@ type(
 type(
   result
 )
-"ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1817
+"ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
 type(
   t -> formula list -> unit
 )
 ident(
-  def coq_check "ptree.ml" 59 1800 1800 "ptree.ml" 1 0 -1
+  def check "ptree.ml" 59 1800 1800 "ptree.ml" 1 0 -1
 )
-"ptree.ml" 59 1800 1819 "ptree.ml" 59 1800 1821
+"ptree.ml" 59 1800 1815 "ptree.ml" 59 1800 1817
 type(
   t
 )
 ident(
-  def pt "ptree.ml" 59 1800 1827 "ptree.ml" 69 2041 2072
+  def pt "ptree.ml" 59 1800 1823 "ptree.ml" 111 3635 3644
 )
-"ptree.ml" 59 1800 1828 "ptree.ml" 59 1800 1830
+"ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
 type(
   formula list
 )
 ident(
-  def fl "ptree.ml" 60 1849 1851 "ptree.ml" 69 2041 2072
+  def fl "ptree.ml" 60 1845 1847 "ptree.ml" 111 3635 3644
 )
-"ptree.ml" 60 1849 1857 "ptree.ml" 60 1849 1859
+"ptree.ml" 60 1845 1853 "ptree.ml" 60 1845 1855
 type(
   t
 )
 ident(
-  int_ref pt "ptree.ml" 59 1800 1819 "ptree.ml" 59 1800 1821
+  int_ref pt "ptree.ml" 59 1800 1815 "ptree.ml" 59 1800 1817
 )
-"ptree.ml" 61 1865 1869 "ptree.ml" 61 1865 1873
+"ptree.ml" 61 1861 1865 "ptree.ml" 61 1861 1869
 type(
   t
 )
-"ptree.ml" 61 1865 1877 "ptree.ml" 61 1865 1879
+"ptree.ml" 61 1861 1873 "ptree.ml" 61 1861 1875
 type(
   unit
 )
-"ptree.ml" 62 1880 1890 "ptree.ml" 62 1880 1891
+"ptree.ml" 62 1876 1886 "ptree.ml" 62 1876 1887
 type(
   env
 )
 ident(
-  def e "ptree.ml" 63 1895 1900 "ptree.ml" 68 2036 2040
+  def e "ptree.ml" 63 1891 1895 "ptree.ml" 70 2214 2221
 )
-"ptree.ml" 62 1880 1884 "ptree.ml" 62 1880 1891
+"ptree.ml" 62 1876 1880 "ptree.ml" 62 1876 1887
 type(
   t
 )
-"ptree.ml" 63 1895 1900 "ptree.ml" 63 1895 1913
+"ptree.ml" 63 1891 1899 "ptree.ml" 63 1891 1905
+type(
+  (formula * result) list
+)
+ident(
+  def result "ptree.ml" 64 1955 1959 "ptree.ml" 70 2214 2221
+)
+"ptree.ml" 63 1891 1908 "ptree.ml" 63 1891 1916
+type(
+  (formula -> formula * result) -> formula list -> (formula * result) list
+)
+ident(
+  ext_ref Batteries.List.map
+)
+"ptree.ml" 63 1891 1922 "ptree.ml" 63 1891 1923
+type(
+  formula
+)
+ident(
+  def f "ptree.ml" 63 1891 1927 "ptree.ml" 63 1891 1947
+)
+"ptree.ml" 63 1891 1928 "ptree.ml" 63 1891 1929
+type(
+  formula
+)
+ident(
+  int_ref f "ptree.ml" 63 1891 1922 "ptree.ml" 63 1891 1923
+)
+"ptree.ml" 63 1891 1931 "ptree.ml" 63 1891 1942
+type(
+  env -> formula -> result
+)
+ident(
+  int_ref check_axiom "ptree.ml" 39 1176 1180 "ptree.ml" 39 1176 1191
+)
+"ptree.ml" 63 1891 1943 "ptree.ml" 63 1891 1944
+type(
+  env
+)
+ident(
+  int_ref e "ptree.ml" 62 1876 1886 "ptree.ml" 62 1876 1887
+)
+"ptree.ml" 63 1891 1945 "ptree.ml" 63 1891 1946
+type(
+  formula
+)
+ident(
+  int_ref f "ptree.ml" 63 1891 1922 "ptree.ml" 63 1891 1923
+)
+"ptree.ml" 63 1891 1931 "ptree.ml" 63 1891 1946
+call(
+  stack
+)
+type(
+  result
+)
+"ptree.ml" 63 1891 1927 "ptree.ml" 63 1891 1947
+type(
+  formula * result
+)
+"ptree.ml" 63 1891 1917 "ptree.ml" 63 1891 1948
+type(
+  formula -> formula * result
+)
+"ptree.ml" 63 1891 1949 "ptree.ml" 63 1891 1951
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 63 1891 1908 "ptree.ml" 63 1891 1951
+call(
+  stack
+)
+type(
+  (formula * result) list
+)
+"ptree.ml" 64 1955 1963 "ptree.ml" 64 1955 1970
+type(
+  (formula * result) list
+)
+ident(
+  def result' "ptree.ml" 65 2019 2023 "ptree.ml" 70 2214 2221
+)
+"ptree.ml" 64 1955 1973 "ptree.ml" 64 1955 1984
+type(
+  (formula * result -> bool) ->
+  (formula * result) list -> (formula * result) list
+)
+ident(
+  ext_ref Batteries.List.filter
+)
+"ptree.ml" 64 1955 1991 "ptree.ml" 64 1955 1992
+type(
+  formula
+)
+ident(
+  def f "ptree.ml" 64 1955 2000 "ptree.ml" 64 1955 2007
+)
+"ptree.ml" 64 1955 1994 "ptree.ml" 64 1955 1995
+type(
+  result
+)
+ident(
+  def r "ptree.ml" 64 1955 2000 "ptree.ml" 64 1955 2007
+)
+"ptree.ml" 64 1955 1990 "ptree.ml" 64 1955 1996
+type(
+  formula * result
+)
+"ptree.ml" 64 1955 2000 "ptree.ml" 64 1955 2001
+type(
+  result
+)
+ident(
+  int_ref r "ptree.ml" 64 1955 1994 "ptree.ml" 64 1955 1995
+)
+"ptree.ml" 64 1955 2002 "ptree.ml" 64 1955 2003
+type(
+  result -> result -> bool
+)
+ident(
+  ext_ref Batteries.( = )
+)
+"ptree.ml" 64 1955 2004 "ptree.ml" 64 1955 2007
+type(
+  result
+)
+"ptree.ml" 64 1955 2000 "ptree.ml" 64 1955 2007
+type(
+  bool
+)
+"ptree.ml" 64 1955 1985 "ptree.ml" 64 1955 2008
+type(
+  formula * result -> bool
+)
+"ptree.ml" 64 1955 2009 "ptree.ml" 64 1955 2015
+type(
+  (formula * result) list
+)
+ident(
+  int_ref result "ptree.ml" 63 1891 1899 "ptree.ml" 63 1891 1905
+)
+"ptree.ml" 64 1955 1973 "ptree.ml" 64 1955 2015
+call(
+  stack
+)
+type(
+  (formula * result) list
+)
+"ptree.ml" 65 2019 2028 "ptree.ml" 65 2019 2034
+type(
+  formula list
+)
+ident(
+  def sat_fs "ptree.ml" 66 2065 2069 "ptree.ml" 70 2214 2221
+)
+"ptree.ml" 65 2019 2036 "ptree.ml" 65 2019 2037
+type(
+  result list
+)
+"ptree.ml" 65 2019 2027 "ptree.ml" 65 2019 2038
+type(
+  formula list * result list
+)
+"ptree.ml" 65 2019 2041 "ptree.ml" 65 2019 2051
+type(
+  (formula * result) list -> formula list * result list
+)
+ident(
+  ext_ref Batteries.List.split
+)
+"ptree.ml" 65 2019 2052 "ptree.ml" 65 2019 2061
+type(
+  (formula * result) list
+)
+ident(
+  int_ref result' "ptree.ml" 64 1955 1963 "ptree.ml" 64 1955 1970
+)
+"ptree.ml" 65 2019 2041 "ptree.ml" 65 2019 2061
+call(
+  stack
+)
+type(
+  formula list * result list
+)
+"ptree.ml" 67 2075 2087 "ptree.ml" 67 2075 2093
+type(
+  formula list
+)
+ident(
+  int_ref sat_fs "ptree.ml" 65 2019 2028 "ptree.ml" 65 2019 2034
+)
+"ptree.ml" 68 2099 2107 "ptree.ml" 68 2099 2109
+type(
+  formula list
+)
+"ptree.ml" 68 2099 2114 "ptree.ml" 68 2099 2118
+type(
+  int Batteries.ref -> unit
+)
+ident(
+  ext_ref Batteries.incr
+)
+"ptree.ml" 68 2099 2119 "ptree.ml" 68 2099 2139
+type(
+  int Batteries.ref
+)
+ident(
+  int_ref num_of_proved_axioms "ptree.ml" 7 83 87 "ptree.ml" 7 83 107
+)
+"ptree.ml" 68 2099 2113 "ptree.ml" 68 2099 2140
+type(
+  unit
+)
+"ptree.ml" 69 2141 2149 "ptree.ml" 69 2141 2150
+type(
+  formula list
+)
+"ptree.ml" 69 2141 2155 "ptree.ml" 69 2141 2159
+type(
+  int Batteries.ref -> unit
+)
+ident(
+  ext_ref Batteries.incr
+)
+"ptree.ml" 69 2141 2160 "ptree.ml" 69 2141 2180
+type(
+  int Batteries.ref
+)
+ident(
+  int_ref num_of_failed_axioms "ptree.ml" 8 116 120 "ptree.ml" 8 116 140
+)
+"ptree.ml" 69 2141 2155 "ptree.ml" 69 2141 2180
+type(
+  unit
+)
+"ptree.ml" 69 2141 2182 "ptree.ml" 69 2141 2200
+type(
+  Env.t -> formula list -> formula list -> unit
+)
+ident(
+  ext_ref Failhandler.handle
+)
+"ptree.ml" 69 2141 2201 "ptree.ml" 69 2141 2202
+type(
+  env
+)
+ident(
+  int_ref e "ptree.ml" 62 1876 1886 "ptree.ml" 62 1876 1887
+)
+"ptree.ml" 69 2141 2203 "ptree.ml" 69 2141 2209
+type(
+  formula list
+)
+ident(
+  int_ref sat_fs "ptree.ml" 65 2019 2028 "ptree.ml" 65 2019 2034
+)
+"ptree.ml" 69 2141 2210 "ptree.ml" 69 2141 2212
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 69 2141 2182 "ptree.ml" 69 2141 2212
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 69 2141 2154 "ptree.ml" 69 2141 2213
+type(
+  unit
+)
+"ptree.ml" 66 2065 2069 "ptree.ml" 70 2214 2221
+type(
+  unit
+)
+"ptree.ml" 65 2019 2023 "ptree.ml" 70 2214 2221
+type(
+  unit
+)
+"ptree.ml" 64 1955 1959 "ptree.ml" 70 2214 2221
+type(
+  unit
+)
+"ptree.ml" 63 1891 1895 "ptree.ml" 70 2214 2221
+type(
+  unit
+)
+"ptree.ml" 71 2222 2234 "ptree.ml" 71 2222 2237
+type(
+  env
+)
+ident(
+  def env "ptree.ml" 72 2252 2256 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 71 2222 2239 "ptree.ml" 71 2222 2242
+type(
+  t
+)
+ident(
+  def pt1 "ptree.ml" 72 2252 2256 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 71 2222 2244 "ptree.ml" 71 2222 2247
+type(
+  t
+)
+ident(
+  def pt2 "ptree.ml" 72 2252 2256 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 71 2222 2226 "ptree.ml" 71 2222 2248
+type(
+  t
+)
+"ptree.ml" 72 2252 2260 "ptree.ml" 72 2252 2264
+type(
+  env
+)
+ident(
+  def env1 "ptree.ml" 73 2286 2290 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 72 2252 2267 "ptree.ml" 72 2252 2278
+type(
+  t -> env
+)
+ident(
+  int_ref extract_env "ptree.ml" 33 1010 1014 "ptree.ml" 33 1010 1025
+)
+"ptree.ml" 72 2252 2279 "ptree.ml" 72 2252 2282
+type(
+  t
+)
+ident(
+  int_ref pt1 "ptree.ml" 71 2222 2239 "ptree.ml" 71 2222 2242
+)
+"ptree.ml" 72 2252 2267 "ptree.ml" 72 2252 2282
+call(
+  stack
+)
+type(
+  env
+)
+"ptree.ml" 73 2286 2294 "ptree.ml" 73 2286 2298
+type(
+  env
+)
+ident(
+  def env2 "ptree.ml" 74 2320 2324 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 73 2286 2301 "ptree.ml" 73 2286 2312
+type(
+  t -> env
+)
+ident(
+  int_ref extract_env "ptree.ml" 33 1010 1014 "ptree.ml" 33 1010 1025
+)
+"ptree.ml" 73 2286 2313 "ptree.ml" 73 2286 2316
+type(
+  t
+)
+ident(
+  int_ref pt2 "ptree.ml" 71 2222 2244 "ptree.ml" 71 2222 2247
+)
+"ptree.ml" 73 2286 2301 "ptree.ml" 73 2286 2316
+call(
+  stack
+)
+type(
+  env
+)
+"ptree.ml" 74 2320 2328 "ptree.ml" 74 2320 2336
+type(
+  Env.t
+)
+ident(
+  def env_join "ptree.ml" 75 2361 2365 "ptree.ml" 91 2974 2981
+)
+"ptree.ml" 74 2320 2339 "ptree.ml" 74 2320 2347
+type(
+  Env.t -> Env.t -> Env.t
+)
+ident(
+  ext_ref Env.join
+)
+"ptree.ml" 74 2320 2348 "ptree.ml" 74 2320 2352
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 72 2252 2260 "ptree.ml" 72 2252 2264
+)
+"ptree.ml" 74 2320 2353 "ptree.ml" 74 2320 2357
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 73 2286 2294 "ptree.ml" 73 2286 2298
+)
+"ptree.ml" 74 2320 2339 "ptree.ml" 74 2320 2357
+call(
+  stack
+)
+type(
+  Env.t
+)
+"ptree.ml" 76 2371 2383 "ptree.ml" 76 2371 2392
+type(
+  Env.t -> Env.t -> bool
+)
+ident(
+  ext_ref Env.order
+)
+"ptree.ml" 76 2371 2393 "ptree.ml" 76 2371 2396
+type(
+  env
+)
+ident(
+  int_ref env "ptree.ml" 71 2222 2234 "ptree.ml" 71 2222 2237
+)
+"ptree.ml" 76 2371 2397 "ptree.ml" 76 2371 2405
+type(
+  Env.t
+)
+ident(
+  int_ref env_join "ptree.ml" 74 2320 2328 "ptree.ml" 74 2320 2336
+)
+"ptree.ml" 76 2371 2383 "ptree.ml" 76 2371 2405
+call(
+  stack
+)
+type(
+  bool
+)
+"ptree.ml" 77 2411 2419 "ptree.ml" 77 2411 2423
+type(
+  bool
+)
+"ptree.ml" 77 2411 2428 "ptree.ml" 77 2411 2432
+type(
+  int Batteries.ref -> unit
+)
+ident(
+  ext_ref Batteries.incr
+)
+"ptree.ml" 77 2411 2433 "ptree.ml" 77 2411 2448
+type(
+  int Batteries.ref
+)
+ident(
+  int_ref num_of_branches "ptree.ml" 9 149 153 "ptree.ml" 9 149 168
+)
+"ptree.ml" 77 2411 2428 "ptree.ml" 77 2411 2448
+type(
+  unit
+)
+"ptree.ml" 77 2411 2450 "ptree.ml" 77 2411 2455
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 77 2411 2456 "ptree.ml" 77 2411 2459
+type(
+  t
+)
+ident(
+  int_ref pt1 "ptree.ml" 71 2222 2239 "ptree.ml" 71 2222 2242
+)
+"ptree.ml" 77 2411 2460 "ptree.ml" 77 2411 2462
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 77 2411 2450 "ptree.ml" 77 2411 2462
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 77 2411 2464 "ptree.ml" 77 2411 2469
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 77 2411 2470 "ptree.ml" 77 2411 2473
+type(
+  t
+)
+ident(
+  int_ref pt2 "ptree.ml" 71 2222 2244 "ptree.ml" 71 2222 2247
+)
+"ptree.ml" 77 2411 2474 "ptree.ml" 77 2411 2476
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 77 2411 2464 "ptree.ml" 77 2411 2476
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 77 2411 2450 "ptree.ml" 77 2411 2476
+type(
+  unit
+)
+"ptree.ml" 77 2411 2427 "ptree.ml" 77 2411 2477
+type(
+  unit
+)
+"ptree.ml" 78 2478 2486 "ptree.ml" 78 2478 2491
+type(
+  bool
+)
+"ptree.ml" 80 2509 2519 "ptree.ml" 80 2509 2533
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 80 2509 2534 "ptree.ml" 80 2509 2543
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 80 2509 2544 "ptree.ml" 80 2509 2554
+type(
+  string
+)
+"ptree.ml" 80 2509 2519 "ptree.ml" 80 2509 2554
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 81 2556 2566 "ptree.ml" 81 2556 2575
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 81 2556 2576 "ptree.ml" 81 2556 2585
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 81 2556 2586 "ptree.ml" 81 2556 2590
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 72 2252 2260 "ptree.ml" 72 2252 2264
+)
+"ptree.ml" 81 2556 2566 "ptree.ml" 81 2556 2590
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 82 2592 2602 "ptree.ml" 82 2592 2616
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 82 2592 2617 "ptree.ml" 82 2592 2626
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 82 2592 2627 "ptree.ml" 82 2592 2637
+type(
+  string
+)
+"ptree.ml" 82 2592 2602 "ptree.ml" 82 2592 2637
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 83 2639 2649 "ptree.ml" 83 2639 2658
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 83 2639 2659 "ptree.ml" 83 2639 2668
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 83 2639 2669 "ptree.ml" 83 2639 2673
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 73 2286 2294 "ptree.ml" 73 2286 2298
+)
+"ptree.ml" 83 2639 2649 "ptree.ml" 83 2639 2673
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 84 2675 2685 "ptree.ml" 84 2675 2699
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 84 2675 2700 "ptree.ml" 84 2675 2709
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 84 2675 2710 "ptree.ml" 84 2675 2723
+type(
+  string
+)
+"ptree.ml" 84 2675 2685 "ptree.ml" 84 2675 2723
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 85 2725 2735 "ptree.ml" 85 2725 2744
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 85 2725 2745 "ptree.ml" 85 2725 2754
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 85 2725 2755 "ptree.ml" 85 2725 2763
+type(
+  Env.t
+)
+ident(
+  int_ref env_join "ptree.ml" 74 2320 2328 "ptree.ml" 74 2320 2336
+)
+"ptree.ml" 85 2725 2735 "ptree.ml" 85 2725 2763
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 86 2765 2775 "ptree.ml" 86 2765 2789
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 86 2765 2790 "ptree.ml" 86 2765 2799
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 86 2765 2800 "ptree.ml" 86 2765 2807
+type(
+  string
+)
+"ptree.ml" 86 2765 2775 "ptree.ml" 86 2765 2807
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 87 2809 2819 "ptree.ml" 87 2809 2828
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 87 2809 2829 "ptree.ml" 87 2809 2838
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 87 2809 2839 "ptree.ml" 87 2809 2842
+type(
+  env
+)
+ident(
+  int_ref env "ptree.ml" 71 2222 2234 "ptree.ml" 71 2222 2237
+)
+"ptree.ml" 87 2809 2819 "ptree.ml" 87 2809 2842
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 88 2844 2854 "ptree.ml" 88 2844 2868
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 88 2844 2869 "ptree.ml" 88 2844 2878
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 88 2844 2879 "ptree.ml" 88 2844 2927
+type(
+  string
+)
+"ptree.ml" 88 2844 2854 "ptree.ml" 88 2844 2927
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 89 2929 2939 "ptree.ml" 89 2929 2944
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Batteries.raise
+)
+"ptree.ml" 89 2929 2952 "ptree.ml" 89 2929 2960
+type(
+  string
+)
+"ptree.ml" 89 2929 2945 "ptree.ml" 89 2929 2961
+type(
+  exn
+)
+"ptree.ml" 89 2929 2939 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 88 2844 2854 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 87 2809 2819 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 86 2765 2775 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 85 2725 2735 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 84 2675 2685 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 83 2639 2649 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 82 2592 2602 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 81 2556 2566 "ptree.ml" 89 2929 2961
+type(
+  unit
+)
+"ptree.ml" 79 2495 2503 "ptree.ml" 90 2962 2973
+type(
+  unit
+)
+"ptree.ml" 75 2361 2365 "ptree.ml" 91 2974 2981
+type(
+  unit
+)
+"ptree.ml" 74 2320 2324 "ptree.ml" 91 2974 2981
+type(
+  unit
+)
+"ptree.ml" 73 2286 2290 "ptree.ml" 91 2974 2981
+type(
+  unit
+)
+"ptree.ml" 72 2252 2256 "ptree.ml" 91 2974 2981
+type(
+  unit
+)
+"ptree.ml" 92 2982 2993 "ptree.ml" 92 2982 2997
+type(
+  env
+)
+ident(
+  def env1 "ptree.ml" 93 3013 3017 "ptree.ml" 111 3635 3644
+)
+"ptree.ml" 92 2982 2999 "ptree.ml" 92 2982 3003
+type(
+  env
+)
+ident(
+  def env2 "ptree.ml" 93 3013 3017 "ptree.ml" 111 3635 3644
+)
+"ptree.ml" 92 2982 3005 "ptree.ml" 92 2982 3008
+type(
+  t
+)
+ident(
+  def pt' "ptree.ml" 93 3013 3017 "ptree.ml" 111 3635 3644
+)
+"ptree.ml" 92 2982 2986 "ptree.ml" 92 2982 3009
+type(
+  t
+)
+"ptree.ml" 93 3013 3020 "ptree.ml" 93 3013 3023
+type(
+  bool -> bool
+)
+ident(
+  ext_ref Batteries.not
+)
+"ptree.ml" 93 3013 3025 "ptree.ml" 93 3013 3034
+type(
+  Env.t -> Env.t -> bool
+)
+ident(
+  ext_ref Env.order
+)
+"ptree.ml" 93 3013 3035 "ptree.ml" 93 3013 3039
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 92 2982 2999 "ptree.ml" 92 2982 3003
+)
+"ptree.ml" 93 3013 3040 "ptree.ml" 93 3013 3044
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 92 2982 2993 "ptree.ml" 92 2982 2997
+)
+"ptree.ml" 93 3013 3024 "ptree.ml" 93 3013 3045
+call(
+  stack
+)
+type(
+  bool
+)
+"ptree.ml" 93 3013 3020 "ptree.ml" 93 3013 3045
+type(
+  bool
+)
+"ptree.ml" 95 3065 3075 "ptree.ml" 95 3065 3089
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 95 3065 3090 "ptree.ml" 95 3065 3099
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 95 3065 3100 "ptree.ml" 95 3065 3110
+type(
+  string
+)
+"ptree.ml" 95 3065 3075 "ptree.ml" 95 3065 3110
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 96 3112 3122 "ptree.ml" 96 3112 3131
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 96 3112 3132 "ptree.ml" 96 3112 3141
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 96 3112 3142 "ptree.ml" 96 3112 3146
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 92 2982 2993 "ptree.ml" 92 2982 2997
+)
+"ptree.ml" 96 3112 3122 "ptree.ml" 96 3112 3146
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 97 3148 3158 "ptree.ml" 97 3148 3172
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 97 3148 3173 "ptree.ml" 97 3148 3182
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 97 3148 3183 "ptree.ml" 97 3148 3193
+type(
+  string
+)
+"ptree.ml" 97 3148 3158 "ptree.ml" 97 3148 3193
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 98 3195 3205 "ptree.ml" 98 3195 3214
+type(
+  unit Batteries.IO.output ->
+  (Env.key, Intv.interval) Batteries.Map.t -> unit
+)
+ident(
+  ext_ref Env.print
+)
+"ptree.ml" 98 3195 3215 "ptree.ml" 98 3195 3224
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 98 3195 3225 "ptree.ml" 98 3195 3229
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 92 2982 2999 "ptree.ml" 92 2982 3003
+)
+"ptree.ml" 98 3195 3205 "ptree.ml" 98 3195 3229
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 99 3231 3241 "ptree.ml" 99 3231 3255
+type(
+  unit Batteries.IO.output -> string -> unit
+)
+ident(
+  ext_ref Batteries.String.println
+)
+"ptree.ml" 99 3231 3256 "ptree.ml" 99 3231 3265
+type(
+  unit Batteries.IO.output
+)
+ident(
+  ext_ref Batteries.IO.stdout
+)
+"ptree.ml" 99 3231 3266 "ptree.ml" 99 3231 3299
+type(
+  string
+)
+"ptree.ml" 99 3231 3241 "ptree.ml" 99 3231 3299
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 100 3301 3311 "ptree.ml" 100 3301 3316
+type(
+  exn -> unit
+)
+ident(
+  ext_ref Batteries.raise
+)
+"ptree.ml" 100 3301 3324 "ptree.ml" 100 3301 3331
+type(
+  string
+)
+"ptree.ml" 100 3301 3317 "ptree.ml" 100 3301 3332
+type(
+  exn
+)
+"ptree.ml" 100 3301 3311 "ptree.ml" 100 3301 3332
+type(
+  unit
+)
+"ptree.ml" 99 3231 3241 "ptree.ml" 100 3301 3332
+type(
+  unit
+)
+"ptree.ml" 98 3195 3205 "ptree.ml" 100 3301 3332
+type(
+  unit
+)
+"ptree.ml" 97 3148 3158 "ptree.ml" 100 3301 3332
+type(
+  unit
+)
+"ptree.ml" 96 3112 3122 "ptree.ml" 100 3301 3332
+type(
+  unit
+)
+"ptree.ml" 94 3051 3059 "ptree.ml" 101 3333 3344
+type(
+  unit
+)
+"ptree.ml" 102 3345 3357 "ptree.ml" 102 3345 3367
+type(
+  Env.t -> Env.t -> bool
+)
+ident(
+  ext_ref Env.equals
+)
+"ptree.ml" 102 3345 3368 "ptree.ml" 102 3345 3372
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 92 2982 2999 "ptree.ml" 92 2982 3003
+)
+"ptree.ml" 102 3345 3373 "ptree.ml" 102 3345 3377
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 92 2982 2993 "ptree.ml" 92 2982 2997
+)
+"ptree.ml" 102 3345 3357 "ptree.ml" 102 3345 3377
+call(
+  stack
+)
+type(
+  bool
+)
+"ptree.ml" 103 3383 3390 "ptree.ml" 103 3383 3394
+type(
+  int Batteries.ref -> unit
+)
+ident(
+  ext_ref Batteries.incr
+)
+"ptree.ml" 103 3383 3395 "ptree.ml" 103 3383 3417
+type(
+  int Batteries.ref
+)
+ident(
+  int_ref num_of_trivial_pruning "ptree.ml" 11 261 265 "ptree.ml" 11 261 287
+)
+"ptree.ml" 103 3383 3390 "ptree.ml" 103 3383 3417
+type(
+  unit
+)
+"ptree.ml" 104 3419 3426 "ptree.ml" 104 3419 3431
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 104 3419 3432 "ptree.ml" 104 3419 3435
+type(
+  t
+)
+ident(
+  int_ref pt' "ptree.ml" 92 2982 3005 "ptree.ml" 92 2982 3008
+)
+"ptree.ml" 104 3419 3436 "ptree.ml" 104 3419 3438
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 104 3419 3426 "ptree.ml" 104 3419 3438
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 103 3383 3389 "ptree.ml" 104 3419 3439
+type(
+  unit
+)
+"ptree.ml" 106 3449 3459 "ptree.ml" 106 3449 3469
+type(
+  Env.t list
+)
+ident(
+  def remainders "ptree.ml" 107 3495 3501 "ptree.ml" 111 3635 3644
+)
+"ptree.ml" 106 3449 3472 "ptree.ml" 106 3449 3481
+type(
+  Env.t -> Env.t -> Env.t list
+)
+ident(
+  ext_ref Env.minus
+)
+"ptree.ml" 106 3449 3482 "ptree.ml" 106 3449 3486
+type(
+  env
+)
+ident(
+  int_ref env1 "ptree.ml" 92 2982 2993 "ptree.ml" 92 2982 2997
+)
+"ptree.ml" 106 3449 3487 "ptree.ml" 106 3449 3491
+type(
+  env
+)
+ident(
+  int_ref env2 "ptree.ml" 92 2982 2999 "ptree.ml" 92 2982 3003
+)
+"ptree.ml" 106 3449 3472 "ptree.ml" 106 3449 3491
+call(
+  stack
+)
+type(
+  Env.t list
+)
+"ptree.ml" 108 3507 3515 "ptree.ml" 108 3507 3519
+type(
+  int Batteries.ref -> unit
+)
+ident(
+  ext_ref Batteries.incr
+)
+"ptree.ml" 108 3507 3520 "ptree.ml" 108 3507 3546
+type(
+  int Batteries.ref
+)
+ident(
+  int_ref num_of_non_trivial_pruning "ptree.ml" 10 205 209 "ptree.ml" 10 205 235
+)
+"ptree.ml" 108 3507 3515 "ptree.ml" 108 3507 3546
+type(
+  unit
+)
+"ptree.ml" 109 3548 3556 "ptree.ml" 109 3548 3565
+type(
+  (env -> unit) -> env list -> unit
+)
+ident(
+  ext_ref Batteries.List.iter
+)
+"ptree.ml" 109 3548 3571 "ptree.ml" 109 3548 3575
+type(
+  env
+)
+ident(
+  def env_ "ptree.ml" 109 3548 3579 "ptree.ml" 109 3548 3600
+)
+"ptree.ml" 109 3548 3579 "ptree.ml" 109 3548 3584
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 109 3548 3592 "ptree.ml" 109 3548 3596
+type(
+  env
+)
+ident(
+  int_ref env_ "ptree.ml" 109 3548 3571 "ptree.ml" 109 3548 3575
+)
+"ptree.ml" 109 3548 3585 "ptree.ml" 109 3548 3597
+type(
+  t
+)
+"ptree.ml" 109 3548 3598 "ptree.ml" 109 3548 3600
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 109 3548 3579 "ptree.ml" 109 3548 3600
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 109 3548 3566 "ptree.ml" 109 3548 3601
+type(
+  env -> unit
+)
+"ptree.ml" 109 3548 3602 "ptree.ml" 109 3548 3612
+type(
+  env list
+)
+ident(
+  int_ref remainders "ptree.ml" 106 3449 3459 "ptree.ml" 106 3449 3469
+)
+"ptree.ml" 109 3548 3556 "ptree.ml" 109 3548 3612
+call(
+  stack
+)
+type(
+  unit
+)
+"ptree.ml" 110 3614 3622 "ptree.ml" 110 3614 3627
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 110 3614 3628 "ptree.ml" 110 3614 3631
+type(
+  t
+)
+ident(
+  int_ref pt' "ptree.ml" 92 2982 3005 "ptree.ml" 92 2982 3008
+)
+"ptree.ml" 110 3614 3632 "ptree.ml" 110 3614 3634
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 59 1800 1824 "ptree.ml" 59 1800 1826
+)
+"ptree.ml" 110 3614 3622 "ptree.ml" 110 3614 3634
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 109 3548 3556 "ptree.ml" 110 3614 3634
+type(
+  unit
+)
+"ptree.ml" 107 3495 3501 "ptree.ml" 111 3635 3644
+type(
+  unit
+)
+"ptree.ml" 106 3449 3455 "ptree.ml" 111 3635 3644
+type(
+  unit
+)
+"ptree.ml" 102 3345 3354 "ptree.ml" 111 3635 3644
+type(
+  unit
+)
+"ptree.ml" 93 3013 3017 "ptree.ml" 111 3635 3644
+type(
+  unit
+)
+"ptree.ml" 60 1845 1847 "ptree.ml" 111 3635 3644
+type(
+  unit
+)
+"ptree.ml" 113 3646 3650 "ptree.ml" 113 3646 3659
+type(
+  t -> formula list -> unit
+)
+ident(
+  def coq_check "ptree.ml" 124 3911 3942 "ptree.ml" 1 0 -1
+)
+"ptree.ml" 113 3646 3661 "ptree.ml" 113 3646 3663
+type(
+  t
+)
+ident(
+  def pt "ptree.ml" 113 3646 3669 "ptree.ml" 124 3911 3942
+)
+"ptree.ml" 113 3646 3670 "ptree.ml" 113 3646 3672
+type(
+  formula list
+)
+ident(
+  def fl "ptree.ml" 114 3691 3693 "ptree.ml" 124 3911 3942
+)
+"ptree.ml" 114 3691 3699 "ptree.ml" 114 3691 3701
+type(
+  t
+)
+ident(
+  int_ref pt "ptree.ml" 113 3646 3661 "ptree.ml" 113 3646 3663
+)
+"ptree.ml" 115 3707 3711 "ptree.ml" 115 3707 3715
+type(
+  t
+)
+"ptree.ml" 115 3707 3719 "ptree.ml" 115 3707 3721
+type(
+  unit
+)
+"ptree.ml" 116 3722 3732 "ptree.ml" 116 3722 3733
+type(
+  env
+)
+ident(
+  def e "ptree.ml" 117 3737 3742 "ptree.ml" 122 3878 3882
+)
+"ptree.ml" 116 3722 3726 "ptree.ml" 116 3722 3733
+type(
+  t
+)
+"ptree.ml" 117 3737 3742 "ptree.ml" 117 3737 3755
 type(
   (unit, '_a BatInnerIO.output, unit) Batteries.Printf.t -> unit
 )
 ident(
   ext_ref Batteries.Printf.printf
 )
-"ptree.ml" 63 1895 1914 "ptree.ml" 63 1895 1926
+"ptree.ml" 117 3737 3756 "ptree.ml" 117 3737 3768
 type(
   (unit, '_a BatInnerIO.output, unit) Batteries.Printf.t
 )
-"ptree.ml" 63 1895 1900 "ptree.ml" 63 1895 1926
+"ptree.ml" 117 3737 3742 "ptree.ml" 117 3737 3768
 call(
   stack
 )
 type(
   unit
 )
-"ptree.ml" 64 1928 1933 "ptree.ml" 64 1928 1945
+"ptree.ml" 118 3770 3775 "ptree.ml" 118 3770 3787
 type(
   unit BatIO.output -> Env.t -> unit
 )
 ident(
   ext_ref Env.coq_intv
 )
-"ptree.ml" 64 1928 1946 "ptree.ml" 64 1928 1952
+"ptree.ml" 118 3770 3788 "ptree.ml" 118 3770 3794
 type(
   unit BatIO.output
 )
 ident(
   ext_ref Batteries.stdout
 )
-"ptree.ml" 64 1928 1953 "ptree.ml" 64 1928 1954
+"ptree.ml" 118 3770 3795 "ptree.ml" 118 3770 3796
 type(
   env
 )
 ident(
-  int_ref e "ptree.ml" 62 1880 1890 "ptree.ml" 62 1880 1891
+  int_ref e "ptree.ml" 116 3722 3732 "ptree.ml" 116 3722 3733
 )
-"ptree.ml" 64 1928 1933 "ptree.ml" 64 1928 1954
+"ptree.ml" 118 3770 3775 "ptree.ml" 118 3770 3796
 call(
   stack
 )
 type(
   unit
 )
-"ptree.ml" 65 1956 1961 "ptree.ml" 65 1956 1971
+"ptree.ml" 119 3798 3803 "ptree.ml" 119 3798 3813
 type(
   ?first:string ->
   ?last:string ->
@@ -1278,1443 +2647,116 @@ type(
 ident(
   ext_ref Batteries.List.print
 )
-"ptree.ml" 65 1956 1979 "ptree.ml" 65 1956 1981
+"ptree.ml" 119 3798 3821 "ptree.ml" 119 3798 3823
 type(
   string
 )
-"ptree.ml" 65 1956 1988 "ptree.ml" 65 1956 1992
+"ptree.ml" 119 3798 3830 "ptree.ml" 119 3798 3834
 type(
   string
 )
-"ptree.ml" 65 1956 1998 "ptree.ml" 65 1956 2005
+"ptree.ml" 119 3798 3840 "ptree.ml" 119 3798 3847
 type(
   string
 )
-"ptree.ml" 66 2006 2008 "ptree.ml" 66 2006 2025
+"ptree.ml" 120 3848 3850 "ptree.ml" 120 3848 3867
 type(
   unit BatInnerIO.output -> formula -> unit
 )
 ident(
   ext_ref Basic.coq_formula
 )
-"ptree.ml" 67 2027 2029 "ptree.ml" 67 2027 2035
+"ptree.ml" 121 3869 3871 "ptree.ml" 121 3869 3877
 type(
   unit BatIO.output
 )
 ident(
   ext_ref Batteries.stdout
 )
-"ptree.ml" 68 2036 2038 "ptree.ml" 68 2036 2040
+"ptree.ml" 122 3878 3880 "ptree.ml" 122 3878 3882
 type(
   formula list
 )
 ident(
-  int_ref fl "ptree.ml" 59 1800 1828 "ptree.ml" 59 1800 1830
+  int_ref fl "ptree.ml" 113 3646 3670 "ptree.ml" 113 3646 3672
 )
-"ptree.ml" 65 1956 1961 "ptree.ml" 68 2036 2040
+"ptree.ml" 119 3798 3803 "ptree.ml" 122 3878 3882
 call(
   tail
 )
 type(
   unit
 )
-"ptree.ml" 64 1928 1933 "ptree.ml" 68 2036 2040
+"ptree.ml" 118 3770 3775 "ptree.ml" 122 3878 3882
 type(
   unit
 )
-"ptree.ml" 63 1895 1900 "ptree.ml" 68 2036 2040
+"ptree.ml" 117 3737 3742 "ptree.ml" 122 3878 3882
 type(
   unit
 )
-"ptree.ml" 69 2041 2045 "ptree.ml" 69 2041 2046
+"ptree.ml" 123 3883 3894 "ptree.ml" 123 3883 3895
 type(
   t
 )
-"ptree.ml" 69 2041 2050 "ptree.ml" 69 2041 2063
+type(
+  t
+)
+type(
+  env
+)
+"ptree.ml" 123 3883 3887 "ptree.ml" 123 3883 3895
+type(
+  t
+)
+"ptree.ml" 123 3883 3899 "ptree.ml" 123 3883 3904
+type(
+  t -> formula list -> unit
+)
+ident(
+  int_ref check "ptree.ml" 59 1800 1808 "ptree.ml" 59 1800 1813
+)
+"ptree.ml" 123 3883 3905 "ptree.ml" 123 3883 3907
+type(
+  t
+)
+ident(
+  int_ref pt "ptree.ml" 113 3646 3661 "ptree.ml" 113 3646 3663
+)
+"ptree.ml" 123 3883 3908 "ptree.ml" 123 3883 3910
+type(
+  formula list
+)
+ident(
+  int_ref fl "ptree.ml" 113 3646 3670 "ptree.ml" 113 3646 3672
+)
+"ptree.ml" 123 3883 3899 "ptree.ml" 123 3883 3910
+call(
+  tail
+)
+type(
+  unit
+)
+"ptree.ml" 124 3911 3915 "ptree.ml" 124 3911 3916
+type(
+  t
+)
+"ptree.ml" 124 3911 3920 "ptree.ml" 124 3911 3933
 type(
   (unit, '_b BatInnerIO.output, unit) Batteries.Printf.t -> unit
 )
 ident(
   ext_ref Batteries.Printf.printf
 )
-"ptree.ml" 69 2041 2064 "ptree.ml" 69 2041 2072
+"ptree.ml" 124 3911 3934 "ptree.ml" 124 3911 3942
 type(
   (unit, '_b BatInnerIO.output, unit) Batteries.Printf.t
 )
-"ptree.ml" 69 2041 2050 "ptree.ml" 69 2041 2072
+"ptree.ml" 124 3911 3920 "ptree.ml" 124 3911 3942
 type(
   unit
 )
-"ptree.ml" 60 1849 1851 "ptree.ml" 69 2041 2072
-type(
-  unit
-)
-"ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-type(
-  t -> formula list -> unit
-)
-ident(
-  def check "ptree.ml" 71 2074 2074 "ptree.ml" 1 0 -1
-)
-"ptree.ml" 71 2074 2089 "ptree.ml" 71 2074 2091
-type(
-  t
-)
-ident(
-  def pt "ptree.ml" 71 2074 2097 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-type(
-  formula list
-)
-ident(
-  def fl "ptree.ml" 72 2119 2121 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 72 2119 2127 "ptree.ml" 72 2119 2129
-type(
-  t
-)
-ident(
-  int_ref pt "ptree.ml" 71 2074 2089 "ptree.ml" 71 2074 2091
-)
-"ptree.ml" 73 2135 2139 "ptree.ml" 73 2135 2143
-type(
-  t
-)
-"ptree.ml" 73 2135 2147 "ptree.ml" 73 2135 2149
-type(
-  unit
-)
-"ptree.ml" 74 2150 2160 "ptree.ml" 74 2150 2161
-type(
-  env
-)
-ident(
-  def e "ptree.ml" 75 2165 2169 "ptree.ml" 82 2488 2495
-)
-"ptree.ml" 74 2150 2154 "ptree.ml" 74 2150 2161
-type(
-  t
-)
-"ptree.ml" 75 2165 2173 "ptree.ml" 75 2165 2179
-type(
-  (formula * result) list
-)
-ident(
-  def result "ptree.ml" 76 2229 2233 "ptree.ml" 82 2488 2495
-)
-"ptree.ml" 75 2165 2182 "ptree.ml" 75 2165 2190
-type(
-  (formula -> formula * result) -> formula list -> (formula * result) list
-)
-ident(
-  ext_ref Batteries.List.map
-)
-"ptree.ml" 75 2165 2196 "ptree.ml" 75 2165 2197
-type(
-  formula
-)
-ident(
-  def f "ptree.ml" 75 2165 2201 "ptree.ml" 75 2165 2221
-)
-"ptree.ml" 75 2165 2202 "ptree.ml" 75 2165 2203
-type(
-  formula
-)
-ident(
-  int_ref f "ptree.ml" 75 2165 2196 "ptree.ml" 75 2165 2197
-)
-"ptree.ml" 75 2165 2205 "ptree.ml" 75 2165 2216
-type(
-  env -> formula -> result
-)
-ident(
-  int_ref check_axiom "ptree.ml" 39 1176 1180 "ptree.ml" 39 1176 1191
-)
-"ptree.ml" 75 2165 2217 "ptree.ml" 75 2165 2218
-type(
-  env
-)
-ident(
-  int_ref e "ptree.ml" 74 2150 2160 "ptree.ml" 74 2150 2161
-)
-"ptree.ml" 75 2165 2219 "ptree.ml" 75 2165 2220
-type(
-  formula
-)
-ident(
-  int_ref f "ptree.ml" 75 2165 2196 "ptree.ml" 75 2165 2197
-)
-"ptree.ml" 75 2165 2205 "ptree.ml" 75 2165 2220
-call(
-  stack
-)
-type(
-  result
-)
-"ptree.ml" 75 2165 2201 "ptree.ml" 75 2165 2221
-type(
-  formula * result
-)
-"ptree.ml" 75 2165 2191 "ptree.ml" 75 2165 2222
-type(
-  formula -> formula * result
-)
-"ptree.ml" 75 2165 2223 "ptree.ml" 75 2165 2225
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 75 2165 2182 "ptree.ml" 75 2165 2225
-call(
-  stack
-)
-type(
-  (formula * result) list
-)
-"ptree.ml" 76 2229 2237 "ptree.ml" 76 2229 2244
-type(
-  (formula * result) list
-)
-ident(
-  def result' "ptree.ml" 77 2293 2297 "ptree.ml" 82 2488 2495
-)
-"ptree.ml" 76 2229 2247 "ptree.ml" 76 2229 2258
-type(
-  (formula * result -> bool) ->
-  (formula * result) list -> (formula * result) list
-)
-ident(
-  ext_ref Batteries.List.filter
-)
-"ptree.ml" 76 2229 2265 "ptree.ml" 76 2229 2266
-type(
-  formula
-)
-ident(
-  def f "ptree.ml" 76 2229 2274 "ptree.ml" 76 2229 2281
-)
-"ptree.ml" 76 2229 2268 "ptree.ml" 76 2229 2269
-type(
-  result
-)
-ident(
-  def r "ptree.ml" 76 2229 2274 "ptree.ml" 76 2229 2281
-)
-"ptree.ml" 76 2229 2264 "ptree.ml" 76 2229 2270
-type(
-  formula * result
-)
-"ptree.ml" 76 2229 2274 "ptree.ml" 76 2229 2275
-type(
-  result
-)
-ident(
-  int_ref r "ptree.ml" 76 2229 2268 "ptree.ml" 76 2229 2269
-)
-"ptree.ml" 76 2229 2276 "ptree.ml" 76 2229 2277
-type(
-  result -> result -> bool
-)
-ident(
-  ext_ref Batteries.( = )
-)
-"ptree.ml" 76 2229 2278 "ptree.ml" 76 2229 2281
-type(
-  result
-)
-"ptree.ml" 76 2229 2274 "ptree.ml" 76 2229 2281
-type(
-  bool
-)
-"ptree.ml" 76 2229 2259 "ptree.ml" 76 2229 2282
-type(
-  formula * result -> bool
-)
-"ptree.ml" 76 2229 2283 "ptree.ml" 76 2229 2289
-type(
-  (formula * result) list
-)
-ident(
-  int_ref result "ptree.ml" 75 2165 2173 "ptree.ml" 75 2165 2179
-)
-"ptree.ml" 76 2229 2247 "ptree.ml" 76 2229 2289
-call(
-  stack
-)
-type(
-  (formula * result) list
-)
-"ptree.ml" 77 2293 2302 "ptree.ml" 77 2293 2308
-type(
-  formula list
-)
-ident(
-  def sat_fs "ptree.ml" 78 2339 2343 "ptree.ml" 82 2488 2495
-)
-"ptree.ml" 77 2293 2310 "ptree.ml" 77 2293 2311
-type(
-  result list
-)
-"ptree.ml" 77 2293 2301 "ptree.ml" 77 2293 2312
-type(
-  formula list * result list
-)
-"ptree.ml" 77 2293 2315 "ptree.ml" 77 2293 2325
-type(
-  (formula * result) list -> formula list * result list
-)
-ident(
-  ext_ref Batteries.List.split
-)
-"ptree.ml" 77 2293 2326 "ptree.ml" 77 2293 2335
-type(
-  (formula * result) list
-)
-ident(
-  int_ref result' "ptree.ml" 76 2229 2237 "ptree.ml" 76 2229 2244
-)
-"ptree.ml" 77 2293 2315 "ptree.ml" 77 2293 2335
-call(
-  stack
-)
-type(
-  formula list * result list
-)
-"ptree.ml" 79 2349 2361 "ptree.ml" 79 2349 2367
-type(
-  formula list
-)
-ident(
-  int_ref sat_fs "ptree.ml" 77 2293 2302 "ptree.ml" 77 2293 2308
-)
-"ptree.ml" 80 2373 2381 "ptree.ml" 80 2373 2383
-type(
-  formula list
-)
-"ptree.ml" 80 2373 2388 "ptree.ml" 80 2373 2392
-type(
-  int Batteries.ref -> unit
-)
-ident(
-  ext_ref Batteries.incr
-)
-"ptree.ml" 80 2373 2393 "ptree.ml" 80 2373 2413
-type(
-  int Batteries.ref
-)
-ident(
-  int_ref num_of_proved_axioms "ptree.ml" 7 83 87 "ptree.ml" 7 83 107
-)
-"ptree.ml" 80 2373 2387 "ptree.ml" 80 2373 2414
-type(
-  unit
-)
-"ptree.ml" 81 2415 2423 "ptree.ml" 81 2415 2424
-type(
-  formula list
-)
-"ptree.ml" 81 2415 2429 "ptree.ml" 81 2415 2433
-type(
-  int Batteries.ref -> unit
-)
-ident(
-  ext_ref Batteries.incr
-)
-"ptree.ml" 81 2415 2434 "ptree.ml" 81 2415 2454
-type(
-  int Batteries.ref
-)
-ident(
-  int_ref num_of_failed_axioms "ptree.ml" 8 116 120 "ptree.ml" 8 116 140
-)
-"ptree.ml" 81 2415 2429 "ptree.ml" 81 2415 2454
-type(
-  unit
-)
-"ptree.ml" 81 2415 2456 "ptree.ml" 81 2415 2474
-type(
-  Env.t -> formula list -> formula list -> unit
-)
-ident(
-  ext_ref Failhandler.handle
-)
-"ptree.ml" 81 2415 2475 "ptree.ml" 81 2415 2476
-type(
-  env
-)
-ident(
-  int_ref e "ptree.ml" 74 2150 2160 "ptree.ml" 74 2150 2161
-)
-"ptree.ml" 81 2415 2477 "ptree.ml" 81 2415 2483
-type(
-  formula list
-)
-ident(
-  int_ref sat_fs "ptree.ml" 77 2293 2302 "ptree.ml" 77 2293 2308
-)
-"ptree.ml" 81 2415 2484 "ptree.ml" 81 2415 2486
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 81 2415 2456 "ptree.ml" 81 2415 2486
-call(
-  tail
-)
-type(
-  unit
-)
-"ptree.ml" 81 2415 2428 "ptree.ml" 81 2415 2487
-type(
-  unit
-)
-"ptree.ml" 78 2339 2343 "ptree.ml" 82 2488 2495
-type(
-  unit
-)
-"ptree.ml" 77 2293 2297 "ptree.ml" 82 2488 2495
-type(
-  unit
-)
-"ptree.ml" 76 2229 2233 "ptree.ml" 82 2488 2495
-type(
-  unit
-)
-"ptree.ml" 75 2165 2169 "ptree.ml" 82 2488 2495
-type(
-  unit
-)
-"ptree.ml" 83 2496 2508 "ptree.ml" 83 2496 2511
-type(
-  env
-)
-ident(
-  def env "ptree.ml" 84 2526 2530 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 83 2496 2513 "ptree.ml" 83 2496 2516
-type(
-  t
-)
-ident(
-  def pt1 "ptree.ml" 84 2526 2530 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 83 2496 2518 "ptree.ml" 83 2496 2521
-type(
-  t
-)
-ident(
-  def pt2 "ptree.ml" 84 2526 2530 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 83 2496 2500 "ptree.ml" 83 2496 2522
-type(
-  t
-)
-"ptree.ml" 84 2526 2534 "ptree.ml" 84 2526 2538
-type(
-  env
-)
-ident(
-  def env1 "ptree.ml" 85 2560 2564 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 84 2526 2541 "ptree.ml" 84 2526 2552
-type(
-  t -> env
-)
-ident(
-  int_ref extract_env "ptree.ml" 33 1010 1014 "ptree.ml" 33 1010 1025
-)
-"ptree.ml" 84 2526 2553 "ptree.ml" 84 2526 2556
-type(
-  t
-)
-ident(
-  int_ref pt1 "ptree.ml" 83 2496 2513 "ptree.ml" 83 2496 2516
-)
-"ptree.ml" 84 2526 2541 "ptree.ml" 84 2526 2556
-call(
-  stack
-)
-type(
-  env
-)
-"ptree.ml" 85 2560 2568 "ptree.ml" 85 2560 2572
-type(
-  env
-)
-ident(
-  def env2 "ptree.ml" 86 2594 2598 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 85 2560 2575 "ptree.ml" 85 2560 2586
-type(
-  t -> env
-)
-ident(
-  int_ref extract_env "ptree.ml" 33 1010 1014 "ptree.ml" 33 1010 1025
-)
-"ptree.ml" 85 2560 2587 "ptree.ml" 85 2560 2590
-type(
-  t
-)
-ident(
-  int_ref pt2 "ptree.ml" 83 2496 2518 "ptree.ml" 83 2496 2521
-)
-"ptree.ml" 85 2560 2575 "ptree.ml" 85 2560 2590
-call(
-  stack
-)
-type(
-  env
-)
-"ptree.ml" 86 2594 2602 "ptree.ml" 86 2594 2610
-type(
-  Env.t
-)
-ident(
-  def env_join "ptree.ml" 87 2635 2639 "ptree.ml" 103 3248 3255
-)
-"ptree.ml" 86 2594 2613 "ptree.ml" 86 2594 2621
-type(
-  Env.t -> Env.t -> Env.t
-)
-ident(
-  ext_ref Env.join
-)
-"ptree.ml" 86 2594 2622 "ptree.ml" 86 2594 2626
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 84 2526 2534 "ptree.ml" 84 2526 2538
-)
-"ptree.ml" 86 2594 2627 "ptree.ml" 86 2594 2631
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 85 2560 2568 "ptree.ml" 85 2560 2572
-)
-"ptree.ml" 86 2594 2613 "ptree.ml" 86 2594 2631
-call(
-  stack
-)
-type(
-  Env.t
-)
-"ptree.ml" 88 2645 2657 "ptree.ml" 88 2645 2666
-type(
-  Env.t -> Env.t -> bool
-)
-ident(
-  ext_ref Env.order
-)
-"ptree.ml" 88 2645 2667 "ptree.ml" 88 2645 2670
-type(
-  env
-)
-ident(
-  int_ref env "ptree.ml" 83 2496 2508 "ptree.ml" 83 2496 2511
-)
-"ptree.ml" 88 2645 2671 "ptree.ml" 88 2645 2679
-type(
-  Env.t
-)
-ident(
-  int_ref env_join "ptree.ml" 86 2594 2602 "ptree.ml" 86 2594 2610
-)
-"ptree.ml" 88 2645 2657 "ptree.ml" 88 2645 2679
-call(
-  stack
-)
-type(
-  bool
-)
-"ptree.ml" 89 2685 2693 "ptree.ml" 89 2685 2697
-type(
-  bool
-)
-"ptree.ml" 89 2685 2702 "ptree.ml" 89 2685 2706
-type(
-  int Batteries.ref -> unit
-)
-ident(
-  ext_ref Batteries.incr
-)
-"ptree.ml" 89 2685 2707 "ptree.ml" 89 2685 2722
-type(
-  int Batteries.ref
-)
-ident(
-  int_ref num_of_branches "ptree.ml" 9 149 153 "ptree.ml" 9 149 168
-)
-"ptree.ml" 89 2685 2702 "ptree.ml" 89 2685 2722
-type(
-  unit
-)
-"ptree.ml" 89 2685 2724 "ptree.ml" 89 2685 2729
-type(
-  t -> formula list -> unit
-)
-ident(
-  int_ref check "ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-)
-"ptree.ml" 89 2685 2730 "ptree.ml" 89 2685 2733
-type(
-  t
-)
-ident(
-  int_ref pt1 "ptree.ml" 83 2496 2513 "ptree.ml" 83 2496 2516
-)
-"ptree.ml" 89 2685 2734 "ptree.ml" 89 2685 2736
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 89 2685 2724 "ptree.ml" 89 2685 2736
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 89 2685 2738 "ptree.ml" 89 2685 2743
-type(
-  t -> formula list -> unit
-)
-ident(
-  int_ref check "ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-)
-"ptree.ml" 89 2685 2744 "ptree.ml" 89 2685 2747
-type(
-  t
-)
-ident(
-  int_ref pt2 "ptree.ml" 83 2496 2518 "ptree.ml" 83 2496 2521
-)
-"ptree.ml" 89 2685 2748 "ptree.ml" 89 2685 2750
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 89 2685 2738 "ptree.ml" 89 2685 2750
-call(
-  tail
-)
-type(
-  unit
-)
-"ptree.ml" 89 2685 2724 "ptree.ml" 89 2685 2750
-type(
-  unit
-)
-"ptree.ml" 89 2685 2701 "ptree.ml" 89 2685 2751
-type(
-  unit
-)
-"ptree.ml" 90 2752 2760 "ptree.ml" 90 2752 2765
-type(
-  bool
-)
-"ptree.ml" 92 2783 2793 "ptree.ml" 92 2783 2807
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 92 2783 2808 "ptree.ml" 92 2783 2817
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 92 2783 2818 "ptree.ml" 92 2783 2828
-type(
-  string
-)
-"ptree.ml" 92 2783 2793 "ptree.ml" 92 2783 2828
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 93 2830 2840 "ptree.ml" 93 2830 2849
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 93 2830 2850 "ptree.ml" 93 2830 2859
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 93 2830 2860 "ptree.ml" 93 2830 2864
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 84 2526 2534 "ptree.ml" 84 2526 2538
-)
-"ptree.ml" 93 2830 2840 "ptree.ml" 93 2830 2864
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 94 2866 2876 "ptree.ml" 94 2866 2890
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 94 2866 2891 "ptree.ml" 94 2866 2900
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 94 2866 2901 "ptree.ml" 94 2866 2911
-type(
-  string
-)
-"ptree.ml" 94 2866 2876 "ptree.ml" 94 2866 2911
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 95 2913 2923 "ptree.ml" 95 2913 2932
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 95 2913 2933 "ptree.ml" 95 2913 2942
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 95 2913 2943 "ptree.ml" 95 2913 2947
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 85 2560 2568 "ptree.ml" 85 2560 2572
-)
-"ptree.ml" 95 2913 2923 "ptree.ml" 95 2913 2947
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 96 2949 2959 "ptree.ml" 96 2949 2973
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 96 2949 2974 "ptree.ml" 96 2949 2983
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 96 2949 2984 "ptree.ml" 96 2949 2997
-type(
-  string
-)
-"ptree.ml" 96 2949 2959 "ptree.ml" 96 2949 2997
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 97 2999 3009 "ptree.ml" 97 2999 3018
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 97 2999 3019 "ptree.ml" 97 2999 3028
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 97 2999 3029 "ptree.ml" 97 2999 3037
-type(
-  Env.t
-)
-ident(
-  int_ref env_join "ptree.ml" 86 2594 2602 "ptree.ml" 86 2594 2610
-)
-"ptree.ml" 97 2999 3009 "ptree.ml" 97 2999 3037
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 98 3039 3049 "ptree.ml" 98 3039 3063
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 98 3039 3064 "ptree.ml" 98 3039 3073
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 98 3039 3074 "ptree.ml" 98 3039 3081
-type(
-  string
-)
-"ptree.ml" 98 3039 3049 "ptree.ml" 98 3039 3081
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 99 3083 3093 "ptree.ml" 99 3083 3102
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 99 3083 3103 "ptree.ml" 99 3083 3112
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 99 3083 3113 "ptree.ml" 99 3083 3116
-type(
-  env
-)
-ident(
-  int_ref env "ptree.ml" 83 2496 2508 "ptree.ml" 83 2496 2511
-)
-"ptree.ml" 99 3083 3093 "ptree.ml" 99 3083 3116
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 100 3118 3128 "ptree.ml" 100 3118 3142
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 100 3118 3143 "ptree.ml" 100 3118 3152
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 100 3118 3153 "ptree.ml" 100 3118 3201
-type(
-  string
-)
-"ptree.ml" 100 3118 3128 "ptree.ml" 100 3118 3201
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 101 3203 3213 "ptree.ml" 101 3203 3218
-type(
-  exn -> unit
-)
-ident(
-  ext_ref Batteries.raise
-)
-"ptree.ml" 101 3203 3226 "ptree.ml" 101 3203 3234
-type(
-  string
-)
-"ptree.ml" 101 3203 3219 "ptree.ml" 101 3203 3235
-type(
-  exn
-)
-"ptree.ml" 101 3203 3213 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 100 3118 3128 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 99 3083 3093 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 98 3039 3049 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 97 2999 3009 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 96 2949 2959 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 95 2913 2923 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 94 2866 2876 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 93 2830 2840 "ptree.ml" 101 3203 3235
-type(
-  unit
-)
-"ptree.ml" 91 2769 2777 "ptree.ml" 102 3236 3247
-type(
-  unit
-)
-"ptree.ml" 87 2635 2639 "ptree.ml" 103 3248 3255
-type(
-  unit
-)
-"ptree.ml" 86 2594 2598 "ptree.ml" 103 3248 3255
-type(
-  unit
-)
-"ptree.ml" 85 2560 2564 "ptree.ml" 103 3248 3255
-type(
-  unit
-)
-"ptree.ml" 84 2526 2530 "ptree.ml" 103 3248 3255
-type(
-  unit
-)
-"ptree.ml" 104 3256 3267 "ptree.ml" 104 3256 3271
-type(
-  env
-)
-ident(
-  def env1 "ptree.ml" 105 3287 3291 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 104 3256 3273 "ptree.ml" 104 3256 3277
-type(
-  env
-)
-ident(
-  def env2 "ptree.ml" 105 3287 3291 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 104 3256 3279 "ptree.ml" 104 3256 3282
-type(
-  t
-)
-ident(
-  def pt' "ptree.ml" 105 3287 3291 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 104 3256 3260 "ptree.ml" 104 3256 3283
-type(
-  t
-)
-"ptree.ml" 105 3287 3294 "ptree.ml" 105 3287 3297
-type(
-  bool -> bool
-)
-ident(
-  ext_ref Batteries.not
-)
-"ptree.ml" 105 3287 3299 "ptree.ml" 105 3287 3308
-type(
-  Env.t -> Env.t -> bool
-)
-ident(
-  ext_ref Env.order
-)
-"ptree.ml" 105 3287 3309 "ptree.ml" 105 3287 3313
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 104 3256 3273 "ptree.ml" 104 3256 3277
-)
-"ptree.ml" 105 3287 3314 "ptree.ml" 105 3287 3318
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 104 3256 3267 "ptree.ml" 104 3256 3271
-)
-"ptree.ml" 105 3287 3298 "ptree.ml" 105 3287 3319
-call(
-  stack
-)
-type(
-  bool
-)
-"ptree.ml" 105 3287 3294 "ptree.ml" 105 3287 3319
-type(
-  bool
-)
-"ptree.ml" 107 3339 3349 "ptree.ml" 107 3339 3363
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 107 3339 3364 "ptree.ml" 107 3339 3373
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 107 3339 3374 "ptree.ml" 107 3339 3384
-type(
-  string
-)
-"ptree.ml" 107 3339 3349 "ptree.ml" 107 3339 3384
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 108 3386 3396 "ptree.ml" 108 3386 3405
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 108 3386 3406 "ptree.ml" 108 3386 3415
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 108 3386 3416 "ptree.ml" 108 3386 3420
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 104 3256 3267 "ptree.ml" 104 3256 3271
-)
-"ptree.ml" 108 3386 3396 "ptree.ml" 108 3386 3420
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 109 3422 3432 "ptree.ml" 109 3422 3446
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 109 3422 3447 "ptree.ml" 109 3422 3456
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 109 3422 3457 "ptree.ml" 109 3422 3467
-type(
-  string
-)
-"ptree.ml" 109 3422 3432 "ptree.ml" 109 3422 3467
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 110 3469 3479 "ptree.ml" 110 3469 3488
-type(
-  unit Batteries.IO.output ->
-  (Env.key, Intv.interval) Batteries.Map.t -> unit
-)
-ident(
-  ext_ref Env.print
-)
-"ptree.ml" 110 3469 3489 "ptree.ml" 110 3469 3498
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 110 3469 3499 "ptree.ml" 110 3469 3503
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 104 3256 3273 "ptree.ml" 104 3256 3277
-)
-"ptree.ml" 110 3469 3479 "ptree.ml" 110 3469 3503
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 111 3505 3515 "ptree.ml" 111 3505 3529
-type(
-  unit Batteries.IO.output -> string -> unit
-)
-ident(
-  ext_ref Batteries.String.println
-)
-"ptree.ml" 111 3505 3530 "ptree.ml" 111 3505 3539
-type(
-  unit Batteries.IO.output
-)
-ident(
-  ext_ref Batteries.IO.stdout
-)
-"ptree.ml" 111 3505 3540 "ptree.ml" 111 3505 3573
-type(
-  string
-)
-"ptree.ml" 111 3505 3515 "ptree.ml" 111 3505 3573
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 112 3575 3585 "ptree.ml" 112 3575 3590
-type(
-  exn -> unit
-)
-ident(
-  ext_ref Batteries.raise
-)
-"ptree.ml" 112 3575 3598 "ptree.ml" 112 3575 3605
-type(
-  string
-)
-"ptree.ml" 112 3575 3591 "ptree.ml" 112 3575 3606
-type(
-  exn
-)
-"ptree.ml" 112 3575 3585 "ptree.ml" 112 3575 3606
-type(
-  unit
-)
-"ptree.ml" 111 3505 3515 "ptree.ml" 112 3575 3606
-type(
-  unit
-)
-"ptree.ml" 110 3469 3479 "ptree.ml" 112 3575 3606
-type(
-  unit
-)
-"ptree.ml" 109 3422 3432 "ptree.ml" 112 3575 3606
-type(
-  unit
-)
-"ptree.ml" 108 3386 3396 "ptree.ml" 112 3575 3606
-type(
-  unit
-)
-"ptree.ml" 106 3325 3333 "ptree.ml" 113 3607 3618
-type(
-  unit
-)
-"ptree.ml" 114 3619 3631 "ptree.ml" 114 3619 3641
-type(
-  Env.t -> Env.t -> bool
-)
-ident(
-  ext_ref Env.equals
-)
-"ptree.ml" 114 3619 3642 "ptree.ml" 114 3619 3646
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 104 3256 3273 "ptree.ml" 104 3256 3277
-)
-"ptree.ml" 114 3619 3647 "ptree.ml" 114 3619 3651
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 104 3256 3267 "ptree.ml" 104 3256 3271
-)
-"ptree.ml" 114 3619 3631 "ptree.ml" 114 3619 3651
-call(
-  stack
-)
-type(
-  bool
-)
-"ptree.ml" 115 3657 3664 "ptree.ml" 115 3657 3668
-type(
-  int Batteries.ref -> unit
-)
-ident(
-  ext_ref Batteries.incr
-)
-"ptree.ml" 115 3657 3669 "ptree.ml" 115 3657 3691
-type(
-  int Batteries.ref
-)
-ident(
-  int_ref num_of_trivial_pruning "ptree.ml" 11 261 265 "ptree.ml" 11 261 287
-)
-"ptree.ml" 115 3657 3664 "ptree.ml" 115 3657 3691
-type(
-  unit
-)
-"ptree.ml" 116 3693 3700 "ptree.ml" 116 3693 3705
-type(
-  t -> formula list -> unit
-)
-ident(
-  int_ref check "ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-)
-"ptree.ml" 116 3693 3706 "ptree.ml" 116 3693 3709
-type(
-  t
-)
-ident(
-  int_ref pt' "ptree.ml" 104 3256 3279 "ptree.ml" 104 3256 3282
-)
-"ptree.ml" 116 3693 3710 "ptree.ml" 116 3693 3712
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 116 3693 3700 "ptree.ml" 116 3693 3712
-call(
-  tail
-)
-type(
-  unit
-)
-"ptree.ml" 115 3657 3663 "ptree.ml" 116 3693 3713
-type(
-  unit
-)
-"ptree.ml" 118 3723 3733 "ptree.ml" 118 3723 3743
-type(
-  Env.t list
-)
-ident(
-  def remainders "ptree.ml" 119 3769 3775 "ptree.ml" 123 3909 3918
-)
-"ptree.ml" 118 3723 3746 "ptree.ml" 118 3723 3755
-type(
-  Env.t -> Env.t -> Env.t list
-)
-ident(
-  ext_ref Env.minus
-)
-"ptree.ml" 118 3723 3756 "ptree.ml" 118 3723 3760
-type(
-  env
-)
-ident(
-  int_ref env1 "ptree.ml" 104 3256 3267 "ptree.ml" 104 3256 3271
-)
-"ptree.ml" 118 3723 3761 "ptree.ml" 118 3723 3765
-type(
-  env
-)
-ident(
-  int_ref env2 "ptree.ml" 104 3256 3273 "ptree.ml" 104 3256 3277
-)
-"ptree.ml" 118 3723 3746 "ptree.ml" 118 3723 3765
-call(
-  stack
-)
-type(
-  Env.t list
-)
-"ptree.ml" 120 3781 3789 "ptree.ml" 120 3781 3793
-type(
-  int Batteries.ref -> unit
-)
-ident(
-  ext_ref Batteries.incr
-)
-"ptree.ml" 120 3781 3794 "ptree.ml" 120 3781 3820
-type(
-  int Batteries.ref
-)
-ident(
-  int_ref num_of_non_trivial_pruning "ptree.ml" 10 205 209 "ptree.ml" 10 205 235
-)
-"ptree.ml" 120 3781 3789 "ptree.ml" 120 3781 3820
-type(
-  unit
-)
-"ptree.ml" 121 3822 3830 "ptree.ml" 121 3822 3839
-type(
-  (env -> unit) -> env list -> unit
-)
-ident(
-  ext_ref Batteries.List.iter
-)
-"ptree.ml" 121 3822 3845 "ptree.ml" 121 3822 3849
-type(
-  env
-)
-ident(
-  def env_ "ptree.ml" 121 3822 3853 "ptree.ml" 121 3822 3874
-)
-"ptree.ml" 121 3822 3853 "ptree.ml" 121 3822 3858
-type(
-  t -> formula list -> unit
-)
-ident(
-  int_ref check "ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-)
-"ptree.ml" 121 3822 3866 "ptree.ml" 121 3822 3870
-type(
-  env
-)
-ident(
-  int_ref env_ "ptree.ml" 121 3822 3845 "ptree.ml" 121 3822 3849
-)
-"ptree.ml" 121 3822 3859 "ptree.ml" 121 3822 3871
-type(
-  t
-)
-"ptree.ml" 121 3822 3872 "ptree.ml" 121 3822 3874
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 121 3822 3853 "ptree.ml" 121 3822 3874
-call(
-  tail
-)
-type(
-  unit
-)
-"ptree.ml" 121 3822 3840 "ptree.ml" 121 3822 3875
-type(
-  env -> unit
-)
-"ptree.ml" 121 3822 3876 "ptree.ml" 121 3822 3886
-type(
-  env list
-)
-ident(
-  int_ref remainders "ptree.ml" 118 3723 3733 "ptree.ml" 118 3723 3743
-)
-"ptree.ml" 121 3822 3830 "ptree.ml" 121 3822 3886
-call(
-  stack
-)
-type(
-  unit
-)
-"ptree.ml" 122 3888 3896 "ptree.ml" 122 3888 3901
-type(
-  t -> formula list -> unit
-)
-ident(
-  int_ref check "ptree.ml" 71 2074 2082 "ptree.ml" 71 2074 2087
-)
-"ptree.ml" 122 3888 3902 "ptree.ml" 122 3888 3905
-type(
-  t
-)
-ident(
-  int_ref pt' "ptree.ml" 104 3256 3279 "ptree.ml" 104 3256 3282
-)
-"ptree.ml" 122 3888 3906 "ptree.ml" 122 3888 3908
-type(
-  formula list
-)
-ident(
-  int_ref fl "ptree.ml" 71 2074 2098 "ptree.ml" 71 2074 2100
-)
-"ptree.ml" 122 3888 3896 "ptree.ml" 122 3888 3908
-call(
-  tail
-)
-type(
-  unit
-)
-"ptree.ml" 121 3822 3830 "ptree.ml" 122 3888 3908
-type(
-  unit
-)
-"ptree.ml" 119 3769 3775 "ptree.ml" 123 3909 3918
-type(
-  unit
-)
-"ptree.ml" 118 3723 3729 "ptree.ml" 123 3909 3918
-type(
-  unit
-)
-"ptree.ml" 114 3619 3628 "ptree.ml" 123 3909 3918
-type(
-  unit
-)
-"ptree.ml" 105 3287 3291 "ptree.ml" 123 3909 3918
-type(
-  unit
-)
-"ptree.ml" 72 2119 2121 "ptree.ml" 123 3909 3918
+"ptree.ml" 114 3691 3693 "ptree.ml" 124 3911 3942
 type(
   unit
 )
