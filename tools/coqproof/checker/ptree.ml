@@ -11,12 +11,16 @@ let num_of_non_trivial_pruning = ref 0       (* DONE *)
 let num_of_trivial_pruning = ref 0           (* DONE *)
 
 type env = Env.t
+type nenv = Env.nt
 type formula = Basic.formula
 type intv = Intv.t
 type t = Axiom of env
        | Branch of env * t * t
        | Prune of env * env * t
        | Hole
+       | NAxiom of nenv
+       | NBranch of nenv * t * t
+       | NPrune of nenv * nenv * t
 
 type result = UNSAT
             | SAT
@@ -35,6 +39,9 @@ let extract_env p = match p with
   | Axiom env -> env
   | Branch (env, _, _) -> env
   | Prune (env1, env2, _) -> env1
+  | NAxiom nenv -> Env.to_env nenv
+  | NBranch (nenv, _, _) -> Env.to_env nenv
+  | NPrune (nenv1, nenv2, _) -> Env.to_env nenv1
 
 let check_axiom (e : env) (f : formula) : result =
   let eval env exp1 exp2 =
@@ -110,15 +117,33 @@ let rec check (pt : t) (fl : formula list) =
         check pt' fl
       end
 
-let coq_check (pt : t) (fl : formula list) =
-  match pt with
-  | Hole -> ()
-  | Axiom e ->
+  | NAxiom e ->
      Printf.printf "An axiom\n";
-     Env.coq_intv stdout e;
-     List.print ~first:"" ~last:"\n" ~sep:" &&\n"
+     Env.coq_nintv stdout e;
+     List.print ~first:"~ (" ~last:").\n" ~sep:" /\\\n"
 		Basic.coq_formula 
 		stdout
 		fl
-  | Branch _ -> check pt fl
-  | _ -> Printf.printf "TODO\n"
+  | NBranch (nenv, pt1, pt2) -> check (Branch (Env.to_env nenv, pt1, pt2))  fl
+  | NPrune (nenv1, nenv2, pt') ->
+     let env1 = Env.to_env nenv1 in
+     let env2 = Env.to_env nenv2 in
+     if not (Env.order env2 env1) then
+       begin
+         String.println IO.stdout "\nEnv1: ";
+         Env.print IO.stdout env1;
+         String.println IO.stdout "\nEnv2: ";
+         Env.print IO.stdout env2;
+         String.println IO.stdout "\nEnv2 is not a subset of Env1.";
+         raise (Error "Prune")
+       end
+     else if Env.equals env2 env1 then
+       (incr num_of_trivial_pruning;
+	check pt' fl)
+     else
+       let remainders = Env.minus env1 env2 in
+       begin
+         incr num_of_non_trivial_pruning;
+         List.iter (fun env_ -> check (NAxiom (Env.of_env env_)) fl) remainders;
+         check pt' fl
+       end

@@ -29,3 +29,18 @@ let contain_nz {low = l; high = h} = l <= 0.0
 
 let print out {low=l; high=h} =
   Printf.fprintf out "[%.30f, %.30f]" l h
+
+type nt = {nlow : Num.num; nhigh : Num.num}
+
+let nmake l h = {nlow=l; nhigh=h}
+
+let ninfinity = Num.zero (* Num.of_float(infinity) *)
+
+let nneg_infinity = Num.zero (* Num.of_float(neg_infinity) *)
+
+let to_intv {nlow=l; nhigh=h} = make (Num.to_float l) (Num.to_float h)
+
+let of_intv {low=l; high=h} = nmake (Num.of_float l) (Num.of_float h)
+
+let nprint out (x, {nlow=l; nhigh=h}) =
+  Printf.fprintf out "(%s <= %s <= %s)%%R" (Num.to_string l) x (Num.to_string h)

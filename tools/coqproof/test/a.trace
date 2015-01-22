@@ -7,6 +7,12 @@ Precision:0.001
              x1 : [3, 3.14];
              x2 : [-7, 5];
 
+[before pruning] 
+x1: [0x1.8p+1, 0x1.91eb851eb851fp+1];
+x2: [-0x1.cp+2, 0x1.4p+2]
+[after pruning] 
+x1: [0x1.8p+1, 0x1.913d199a03181p+1];
+x2: [-0x1.cp+2, -0x1.91a908275b4e2p+1]
 
 [before pruning] 
 x1: [0x1.8p+1, 0x1.91eb851eb851fp+1];

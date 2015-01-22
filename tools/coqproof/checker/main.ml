@@ -17,8 +17,7 @@ let run () =
     let (p, fs, pt) = Parser.main Lexer.start lexbuf in
     begin
       Global.set Failhandler.prec p;
-      (* Ptree.check pt fs; *)
-      Ptree.coq_check pt fs;
+      Ptree.check pt fs;
       Ptree.print_log out
     end
   with v ->

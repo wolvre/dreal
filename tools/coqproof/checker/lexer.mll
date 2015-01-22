@@ -3,9 +3,17 @@
  *)
 
 {
-  open Parser
   open Batteries
   open Error
+  open Parser
+  
+(* rational_of_string converts a string of floating-point to a rational number *)
+(*  let rational_of_string s =
+    let i = Str.search_forward (Str.regexp "\\.") s 0 in
+    let num = Str.string_before s i in
+    let num' = Str.string_after s (i+1) in
+    (int_of_string(num^num'), (Int.pow 10  i)) *)
+
   let debug_tag = false
   let verbose s =  if debug_tag then (print_string s; print_newline())
   let comment_depth = ref 0
@@ -53,7 +61,6 @@ let hex_lit = ['0'-'9''a'-'f''A'-'F']
 let hex_number = '-'?"0x" hex_lit ('.' hex_lit+)? 'p' ('+'|'-') dec_lit+
 let float_number = ('+'|'-')? ['0'-'9']+('.'(['0'-'9']*))?('e'('+'|'-')['0'-'9']+)?
 
-('+'|'-')? ['0'-'9']+('.'(['0'-'9']*))?('e'('+'|'-')['0'-'9']+)?
 rule start =
   parse blank { start lexbuf }
     | "\r\n"  { incr_ln (); start lexbuf}
@@ -82,8 +89,8 @@ rule start =
            in verbose ("ID:"^id); try Hashtbl.find keyword_tbl id
              with _ -> ID id
          }
-    | hex_number { verbose (Lexing.lexeme lexbuf); FNUM (Float.of_string(Lexing.lexeme lexbuf)) } (* dec float *)
-    | float_number { verbose (Lexing.lexeme lexbuf); FNUM (float_of_string(Lexing.lexeme lexbuf)) } (* hex float *)
-    | ('-'?)('0'|['1'-'9']dec_lit*) { verbose (Lexing.lexeme lexbuf); FNUM (Float.of_string(Lexing.lexeme lexbuf)) }
+    | hex_number { verbose (Lexing.lexeme lexbuf); NUM (BatNum.of_float(Float.of_string(Lexing.lexeme lexbuf))) } (* dec float *)
+    | float_number { verbose (Lexing.lexeme lexbuf); NUM (BatNum.of_float_string(Lexing.lexeme lexbuf)) } (* hex float *)
+    | ('-'?)('0'|['1'-'9']dec_lit*) { verbose (Lexing.lexeme lexbuf); NUM (BatNum.of_string(Lexing.lexeme lexbuf)) }
     | eof { verbose "eof"; EOF}
     | _ { verbose (Lexing.lexeme lexbuf); EOF }

@@ -18,6 +18,7 @@
 %token UNSAT HOLE TIME_PRECISION
 %token EOF
 %token <float> FNUM
+%token <Num.num> NUM
 %token <string> ID
 %start main
 
@@ -32,12 +33,13 @@ main:
    precision con_list init_list ptree EOF
      { ($1, $2, $4) }
  | precision con_list init_list EOF
-     { ($1, $2, Ptree.Axiom (Env.make $3)) }
+     { ($1, $2, Ptree.NAxiom (Env.nmake $3)) }
  | precision con_list init_list conflict_detected EOF
-     { ($1, $2, Ptree.Axiom (Env.make $3)) }
+     { ($1, $2, Ptree.NAxiom (Env.nmake $3)) }
 
 precision: /* nothing */ { 0.001 } /* default value */
  | PRECISION COLON FNUM  { $3 }
+ | PRECISION COLON NUM { BatNum.to_float $3 }
 
 con_list: con          { [$1] }
         | con con_list { $1::$2 }
@@ -59,6 +61,7 @@ func_list: func           { [$1] }
 ;
 
 func:  FNUM                  { Basic.Num $1 }
+     | NUM                  { Basic.NNum $1 }
      | ID                    { Basic.Var $1 }
      | LP PLUS  func_list RP { Basic.Add $3 }
      | LP MINUS func RP      { Basic.Neg $3 }
@@ -80,7 +83,8 @@ func:  FNUM                  { Basic.Num $1 }
      | LP TANH func RP       { Basic.Tanh $3 }
      | LP LOG func RP        { Basic.Log $3 }
      | LP EXP func RP        { Basic.Exp $3 }
-     | LP CARET func FNUM RP { Basic.Pow ($3, Basic.Num $4) }
+     | LP CARET func FNUM RP { Basic.Pow ($3, Basic.Num $4 ) }
+     | LP CARET func NUM RP { Basic.Pow ( $3, Basic.NNum $4 ) }
 ;
 
 ptree: /* Axiom */
@@ -94,8 +98,19 @@ ptree: /* Axiom */
          { Ptree.Branch (Env.make $2, $3, $4) }
        /* Pruning */
      | before_pruning entry_list after_pruning entry_list ptree
-         { Ptree.Prune (Env.make $2, Env.make $4, $5)
-}
+         { Ptree.Prune (Env.make $2, Env.make $4, $5) }
+
+     |  before_pruning nentry_list conflict_detected
+         { Ptree.NAxiom (Env.nmake $2) }
+       /* Hole */
+     | before_pruning nentry_list after_pruning nentry_list HOLE
+         { Ptree.NPrune (Env.nmake $2, Env.nmake $4, Ptree.Hole) }
+       /* Branching */
+     | branched_on nentry_list ptree ptree
+         { Ptree.NBranch (Env.nmake $2, $3, $4) }
+       /* Pruning */
+     | before_pruning nentry_list after_pruning nentry_list ptree
+         { Ptree.NPrune (Env.nmake $2, Env.nmake $4, $5) }
 ;
 
 before_pruning: LB BEFORE PRUNING RB { }
@@ -110,7 +125,7 @@ branched_on: LB BRANCHED ON ID RB { $4 }
 conflict_detected: LB CONFLICT DETECTED RB { }
 ;
 
-init: entry SEMICOLON { $1 }
+init: nentry SEMICOLON { $1 }
 ;
 
 init_list: init { [$1] }
@@ -129,3 +144,17 @@ entry: ID COLON LB FNUM COMMA FNUM RB { ($1, Intv.make $4 $6) }
 entry_list: entry { [$1] }
      | entry SEMICOLON entry_list { $1::$3 }
 ;
+
+nentry:     
+     | ID COLON LB NUM COMMA NUM RB { ($1, Intv.nmake $4 $6) }
+     | ID COLON LP MINUS INFTY COMMA NUM RB { ($1, Intv.nmake Intv.nneg_infinity $7) }
+     | ID COLON LB NUM COMMA PLUS INFTY RP { ($1, Intv.nmake $4 Intv.ninfinity) }
+     | ID COLON LB NUM COMMA INFTY RP { ($1, Intv.nmake $4 Intv.ninfinity) }
+     | ID COLON NUM { ($1, Intv.nmake $3 $3) }
+;
+
+nentry_list: nentry { [$1] }
+     | nentry SEMICOLON nentry_list { $1::$3 }
+;
+
+

@@ -37,18 +37,6 @@ let print out =
 let to_list (e : t) : (key * intv) list
     = List.of_enum (Map.backwards e)
 
-let coq_intv out (e : t)  =
-  let intv_list = to_list e in
-  let print_intv out (x, {Intv.low=l; Intv.high=h}) = Printf.fprintf out "(%.30f <= %s <= %.30f)%%R" l x h in
-  List.print ~first:"forall " ~last:",\n" ~sep:" "
-		    String.print
-		    out
-		    (List.of_enum (keys e));
-  List.print ~first:"" ~last:" -> \n" ~sep:" &&\n"
-	    print_intv
-	    out
-	    intv_list
-
 let from_list (l : (key * intv) list) : t =
   List.fold_left
     (fun e (k, i) -> Map.add k i e)
@@ -120,3 +108,38 @@ let right_bound (e : t) : float list =
   List.map
     (fun key -> let intv = find key e in Intv.right_bound intv)
     keys
+
+type nintv = Intv.nt
+type nt = (key, nintv) Map.t
+
+let from_nlist (l : (key * nintv) list) : nt =
+  List.fold_left
+    (fun e (k, i) -> Map.add k i e)
+    Map.empty
+    l
+
+let to_nlist (e : nt) : (key * nintv) list
+    = List.of_enum (Map.backwards e)
+
+let nmake = from_nlist
+
+let to_env (e : nt) : t =
+  make (List.map
+	   (fun (key, nintv) -> (key, Intv.to_intv nintv))
+	   (to_nlist e))
+
+let of_env (e : t) : nt =
+  nmake (List.map
+	   (fun (key, intv) -> (key, Intv.of_intv intv))
+	   (to_list e))
+
+let coq_nintv out (e : nt)  =
+  let nintv_list = to_nlist e in
+  List.print ~first:"forall " ~last:",\n" ~sep:" "
+		    String.print
+		    out
+		    (List.of_enum (keys e));
+  List.print ~first:"" ~last:" -> \n" ~sep:" /\\\n"
+	    Intv.nprint
+	    out
+	    nintv_list

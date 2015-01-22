@@ -12,6 +12,7 @@ let rec real_eval (e : (string, float) Map.t) (f : t) : float
     = match f with
       Basic.Var x -> Map.find x e
     | Basic.Num n -> n
+    | Basic.NNum n -> Num.to_float n
     | Basic.Neg f' -> -. (real_eval e f')
     | Basic.Add fl ->
       List.fold_left (+.) 0.0 (List.map (real_eval e) fl)
@@ -68,6 +69,7 @@ and intv_eval (e : Env.t) (f : t) (d : int) : Intv.t
     match f with
       Basic.Var x -> Env.find x e
     | Basic.Num n -> Intv.make n n
+    | Basic.NNum n -> let n' = Num.to_float n in Intv.make n' n'
     | Basic.Neg f' -> ~-$ (apply e f' d)
     | Basic.Add fl ->
       List.fold_left (+$) Interval.zero_I (List.map (fun f -> apply e f d) fl)
@@ -136,6 +138,7 @@ and taylor (e : Env.t) (f : t) (d : int) : Intv.t =
       List.map
         (fun deriv -> match deriv with
         | Basic.Num _ -> intv_eval e deriv apply_depth_limit
+	| Basic.NNum _ -> intv_eval e deriv apply_depth_limit
         | _ -> apply e deriv (d+1))
         derivs in
     let widths : float list=
@@ -164,7 +167,8 @@ and monotone (e : Env.t) (f : t) (d : int) : Intv.t =
     let applied : Intv.t list = List.map
         (fun deriv -> match deriv with
         | Basic.Num _ -> intv_eval e deriv apply_depth_limit
-        | _ -> apply e deriv (d+1))
+        | Basic.NNum _ -> intv_eval e deriv apply_depth_limit
+	| _ -> apply e deriv (d+1))
       derivs in
     let signs : trend list = List.map get_sign applied in
     let (left, right) =
