@@ -118,32 +118,30 @@ let rec check (pt : t) (fl : formula list) =
       end
 
   | NAxiom e ->
-     Printf.printf "An axiom\n";
-     Env.coq_nintv stdout e;
-     List.print ~first:"~ (" ~last:").\n" ~sep:" /\\\n"
+     String.print stdout "Goal\n";
+     Env.coq_nprint stdout e;
+     List.print ~first:"" ~last:".\n\n" ~sep:" \\/\n"
 		Basic.coq_formula 
 		stdout
 		fl
   | NBranch (nenv, pt1, pt2) -> check (Branch (Env.to_env nenv, pt1, pt2))  fl
   | NPrune (nenv1, nenv2, pt') ->
-     let env1 = Env.to_env nenv1 in
-     let env2 = Env.to_env nenv2 in
-     if not (Env.order env2 env1) then
+     if not (Env.norder nenv2 nenv1) then
        begin
          String.println IO.stdout "\nEnv1: ";
-         Env.print IO.stdout env1;
+         Env.nprint IO.stdout nenv1;
          String.println IO.stdout "\nEnv2: ";
-         Env.print IO.stdout env2;
+         Env.nprint IO.stdout nenv2;
          String.println IO.stdout "\nEnv2 is not a subset of Env1.";
          raise (Error "Prune")
        end
-     else if Env.equals env2 env1 then
+     else if Env.nequals nenv2 nenv1 then
        (incr num_of_trivial_pruning;
 	check pt' fl)
      else
-       let remainders = Env.minus env1 env2 in
+       let remainders = Env.nminus nenv1 nenv2 in
        begin
          incr num_of_non_trivial_pruning;
-         List.iter (fun env_ -> check (NAxiom (Env.of_env env_)) fl) remainders;
+         List.iter (fun nenv_ -> check (NAxiom nenv_) fl) remainders;
          check pt' fl
        end

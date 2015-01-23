@@ -659,11 +659,11 @@ let coq_formula out f =
 		 out
 		 fl
     | Div (f1, f2) -> coq_exp out f1; String.print out " / "; coq_exp out f2
-    | Ite _ -> raise ShouldNotHappen (* FuncException "ITE is not supported!" *)
+    | Ite _ -> raise TODO (* FuncException "ITE is not supported!" *)
     | Pow (f1, f2) -> coq_fun out "pow" [f1; f2]
     | Sqrt f' -> coq_fun out "sqrt" [f']
-(*    | Safesqrt f' ->
-      let intv = apply e f' d in
+    | Safesqrt f' -> raise TODO
+(*      let intv = apply e f' d in
       let intv' = Intv.meet intv {low=0.0; high=infinity} in
       sqrt_I intv' *)
     | Abs f' -> coq_fun out "RAbs" [f']
@@ -675,9 +675,9 @@ let coq_formula out f =
     | Asin f' -> coq_fun out "asin" [f']
     | Acos f' -> coq_fun out "acos" [f']
     | Atan f' -> coq_fun out "atan" [f']
-(*    | Atan2 (f1, f2) -> atan2_I_I (apply e f1 d) (apply e f2 d)
-    | Matan f' ->
-      let {low=l; high=h} = (apply e f' d) in
+    | Atan2 (f1, f2) -> raise TODO (* atan2_I_I (apply e f1 d) (apply e f2 d) *)
+    | Matan f' -> raise TODO 
+(*      let {low=l; high=h} = (apply e f' d) in
       let pos_part =
         if h > 0.0 then
           let sliced = {low=min_float; high=h} in
@@ -703,15 +703,15 @@ let coq_formula out f =
           []
       in
       List.reduce Intv.meet (List.flatten [pos_part;neg_part;zero_part]) *)
-
     | Sinh f' -> coq_fun out "sinh" [f']
     | Cosh f' -> coq_fun out "cosh" [f']
     | Tanh f' -> coq_fun out "tanh" [f'] in
   match f with
-  | Eq (exp1, exp2) ->
-     String.print out "("; coq_exp out exp1; String.print out " == "; coq_exp out exp2; String.print out ")%R" 
+(* as for unsatisfiability proof, clauses need to be negated in axioms *)
+(*  | Eq (exp1, exp2) ->
+     String.print out "("; coq_exp out exp1; String.print out " == "; coq_exp out exp2; String.print out ")%R" *)
   | Ge (exp1, exp2) ->
-     String.print out "("; coq_exp out exp1; String.print out " >= "; coq_exp out exp2; String.print out ")%R" 
-  | Le (exp1, exp2) ->
      String.print out "("; coq_exp out exp1; String.print out " <= "; coq_exp out exp2; String.print out ")%R" 
+  | Le (exp1, exp2) ->
+     String.print out "("; coq_exp out exp1; String.print out " >= "; coq_exp out exp2; String.print out ")%R" 
   | _ -> raise ShouldNotHappen

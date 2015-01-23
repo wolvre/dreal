@@ -42,5 +42,14 @@ let to_intv {nlow=l; nhigh=h} = make (Num.to_float l) (Num.to_float h)
 
 let of_intv {low=l; high=h} = nmake (Num.of_float l) (Num.of_float h)
 
-let nprint out (x, {nlow=l; nhigh=h}) =
-  Printf.fprintf out "(%s <= %s <= %s)%%R" (Num.to_string l) x (Num.to_string h)
+let norder {nlow=l1; nhigh=h1} {nlow=l2; nhigh=h2} =
+  (Num.le_num l2 l1) && (Num.le_num h1 h2)
+
+let njoin {nlow=l1; nhigh=h1} {nlow=l2; nhigh=h2} = 
+  nmake (Num.min_num l1 l2) (Num.max_num h1 h2)
+
+let nequals {nlow=l1; nhigh=h1} {nlow=l2; nhigh=h2} : bool
+    = (Num.eq_num l1 l2) && (Num.eq_num h1 h2)
+
+let nprint out {nlow=l; nhigh=h} =
+  Printf.fprintf out "[%s, %s]" (Num.to_string l) (Num.to_string h)
