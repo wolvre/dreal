@@ -1,10 +1,11 @@
-OCAMLOPT=ocamlc -g
+OCAMLOPT=ocamlopt
+#OCAMLOPT=ocamlc -g
 
 all: error.cmx intv.cmx basic.cmx smt2_cmd.cmx smt2.cmx env.cmx func.cmx ptree.cmx parser.cmx lexer.cmx failhandler.cmx  main.cmx INTERVAL/interval.cmxa
 	ocamlfind ${OCAMLOPT} -linkpkg -package batteries \
-	INTERVAL/interval.cma -I INTERVAL \
+	INTERVAL/interval.cmxa -I INTERVAL \
 	-annot \
-	error.cmo intv.cmo env.cmo basic.cmo func.cmo  smt2_cmd.cmo smt2.cmo failhandler.cmo ptree.cmo parser.cmo lexer.cmo main.cmo \
+	error.cmx intv.cmx env.cmx basic.cmx func.cmx  smt2_cmd.cmx smt2.cmx failhandler.cmx ptree.cmx parser.cmx lexer.cmx main.cmx \
 	INTERVAL/libinterval.a -annot -o main.native
 
 INTERVAL/interval.cmxa:

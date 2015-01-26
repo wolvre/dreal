@@ -660,7 +660,7 @@ let coq_formula out f =
 		 fl
     | Div (f1, f2) -> coq_exp out f1; String.print out " / "; coq_exp out f2
     | Ite _ -> raise TODO (* FuncException "ITE is not supported!" *)
-    | Pow (f1, f2) -> coq_fun out "pow" [f1; f2]
+    | Pow (f1, f2) -> coq_exp out f1; String.print out " ^ "; coq_exp out f2 (* coq_fun out "pow" [f1; f2] *)
     | Sqrt f' -> coq_fun out "sqrt" [f']
     | Safesqrt f' -> raise TODO
 (*      let intv = apply e f' d in

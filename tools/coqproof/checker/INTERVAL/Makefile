@@ -1,9 +1,11 @@
 OCAMLDIR:= "$(shell ocamlc -where)"
-CSLC = ocamlc -g
+#CSLC = ocamlc -g
+CSLC = ocamlc
 CSLOPT = ocamlopt
 NORM_OBJS= fpu.cmo fpu_rename_all.cmo fpu_rename.cmo interval.cmo 
 OPT_OBJS=  $(NORM_OBJS:.cmo=.cmx)
-CC = gcc -g
+#CC = gcc -g
+CC = gcc
 
 all : interval.cma interval.cmxa libinterval.a doc/index.html ocamlfpu
 

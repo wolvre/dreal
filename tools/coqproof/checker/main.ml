@@ -17,8 +17,9 @@ let run () =
     let (p, fs, pt) = Parser.main Lexer.start lexbuf in
     begin
       Global.set Failhandler.prec p;
+      String.print out "Require Import Reals.\nRequire Import Interval_tactic.\n\n";
       Ptree.check pt fs;
-      Ptree.print_log out
+      Ptree.print_log stderr
     end
   with v ->
     Error.handle_exn v
