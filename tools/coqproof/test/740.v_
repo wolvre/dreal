@@ -1,0 +1,13 @@
+Require Import Reals.
+Require Import Interval_tactic.
+
+Goal
+forall x1,
+(1 <= x1 <= 63/50)%R -> 
+(0 >= (62327/32500) - x1 * (253/130))%R.
+Proof.
+intros.
+interval.
+Qed.
+
+

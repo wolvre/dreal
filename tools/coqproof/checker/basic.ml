@@ -636,31 +636,24 @@ let coq_formula out f =
 			       coq_exp
 			       out
 			       args in
+    let coq_infix_fun out op args =
+      List.print ~first:"(" ~last:")" ~sep:(") "^op^" (")
+		 coq_exp 
+		 out
+		 args in
     match exp with
     (* Printf.printf "coq_formula %s\n" (IO.to_string Basic.print_exp exp); *)
     | Var x -> String.print out x
     | Num n -> raise ShouldNotHappen 
     | NNum n -> String.print out (Num.to_string n)
-    | Neg f' -> coq_fun out "~$"  [f']
-    | Add fl ->
-      List.print ~first:"" ~last:"" ~sep:" + "
-		 coq_exp 
-		 out
-		 fl
-    | Sub (f1::rest) ->
-      List.print ~first:"" ~last:"" ~sep:" - "
-		 coq_exp
-		 out
-		 (f1::rest)
+    | Neg f' -> coq_fun out "~"  [f']
+    | Add fl -> coq_infix_fun out "+" fl
+    | Sub (f1::rest) -> coq_infix_fun out "-" (f1::rest)
     | Sub [] -> raise ShouldNotHappen
-    | Mul fl ->
-      List.print ~first:"" ~last:"" ~sep:" * "
-		 coq_exp
-		 out
-		 fl
-    | Div (f1, f2) -> coq_exp out f1; String.print out " / "; coq_exp out f2
+    | Mul fl -> coq_infix_fun out "*" fl
+    | Div (f1, f2) -> coq_infix_fun out "/" [f1;f2]
     | Ite _ -> raise TODO (* FuncException "ITE is not supported!" *)
-    | Pow (f1, f2) -> coq_exp out f1; String.print out " ^ "; coq_exp out f2 (* coq_fun out "pow" [f1; f2] *)
+    | Pow (f1, f2) -> coq_infix_fun out "^" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
     | Sqrt f' -> coq_fun out "sqrt" [f']
     | Safesqrt f' -> raise TODO
 (*      let intv = apply e f' d in
@@ -707,7 +700,7 @@ let coq_formula out f =
     | Cosh f' -> coq_fun out "cosh" [f']
     | Tanh f' -> coq_fun out "tanh" [f'] in
   match f with
-(* as for unsatisfiability proof, clauses need to be negated in axioms *)
+(* the unsatisfiable formulas should be negated in the Coq goals. *)
 (*  | Eq (exp1, exp2) ->
      String.print out "("; coq_exp out exp1; String.print out " == "; coq_exp out exp2; String.print out ")%R" *)
   | Ge (exp1, exp2) ->
