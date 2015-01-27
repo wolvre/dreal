@@ -1,44 +1,28 @@
 OCAMLOPT=ocamlopt
 #OCAMLOPT=ocamlc -g
 
-all: error.cmx intv.cmx basic.cmx smt2_cmd.cmx smt2.cmx env.cmx func.cmx ptree.cmx parser.cmx lexer.cmx failhandler.cmx  main.cmx INTERVAL/interval.cmxa
+all: error.cmx intv.cmx basic.cmx env.cmx ptree.cmx parser.cmx lexer.cmx main.cmx 
 	ocamlfind ${OCAMLOPT} -linkpkg -package batteries \
-	INTERVAL/interval.cmxa -I INTERVAL \
 	-annot \
-	error.cmx intv.cmx env.cmx basic.cmx func.cmx  smt2_cmd.cmx smt2.cmx failhandler.cmx ptree.cmx parser.cmx lexer.cmx main.cmx \
-	INTERVAL/libinterval.a -annot -o main.native
-
-INTERVAL/interval.cmxa:
-	make -C INTERVAL/
+	error.cmx intv.cmx env.cmx basic.cmx ptree.cmx parser.cmx lexer.cmx main.cmx \
+	-o main.native
 
 error.cmx: error.ml
 	ocamlfind ${OCAMLOPT} -annot -c error.ml
 
-intv.cmx: intv.ml INTERVAL/interval.cmxa
-	ocamlfind ${OCAMLOPT} -I INTERVAL -annot -package batteries -c intv.ml
+intv.cmx: intv.ml 
+	ocamlfind ${OCAMLOPT} -annot -package batteries -c intv.ml
 
 basic.cmx: basic.ml
 	ocamlfind ${OCAMLOPT} -annot -package batteries -c basic.ml
 
-smt2_cmd.cmx: basic.cmx  smt2_cmd.ml
-	ocamlfind ${OCAMLOPT} -annot -package batteries -c smt2_cmd.ml
+env.cmx: intv.cmx env.ml 
+	ocamlfind ${OCAMLOPT} -annot -package batteries -c env.ml
 
-smt2.cmx: smt2.ml smt2_cmd.cmx
-	ocamlfind ${OCAMLOPT} -annot -package batteries -c smt2.ml
-
-env.cmx: intv.cmx env.ml INTERVAL/interval.cmxa
-	ocamlfind ${OCAMLOPT} -I INTERVAL -annot -package batteries -c env.ml
-
-func.cmx: env.cmx intv.cmx basic.cmx func.ml  INTERVAL/interval.cmxa
-	ocamlfind ${OCAMLOPT} -I INTERVAL -annot -package batteries -c func.ml
-
-ptree.cmx: intv.cmx env.cmx func.cmx smt2.cmx smt2_cmd.cmx basic.cmx ptree.ml failhandler.cmx
+ptree.cmx: intv.cmx env.cmx basic.cmx ptree.ml 
 	ocamlfind ${OCAMLOPT} -annot -package batteries -c ptree.ml
 
-failhandler.cmx: intv.cmx env.cmx func.cmx smt2.cmx smt2_cmd.cmx basic.cmx failhandler.ml INTERVAL/interval.cmxa
-	ocamlfind ${OCAMLOPT} -I INTERVAL  -annot -package batteries -c failhandler.ml
-
-main.cmx: ptree.cmx  env.cmx func.cmx main.ml parser.cmx lexer.cmx
+main.cmx: ptree.cmx env.cmx main.ml parser.cmx lexer.cmx
 	ocamlfind ${OCAMLOPT} -annot -package batteries -c main.ml
 
 lexer.ml: lexer.mll parser.ml
@@ -47,7 +31,7 @@ lexer.ml: lexer.mll parser.ml
 lexer.cmx: lexer.ml
 	ocamlfind ${OCAMLOPT} -c -package batteries -package threads -thread -o lexer.cmx lexer.ml
 
-parser.ml: parser.mly ptree.ml basic.ml func.ml env.ml
+parser.ml: parser.mly ptree.ml basic.ml env.ml
 	ocamlyacc -v parser.mly
 
 parser.cmi: parser.mli
@@ -61,4 +45,3 @@ clean:
 	-rm -f parser.mli
 	-rm -f *.cmi *.cmx *.o *.annot
 	-rm -f main.native
-	make clean -C INTERVAL

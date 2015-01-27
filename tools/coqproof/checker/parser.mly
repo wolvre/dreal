@@ -25,7 +25,7 @@
 %type <float * Basic.formula list * Ptree.t> main
 %type <Ptree.t> ptree
 %type <Basic.formula> con
-%type <Func.t> func
+%type <Basic.exp> func
 %type <string> branched_on
 %%
 
@@ -88,19 +88,7 @@ func:  FNUM                  { Basic.Num $1 }
 ;
 
 ptree: /* Axiom */
-       before_pruning entry_list conflict_detected
-         { Ptree.Axiom (Env.make $2) }
-       /* Hole */
-     | before_pruning entry_list after_pruning entry_list HOLE
-         { Ptree.Prune (Env.make $2, Env.make $4, Ptree.Hole) }
-       /* Branching */
-     | branched_on entry_list ptree ptree
-         { Ptree.Branch (Env.make $2, $3, $4) }
-       /* Pruning */
-     | before_pruning entry_list after_pruning entry_list ptree
-         { Ptree.Prune (Env.make $2, Env.make $4, $5) }
-
-     |  before_pruning nentry_list conflict_detected
+       before_pruning nentry_list conflict_detected
          { Ptree.NAxiom (Env.nmake $2) }
        /* Hole */
      | before_pruning nentry_list after_pruning nentry_list HOLE
@@ -130,19 +118,6 @@ init: nentry SEMICOLON { $1 }
 
 init_list: init { [$1] }
          | init init_list { $1::$2 }
-;
-
-entry: ID COLON LB FNUM COMMA FNUM RB { ($1, Intv.make $4 $6) }
-     | ID COLON LP MINUS INFTY COMMA FNUM RB { ($1, Intv.make neg_infinity $7) }
-     | ID COLON LB FNUM COMMA PLUS INFTY RP { ($1, Intv.make $4 infinity) }
-     | ID COLON LB FNUM COMMA INFTY RP { ($1, Intv.make $4 infinity) }
-     | ID COLON LP MINUS INFTY COMMA PLUS INFTY RP { ($1, Intv.make neg_infinity infinity) }
-     | ID COLON LP MINUS INFTY COMMA INFTY RP { ($1, Intv.make neg_infinity infinity) }
-     | ID COLON FNUM { ($1, Intv.make $3 $3) }
-;
-
-entry_list: entry { [$1] }
-     | entry SEMICOLON entry_list { $1::$3 }
 ;
 
 nentry:     
