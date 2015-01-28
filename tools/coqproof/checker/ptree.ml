@@ -35,10 +35,13 @@ let rec check (pt : t) (fl : formula list) =
   match pt with
   | Hole -> ()
   | NAxiom e ->
-     String.print stdout "Goal\n";
-     Env.coq_nprint stdout e;
-     List.print ~first:"" ~last:".\n\n" ~sep:" \\/\n"
-		Basic.coq_formula 
+     let coq_nprint_goal e f =
+       String.print stdout "\nGoal\n";
+       Env.coq_nprint stdout e;
+       Basic.coq_formula f in
+     Env.coq_nprint_def stdout e;
+     List.print ~first:"" ~last:".\n" ~sep:".\n"
+		(coq_nprint_goal e) 
 		stdout
 		fl;
      incr num_of_axioms
