@@ -653,7 +653,14 @@ let coq_formula out f =
     | Mul fl -> coq_infix_fun out "*" fl
     | Div (f1, f2) -> coq_infix_fun out "/" [f1;f2]
     | Ite _ -> raise TODO (* FuncException "ITE is not supported!" *)
-    | Pow (f1, f2) -> coq_infix_fun out "^" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
+    | Pow (f1, f2) ->
+       (match f2 with
+	  NNum e ->
+	  if (Num.eq_num e (Num.of_float 0.5)) then
+	    coq_fun out "sqrt" [f1]
+	  else
+	    coq_infix_fun out "^" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
+	| _ -> coq_infix_fun out "^" [f1;f2])
     | Sqrt f' -> coq_fun out "sqrt" [f']
     | Safesqrt f' -> raise TODO
 (*      let intv = apply e f' d in
@@ -704,7 +711,11 @@ let coq_formula out f =
 (*  | Eq (exp1, exp2) ->
      String.print out "("; coq_exp out exp1; String.print out " == "; coq_exp out exp2; String.print out ")%R" *)
   | Ge (exp1, exp2) ->
-     String.print out "("; coq_exp out exp1; String.print out " <= "; coq_exp out exp2; String.print out ")%R" 
+     (* String.print out "("; *)
+     coq_exp out exp1; String.print out " <= "; coq_exp out exp2; 
+     (* String.print out ")%R" *)
   | Le (exp1, exp2) ->
-     String.print out "("; coq_exp out exp1; String.print out " >= "; coq_exp out exp2; String.print out ")%R" 
+     (* String.print out "("; *)
+     coq_exp out exp1; String.print out " >= "; coq_exp out exp2; 
+     (* String.print out ")%R" *)
   | _ -> raise ShouldNotHappen
