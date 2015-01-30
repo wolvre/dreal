@@ -3,6 +3,7 @@ open Batteries
 exception TODO
 exception DerivativeNotFound
 exception ShouldNotHappen
+exception NOTINCOQ
 
 type exp =
 | Var   of string
@@ -658,9 +659,14 @@ let coq_formula out f =
 	  NNum e ->
 	  if (Num.eq_num e (Num.of_float 0.5)) then
 	    coq_fun out "sqrt" [f1]
+	  else if (Num.is_integer e) then
+	    (if (Num.eq_num e (Num.of_int 2)) then
+	       coq_fun out "Rsqr" [f1]
+	     else
+	       coq_fun out "^" [f1; f2])
 	  else
-	    coq_infix_fun out "^" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
-	| _ -> coq_infix_fun out "^" [f1;f2])
+	    coq_infix_fun out "^R" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
+	| _ -> coq_infix_fun out "^R" [f1;f2])
     | Sqrt f' -> coq_fun out "sqrt" [f']
     | Safesqrt f' -> raise TODO
 (*      let intv = apply e f' d in
@@ -672,8 +678,8 @@ let coq_formula out f =
     | Sin f' -> coq_fun out "sin" [f']
     | Cos f' -> coq_fun out "cos" [f']
     | Tan f' -> coq_fun out "tan" [f']
-    | Asin f' -> coq_fun out "asin" [f']
-    | Acos f' -> coq_fun out "acos" [f']
+    | Asin f' -> raise NOTINCOQ
+    | Acos f' -> raise NOTINCOQ
     | Atan f' -> coq_fun out "atan" [f']
     | Atan2 (f1, f2) -> raise TODO (* atan2_I_I (apply e f1 d) (apply e f2 d) *)
     | Matan f' -> raise TODO 
