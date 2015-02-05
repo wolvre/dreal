@@ -1,19 +1,30 @@
 #!/bin/bash
 
-FAILED=0
+if [ "$#" -eq "0" ];
+then
+    FAILED=0
 
-for i in `find . -name *.smt2.proof`
-do
+    for i in `find . -name *.smt2.proof`
+    do
+	BASE=${i/%.smt2.proof/}
+	echo "Processing ${i}$"
+	time ../checker/main.native $i 
+	RESULT="$?"
+	if [ "${RESULT}" -ne "0" ];
+	then
+	    rm -f "${BASE}.v"
+	    FF["${FAILED}"]="$i"
+	    FAILED=$[${FAILED}+1]
+	fi
+    done
 
-    BASE=${i/%.smt2.proof/}
-    ../checker/main.native $i > ${BASE}.v
-    RESULT="$?"
-    if [ "${RESULT}" -ne "0" ];
-    then
-	rm "${BASE}.v"
-	FF["${FAILED}"]="$i"
-	FAILED=$[${FAILED}+1]
-    fi
-done
-echo "${FAILED} files failed: ${FF[*]}"
-
+    echo "${FAILED} files failed: ${FF[*]}"
+else
+    for i in $@ 
+    do
+	if [ "$i" = "-p" ];
+	then
+	    find . -name "*.smt2.proof" | parallel "check.sh {}"
+	fi
+    done
+fi

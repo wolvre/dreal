@@ -3,10 +3,10 @@ Require Import Interval_tactic.
 Open Scope R_scope.
 
 Definition bounded d1 d2 e1 e2 t x1 x2 y1 y2 :=
-10 <= y2 <= 0 /\
-10 <= y1 <= 0 /\
-0 <= x2 <= -1 /\
-0 <= x1 <= -9 /\
+10 <= y2 <= 1/0 /\
+10 <= y1 <= 1/0 /\
+-1/0 <= x2 <= -1 /\
+-1/0 <= x1 <= -9 /\
 0 <= t <= 10 /\
 1/10 <= e2 <= 3/20 /\
 1/10 <= e1 <= 3/20 /\

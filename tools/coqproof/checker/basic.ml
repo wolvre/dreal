@@ -714,8 +714,10 @@ let coq_formula out f =
     | Tanh f' -> coq_fun out "tanh" [f'] in
   match f with
 (* the unsatisfiable formulas should be negated in the Coq goals. *)
-(*  | Eq (exp1, exp2) ->
-     String.print out "("; coq_exp out exp1; String.print out " == "; coq_exp out exp2; String.print out ")%R" *)
+  | Eq (exp1, exp2) ->
+     (* String.print out "("; *)
+     coq_exp out exp1; String.print out " <> "; coq_exp out exp2; 
+     (* String.print out ")%R" *)
   | Ge (exp1, exp2) ->
      (* String.print out "("; *)
      coq_exp out exp1; String.print out " <= "; coq_exp out exp2; 

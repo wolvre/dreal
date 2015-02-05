@@ -17,6 +17,14 @@ type t =
        | NBranch of nenv * t * t
        | NPrune of nenv * nenv * t
 
+let reset_log =
+  begin
+    num_of_axioms := 0;
+    num_of_branches := 0;                  (* DONE *)
+    num_of_non_trivial_pruning := 0;       (* DONE *)
+    num_of_trivial_pruning := 0;           (* DONE *)
+  end
+
 let print_log out =
   begin
     String.println out ("Axioms            #: " ^ (string_of_int !num_of_axioms));
@@ -31,18 +39,18 @@ let extract_env p = match p with
   | NBranch (nenv, _, _) -> nenv
   | NPrune (nenv1, nenv2, _) -> nenv1
 
-let rec check (pt : t) (fl : formula list) =
+let rec check out (pt : t) (fl : formula list) =
   match pt with
   | Hole -> ()
   | NAxiom e ->
-     let coq_nprint_goal e f =
-       String.print stdout "\nGoal\n";
-       Env.coq_nprint stdout e;
-       Basic.coq_formula f in
-     Env.coq_nprint_def stdout e;
+     let coq_nprint_goal e out f =
+       String.print out "\nGoal\n";
+       Env.coq_nprint out e;
+       Basic.coq_formula out f in
+     Env.coq_nprint_def out e;
      List.print ~first:"" ~last:".\n" ~sep:".\n"
 		(coq_nprint_goal e) 
-		stdout
+		out
 		fl;
      incr num_of_axioms
   | NBranch (nenv, pt1, pt2) ->
@@ -51,7 +59,7 @@ let rec check (pt : t) (fl : formula list) =
     let env_join = Env.njoin env1 env2 in
     begin
       match Env.norder nenv env_join with
-      | true -> (incr num_of_branches; check pt1 fl; check pt2 fl)
+      | true -> (incr num_of_branches; check out pt1 fl; check out pt2 fl)
       | false ->
         begin
           String.println IO.stdout "\nEnv1: ";
@@ -78,11 +86,11 @@ let rec check (pt : t) (fl : formula list) =
        end
      else if Env.nequals nenv2 nenv1 then
        (incr num_of_trivial_pruning;
-	check pt' fl)
+	check out pt' fl)
      else
        let remainders = Env.nminus nenv1 nenv2 in
        begin
          incr num_of_non_trivial_pruning;
-         List.iter (fun nenv_ -> check (NAxiom nenv_) fl) remainders;
-         check pt' fl
+         List.iter (fun nenv_ -> check out (NAxiom nenv_) fl) remainders;
+         check out pt' fl
        end
