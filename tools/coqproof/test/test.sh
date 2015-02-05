@@ -17,8 +17,16 @@ then
 	    FAILED=$[${FAILED}+1]
 	fi
     done
-
-    echo "${FAILED} files failed: ${FF[*]}"
+    
+    if [ "${FAILED}" -ge "0" ];
+    then
+	if [ "${FAILED}" -eq "1" ];
+	then
+	    echo "1 file failed: ${FF[*]}"
+	else	
+    	    echo "${FAILED} files failed: ${FF[*]}"
+	fi
+    fi
 else
     for i in $@ 
     do

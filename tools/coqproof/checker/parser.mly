@@ -27,8 +27,8 @@
 
 %token ERROR
 
-%type <(float * Basic.formula list * Ptree.t) list> main
-%type <Ptree.t> ptree
+%type <(float * Basic.formula list * Ptree.nt) list> main
+%type <Ptree.nt> ptree
 %type <Basic.formula> con
 %type <Basic.exp> func
 %type <string> branched_on
@@ -36,8 +36,8 @@
 
 main: proof_list { $1 }
 
-proof_list: EOF { [] }
- | proof { [$1] }
+proof_list: /* EOF { [] }
+ |*/ proof { [$1] }
  | proof proof_list  { $1::$2 }
 
 proof: precision con_list init_list ptree
@@ -102,13 +102,21 @@ ptree: /* Axiom */
        /* Branching */
      | branched_on nentry_list ptree ptree
          { Ptree.NBranch (Env.nmake $2, $3, $4) }
+       /* !!! proof error: missing another branch */
+     | branched_on nentry_list ptree EOF
+	 { Ptree.NBranch (Env.nmake $2, $3, Ptree.Hole) }
        /* Pruning */
      | before_pruning nentry_list after_pruning nentry_list ptree
          { Ptree.NPrune (Env.nmake $2, Env.nmake $4, $5) }
+       /* !!! conflict_detected used as the delimiter followed by another sub-tree */
      | before_pruning nentry_list after_pruning nentry_list conflict_detected ptree
 	 { Ptree.NPrune (Env.nmake $2, Env.nmake $4, $6) }
+       /* !!! end of last sub-tree without terminal HOLE */
      | before_pruning nentry_list after_pruning nentry_list
 	 { Ptree.NPrune (Env.nmake $2, Env.nmake $4, Ptree.Hole) }
+       /* !!! proof error: incomplete pruning */
+     | before_pruning nentry_list EOF
+	 { Ptree.NAxiom (Env.nmake $2) }
 	 
 before_pruning: LB BEFORE PRUNING RB { }
 

@@ -11,13 +11,13 @@ let num_of_trivial_pruning = ref 0           (* DONE *)
 
 type nenv = Env.nt
 type formula = Basic.formula
-type t = 
+type nt = 
        | Hole
        | NAxiom of nenv
-       | NBranch of nenv * t * t
-       | NPrune of nenv * nenv * t
+       | NBranch of nenv * nt * nt
+       | NPrune of nenv * nenv * nt
 
-let reset_log =
+let reset_log() =
   begin
     num_of_axioms := 0;
     num_of_branches := 0;                  (* DONE *)
@@ -39,17 +39,17 @@ let extract_env p = match p with
   | NBranch (nenv, _, _) -> nenv
   | NPrune (nenv1, nenv2, _) -> nenv1
 
-let rec check out (pt : t) (fl : formula list) =
+let rec check out (pt : nt) (fl : formula list) =
   match pt with
   | Hole -> ()
   | NAxiom e ->
-     let coq_nprint_goal e out f =
+     let coq_nprint_goal e i out f =
        String.print out "\nGoal\n";
-       Env.coq_nprint out e;
+       Env.coq_nprint out e i;
        Basic.coq_formula out f in
-     Env.coq_nprint_def out e;
+     Env.coq_nprint_def out e !num_of_axioms;
      List.print ~first:"" ~last:".\n" ~sep:".\n"
-		(coq_nprint_goal e) 
+		(coq_nprint_goal e !num_of_axioms) 
 		out
 		fl;
      incr num_of_axioms

@@ -3,7 +3,7 @@ open Batteries
 exception TODO
 exception DerivativeNotFound
 exception ShouldNotHappen
-exception NOTINCOQ
+exception NOTINCOQ of string
 
 type exp =
 | Var   of string
@@ -678,8 +678,8 @@ let coq_formula out f =
     | Sin f' -> coq_fun out "sin" [f']
     | Cos f' -> coq_fun out "cos" [f']
     | Tan f' -> coq_fun out "tan" [f']
-    | Asin f' -> raise NOTINCOQ
-    | Acos f' -> raise NOTINCOQ
+    | Asin f' -> raise (NOTINCOQ "arcsin")
+    | Acos f' -> raise (NOTINCOQ "arccos") 
     | Atan f' -> coq_fun out "atan" [f']
     | Atan2 (f1, f2) -> raise TODO (* atan2_I_I (apply e f1 d) (apply e f2 d) *)
     | Matan f' -> raise TODO 
