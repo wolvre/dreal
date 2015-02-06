@@ -668,10 +668,7 @@ let coq_formula out f =
 	    coq_infix_fun out "^R" [f1;f2] (* coq_fun out "pow" [f1; f2] *)
 	| _ -> coq_infix_fun out "^R" [f1;f2])
     | Sqrt f' -> coq_fun out "sqrt" [f']
-    | Safesqrt f' -> raise TODO
-(*      let intv = apply e f' d in
-      let intv' = Intv.meet intv {low=0.0; high=infinity} in
-      sqrt_I intv' *)
+    | Safesqrt f' -> raise (NOTINCOQ "safesqrt")
     | Abs f' -> coq_fun out "RAbs" [f']
     | Log f' -> coq_fun out "log" [f']
     | Exp f' -> coq_fun out "exp" [f']
@@ -681,34 +678,8 @@ let coq_formula out f =
     | Asin f' -> raise (NOTINCOQ "arcsin")
     | Acos f' -> raise (NOTINCOQ "arccos") 
     | Atan f' -> coq_fun out "atan" [f']
-    | Atan2 (f1, f2) -> raise TODO (* atan2_I_I (apply e f1 d) (apply e f2 d) *)
-    | Matan f' -> raise TODO 
-(*      let {low=l; high=h} = (apply e f' d) in
-      let pos_part =
-        if h > 0.0 then
-          let sliced = {low=min_float; high=h} in
-          let sqrt_x = sqrt_I sliced in
-          [atan_I(sqrt_x) /$ sqrt_x]
-        else
-          []
-      in
-      let neg_part =
-        if l < 0.0 then
-          let sliced = {low=l; high= ~-. min_float} in
-          let sqrt_mx = sqrt_I (~-$ sliced) in
-          let one = Interval.one_I in
-          let two = {low=2.0; high=2.0} in
-          [log_I ((one +$ sqrt_mx) /$ (one -$ sqrt_mx)) /$ (two *$ sqrt_mx)]
-        else
-          []
-      in
-      let zero_part =
-        if l <= 0.0 && h >= 0.0 then
-          [Interval.one_I]
-        else
-          []
-      in
-      List.reduce Intv.meet (List.flatten [pos_part;neg_part;zero_part]) *)
+    | Atan2 (f1, f2) -> raise (NOTINCOQ "atan2")
+    | Matan f' -> raise (NOTINCOQ "matan")
     | Sinh f' -> coq_fun out "sinh" [f']
     | Cosh f' -> coq_fun out "cosh" [f']
     | Tanh f' -> coq_fun out "tanh" [f'] in

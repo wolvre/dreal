@@ -9,8 +9,8 @@ Branches          #: 0
 Trivial Prune     #: 15
 non-trivial Prune #: 1
 
-real	2m51.174s
-user	2m49.031s
+real	3m4.480s
+user	3m2.335s
 sys	0m2.148s
 Processing ./simple/aircraft.smt2.proof$
 Axioms            #: 1
@@ -19,8 +19,8 @@ Trivial Prune     #: 0
 non-trivial Prune #: 0
 
 real	0m0.004s
-user	0m0.004s
-sys	0m0.000s
+user	0m0.000s
+sys	0m0.004s
 Processing ./microfluidics/berstein.smt2.proof$
 nothing to return!
 Axioms            #: 54
@@ -32,9 +32,9 @@ Branches          #: 0
 Trivial Prune     #: 15
 non-trivial Prune #: 1
 
-real	2m49.377s
-user	2m47.422s
-sys	0m1.956s
+real	3m1.779s
+user	2m59.695s
+sys	0m2.012s
 Processing ./microfluidics/simdreal_5.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -46,9 +46,9 @@ Branches          #: 0
 Trivial Prune     #: 79
 non-trivial Prune #: 0
 
-real	1m53.764s
-user	1m51.751s
-sys	0m2.008s
+real	2m13.198s
+user	2m11.124s
+sys	0m2.076s
 Processing ./microfluidics/simdreal_11.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -60,9 +60,9 @@ Branches          #: 0
 Trivial Prune     #: 223
 non-trivial Prune #: 0
 
-real	2m9.008s
-user	2m7.020s
-sys	0m1.992s
+real	2m52.226s
+user	2m50.331s
+sys	0m1.904s
 Processing ./microfluidics/simdreal_9.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -74,9 +74,9 @@ Branches          #: 0
 Trivial Prune     #: 159
 non-trivial Prune #: 0
 
-real	1m55.170s
-user	1m53.123s
-sys	0m2.048s
+real	2m25.356s
+user	2m23.317s
+sys	0m2.044s
 Processing ./microfluidics/simdreal_4.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -88,9 +88,9 @@ Branches          #: 0
 Trivial Prune     #: 69
 non-trivial Prune #: 0
 
-real	1m53.898s
-user	1m52.059s
-sys	0m1.840s
+real	2m9.035s
+user	2m6.948s
+sys	0m2.024s
 Processing ./microfluidics/simdreal_8.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -102,11 +102,11 @@ Branches          #: 0
 Trivial Prune     #: 133
 non-trivial Prune #: 0
 
-real	2m1.032s
-user	1m59.047s
-sys	0m1.992s
+real	2m36.052s
+user	2m33.954s
+sys	0m2.108s
 Processing ./microfluidics/atan2_test_unsat.smt2.proof$
-error Basic.TODO in proof no. 1
+atan2 is not yet supported!
 Axioms            #: 0
 Branches          #: 0
 Trivial Prune     #: 0
@@ -126,9 +126,9 @@ Branches          #: 0
 Trivial Prune     #: 349
 non-trivial Prune #: 0
 
-real	2m37.814s
-user	2m35.718s
-sys	0m2.092s
+real	3m38.961s
+user	3m36.730s
+sys	0m2.128s
 Processing ./microfluidics/simdreal_10.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -140,9 +140,9 @@ Branches          #: 0
 Trivial Prune     #: 189
 non-trivial Prune #: 0
 
-real	2m0.211s
-user	1m58.407s
-sys	0m1.804s
+real	2m32.289s
+user	2m30.341s
+sys	0m1.952s
 Processing ./microfluidics/simdreal_6.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -154,9 +154,9 @@ Branches          #: 0
 Trivial Prune     #: 93
 non-trivial Prune #: 0
 
-real	1m41.364s
-user	1m39.546s
-sys	0m1.820s
+real	1m52.043s
+user	1m50.275s
+sys	0m1.768s
 Processing ./microfluidics/simdreal_13.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -168,9 +168,9 @@ Branches          #: 0
 Trivial Prune     #: 303
 non-trivial Prune #: 0
 
-real	2m37.309s
-user	2m35.198s
-sys	0m2.112s
+real	3m33.538s
+user	3m31.273s
+sys	0m2.268s
 Processing ./microfluidics/simdreal_15.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -182,9 +182,9 @@ Branches          #: 0
 Trivial Prune     #: 399
 non-trivial Prune #: 0
 
-real	3m10.920s
-user	3m8.768s
-sys	0m2.156s
+real	4m26.157s
+user	4m23.668s
+sys	0m2.496s
 Processing ./microfluidics/simdreal_7.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -196,9 +196,9 @@ Branches          #: 0
 Trivial Prune     #: 111
 non-trivial Prune #: 0
 
-real	1m44.054s
-user	1m42.122s
-sys	0m1.932s
+real	1m58.549s
+user	1m56.563s
+sys	0m1.988s
 Processing ./microfluidics/simdreal_16.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -210,9 +210,9 @@ Branches          #: 0
 Trivial Prune     #: 453
 non-trivial Prune #: 0
 
-real	3m3.803s
-user	3m1.619s
-sys	0m2.176s
+real	4m11.253s
+user	4m8.852s
+sys	0m2.408s
 Processing ./microfluidics/simdreal_12.smt2.proof$
 nothing to return!
 Axioms            #: 22
@@ -224,9 +224,9 @@ Branches          #: 0
 Trivial Prune     #: 261
 non-trivial Prune #: 0
 
-real	2m35.231s
-user	2m33.066s
-sys	0m2.168s
+real	3m25.614s
+user	3m23.277s
+sys	0m2.344s
 Processing ./microfluidics/aircraft.smt2.proof$
 Axioms            #: 1
 Branches          #: 0
@@ -255,9 +255,9 @@ Branches          #: 375
 Trivial Prune     #: 6384
 non-trivial Prune #: 229
 
-real	0m0.809s
-user	0m0.804s
-sys	0m0.008s
+real	0m0.790s
+user	0m0.776s
+sys	0m0.012s
 Processing ./flyspeck/740.smt2.proof$
 Axioms            #: 1
 Branches          #: 0
@@ -266,7 +266,7 @@ non-trivial Prune #: 0
 
 real	0m0.004s
 user	0m0.000s
-sys	0m0.000s
+sys	0m0.004s
 Processing ./flyspeck/8.smt2.proof$
 Axioms            #: 1
 Branches          #: 0
@@ -287,9 +287,9 @@ Branches          #: 0
 Trivial Prune     #: 18
 non-trivial Prune #: 0
 
-real	2m33.749s
-user	2m31.853s
-sys	0m1.892s
+real	2m55.052s
+user	2m53.039s
+sys	0m1.936s
 Processing ./flyspeck/172.smt2.proof$
 arcsin is not yet supported!
 Axioms            #: 0
@@ -298,6 +298,5 @@ Trivial Prune     #: 0
 non-trivial Prune #: 1
 
 real	0m0.004s
-user	0m0.000s
+user	0m0.004s
 sys	0m0.000s
-0 files failed: 

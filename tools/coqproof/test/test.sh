@@ -18,7 +18,7 @@ then
 	fi
     done
     
-    if [ "${FAILED}" -ge "0" ];
+    if [ "${FAILED}" -gt "0" ];
     then
 	if [ "${FAILED}" -eq "1" ];
 	then
