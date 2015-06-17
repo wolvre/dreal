@@ -26,10 +26,7 @@ dReach: Bounded Model Checking for for Nonlinear Hybrid Systems
 
 
 OPTIONS:
-<<<<<<< HEAD
-=======
 
->>>>>>> remote_dreal/master
    -k <N> / -u <N>  specify the upperbound of unrolling steps (default: 3)
 
    -l <N>           specify the lowerbound of unrolling steps (default: 0)
@@ -41,14 +38,11 @@ OPTIONS:
    -e               -r and filter continuous variables from SMT encoding (default: do not use)
 
    -d               disjunctive path encoding (default: do not use)
-<<<<<<< HEAD
-=======
 
    -z               apply exit codes (default: do not use): 
                                 51 if SAT, 
                                 52 if UNSAT,
                                 1 abnormal termination
->>>>>>> remote_dreal/master
 
 EXAMPLE:
 
@@ -65,14 +59,9 @@ K=NONE
 L=0
 U=NONE
 DEFAULT_U=3
-<<<<<<< HEAD
-
-while getopts "hbdk:l:u:ep:ir" OPTION
-=======
 Z_OPT=FALSE #(edited: FS)
 
 while getopts "zhbdk:l:u:ep:ir" OPTION
->>>>>>> remote_dreal/master
 do
     case $OPTION in
         h)
@@ -190,26 +179,6 @@ do
             SOLVER_OPT="${SOLVER_OPT} --bmc_heuristic ${HEURISTIC}"
         fi
 
-<<<<<<< HEAD
-UNROLLS=`seq $L $U`
-for K in $UNROLLS
-do
-    if [ $BMCH ]
-    then
-        #  invoke dReal w/o paths
-        SMT=${BASE}_${K}.smt2
-        OUT=${BASE}_${K}.output
-        HEURISTIC=${BASE}_${K}.bh
-
-        if [ $BMCH -eq 1 ]
-        then
-            # Construct Heuristic function
-            $BMC -k $K --bmc_heuristic ${HEURISTIC} $PDRH
-            SOLVER_OPT="${SOLVER_OPT} --bmc_heuristic ${HEURISTIC}"
-        fi
-
-=======
->>>>>>> remote_dreal/master
         if [ $BMCH -lt 3 ]
         then
             #Generate Disjunctive Encoding w/o pruning
@@ -234,18 +203,11 @@ do
         echo SMT: ${SMT}
 
         #Solve
-<<<<<<< HEAD
-        ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat --delta_heuristic --delta 2>&1 | tee $OUT
-=======
         ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat --delta_heuristic --delta --time_split_heuristic 2>&1 | tee $OUT
->>>>>>> remote_dreal/master
         RESULT=`tail -n 1 $OUT`
         if [[ $RESULT == "sat" ]]
         then
             echo "For k = $K, $P -- SAT"
-<<<<<<< HEAD
-            exit 0
-=======
             if [ $Z_OPT == TRUE ];      # (edited: FS)
             then                        #
                 rm $OUT                 #
@@ -254,7 +216,6 @@ do
             else                        #
                 exit 0
             fi
->>>>>>> remote_dreal/master
         fi
     else
         # Enumerate all paths and call dReal with options
@@ -265,11 +226,6 @@ do
             do
                 SMT=${BASE}_${K}_${PATH_NUM}.smt2
                 OUT=${BASE}_${K}_${PATH_NUM}.output
-<<<<<<< HEAD
-                $BMC -k $K --path "$P" $PDRH > ${SMT}
-                echo SMT: ${SMT}, PATH : $P
-                ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat 2>&1 | tee $OUT
-=======
                 ERR=${BASE}.err
                 $BMC -k $K --path "$P" $PDRH > ${SMT}
                 echo SMT: ${SMT}, PATH : $P
@@ -290,15 +246,10 @@ do
                 else                                                            
                     ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat 2>&1 | tee $OUT
                 fi
->>>>>>> remote_dreal/master
                 RESULT=`tail -n 1 $OUT`
                 if [[ $RESULT == "sat" ]]
                 then
                     echo "For k = $K, $P -- SAT"
-<<<<<<< HEAD
-                    exit 0
-                fi
-=======
                     if [ $Z_OPT == TRUE ];      # (edited: FS)
                     then                        #
                         rm $OUT                 #
@@ -312,7 +263,6 @@ do
                 then                        #
                     rm $OUT                 #
                 fi                          #
->>>>>>> remote_dreal/master
                 PATH_NUM=$((${PATH_NUM} + 1))
             done
             echo "For k = $K, dReach tried ${PATH_NUM} feasible paths, all of them are unsat."
@@ -321,11 +271,8 @@ do
         fi
     fi
 done
-<<<<<<< HEAD
-=======
 if [ $Z_OPT == TRUE ];  # (edited: FS)
 then                    #
     rm $PDRH            #
     exit 52             #
 fi                      #
->>>>>>> remote_dreal/master

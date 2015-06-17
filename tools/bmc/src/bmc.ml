@@ -93,11 +93,6 @@ let process_flow_pruned ~k ~q (varmap : Vardeclmap.t) (modemap:Modemap.t) (relev
 			     List.map (fun nm -> if nm = q then
 					       Basic.True
 					     else
-<<<<<<< HEAD
-					       Basic.Not (make_mode_cond k nm)
-				  )
-				  (List.of_enum (Map.keys modemap))) in
-=======
 					       Basic.Not (make_mode_cond k nm) 
 				      )
 				      (match relevant with
@@ -107,7 +102,6 @@ let process_flow_pruned ~k ~q (varmap : Vardeclmap.t) (modemap:Modemap.t) (relev
 				      )
 				      | None -> (List.of_enum (Map.keys modemap)))
 			   ) in
->>>>>>> remote_dreal/master
   let time_var = (make_variable k "" "time") in
   let flow_formula =
     let vardecls = varmap_to_list varmap in
@@ -210,12 +204,6 @@ let process_jump_pruned (modemap : Modemap.t) (q : Mode.id) (next_q : Mode.id) (
 			     List.map (fun nm -> if nm = next_q then
 					       Basic.True
 					     else
-<<<<<<< HEAD
-					       Basic.Not (make_mode_cond (k+1) nm)
-				  )
-				  (List.of_enum (Map.keys modemap))) in
-  let gurad' = Basic.subst_formula (make_variable k "_t") jump.guard in
-=======
 					       Basic.Not (make_mode_cond (k+1) nm) 
 				      )
 				      (match relevant with
@@ -225,7 +213,6 @@ let process_jump_pruned (modemap : Modemap.t) (q : Mode.id) (next_q : Mode.id) (
 				       )
 				       | None -> (List.of_enum (Map.keys modemap)))) in
   let guard' = Basic.subst_formula (make_variable k "_t") jump.guard in
->>>>>>> remote_dreal/master
   let precision = Jump.precision jump in
   let used =
     Set.map
@@ -352,11 +339,7 @@ let process_step_pruned (varmap : Vardeclmap.t)
          Basic.make_and [flow_for_q; jump_for_q_nq] *)
          let jump_for_q_nq  = Basic.make_or (List.map
                                                (fun nq ->
-<<<<<<< HEAD
-                                                process_jump_pruned modemap q nq relevant step
-=======
 						Basic.make_and [flow_for_q; (process_jump_pruned modemap q nq relevant step)]
->>>>>>> remote_dreal/master
                                                )
                                                list_of_possible_nq)
          in
@@ -586,13 +569,6 @@ let compile_vardecl_pruned (h : Hybrid.t) (k : int) (path : (int list) option) (
          (List.map
             (function (var, v) ->
               List.map
-<<<<<<< HEAD
-                (fun k' ->
-                  [
-                    (var ^ "_" ^ (Int.to_string k') ^ "_0", v);
-                    (var ^ "_" ^ (Int.to_string k') ^ "_t", v)
-                  ]
-=======
                 (fun k' -> 
 		 match relevant with
 		   Some(rel) -> (
@@ -616,7 +592,6 @@ let compile_vardecl_pruned (h : Hybrid.t) (k : int) (path : (int list) option) (
 			(var ^ "_" ^ (Int.to_string k') ^ "_0", v);
 			(var ^ "_" ^ (Int.to_string k') ^ "_t", v)
                       ]		 
->>>>>>> remote_dreal/master
                 )
                 (List.of_enum ( 0 -- k))
             )

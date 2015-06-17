@@ -7,7 +7,7 @@ echo OS:  $OS
 ########################################################################
 # Find C++11 Compiler and C Compiler
 ########################################################################
-for CXX in ccache-g++ g++-4.8 g++-4.9 ccache-clang++ clang++-3.5 clang++-3.4 clang++-3.3
+for CXX in ccache-g++ g++-4.8 g++-4.9 g++-5 ccache-clang++ clang++-3.5 clang++-3.4 clang++-3.3
 do
     CXX_PATHNAME=`which $CXX`
     if [ -e "${CXX_PATHNAME}" ]; then
@@ -42,7 +42,7 @@ OSX + g++-4.8
 EOF
     exit 1
 fi
-for CC in gcc-4.8 gcc-4.9 clang-3.5 clang-3.4 clang-3.3
+for CC in gcc-4.8 gcc-4.9 gcc-5 clang-3.5 clang-3.4 clang-3.3
 do
     CC_PATHNAME=`which $CC`
     if [ -e "$CC_PATHNAME" ]; then
