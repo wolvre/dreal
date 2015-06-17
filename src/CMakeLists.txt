@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 2.8.7)
 project(DREAL C CXX)
 set(DREAL_VERSION_MAJOR 2)
 set(DREAL_VERSION_MINOR 15)
+<<<<<<< HEAD
 set(DREAL_VERSION_PATCH 01)
+=======
+set(DREAL_VERSION_PATCH 04)
+>>>>>>> remote_dreal/master
 set(PACKAGE_NAME dReal)
 set(PACKAGE_VERSION "${DREAL_VERSION_MAJOR}.${DREAL_VERSION_MINOR}.${DREAL_VERSION_PATCH}")
 set(PACKAGE_STRING "${PACKAGE_NAME} ${PACKAGE_VERSION}")
@@ -132,7 +136,7 @@ JOIN("${DREAL_EXTRA_LINKER_FLAGS}" "," EXTERNAL_LD_FLAGS)
 ################################################################
 ExternalProject_Add(FILIBXX
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/filibxx
+  GIT_REPOSITORY https://github.com/dreal-deps/filibxx
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
   CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf && ./configure CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} "CXX_FLAGS=${EXTERNAL_CXX_FLAGS}" "LDFLAGS=${EXTERNAL_LD_FLAGS}" --prefix=${CMAKE_CURRENT_BINARY_DIR}
@@ -146,7 +150,7 @@ ExternalProject_Add(FILIBXX
 ################################################################
 # ExternalProject_Add(CAPD3
 #   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-#   GIT_REPOSITORY https://github.com/soonhokong/capdDynSys-3.0.git
+#   GIT_REPOSITORY https://github.com/dreal-deps/capdDynSys-3.0.git
 #   GIT_TAG origin/master
 #   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
 #   CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf && ./configure CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} "CXXFLAGS=${EXTERNAL_CXX_FLAGS} -w" "LDFLAGS=${EXTERNAL_LD_FLAGS}" --prefix=${CMAKE_CURRENT_BINARY_DIR} --without-gui --with-filib=no --with-mpfr=no
@@ -160,7 +164,7 @@ ExternalProject_Add(FILIBXX
 ################################################################
 ExternalProject_Add(CAPD4
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/capdDynSys-4.0.git
+  GIT_REPOSITORY https://github.com/dreal-deps/capdDynSys-4.0.git
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
   CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf && ./configure CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} "CXXFLAGS=${EXTERNAL_CXX_FLAGS} -w" "LDFLAGS=${EXTERNAL_LD_FLAGS}" --prefix=${CMAKE_CURRENT_BINARY_DIR} --without-gui --without-boost --with-mpfr=no --with-filib=yes --disable-shared
@@ -180,7 +184,7 @@ set(EXTRA_LIBS ${EXTRA_LIBS} ${CMAKE_THREAD_LIBS_INIT})
 ################################################################
 ExternalProject_Add(GFLAGS
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/gflags.git
+  GIT_REPOSITORY https://github.com/dreal-deps/gflags.git
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
   CONFIGURE_COMMAND cmake -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} "-DCMAKE_CXX_FLAGS=${EXTERNAL_CXX_FLAGS} -fPIC -DNDEBUG -w" -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR} ./
@@ -195,10 +199,10 @@ set(EXTRA_LIBS ${EXTRA_LIBS} "gflags")
 ################################################################
 ExternalProject_Add(GLOG
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/glog.git
+  GIT_REPOSITORY https://github.com/dreal-deps/glog.git
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
-  CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf && ./configure CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} --disable-shared "CXX_FLAGS=-DNDEBUG ${EXTERNAL_CXX_FLAGS}" CFLAGS=-DNDEBUG "LDFLAGS=${EXTERNAL_LD_FLAGS}" --prefix=${CMAKE_CURRENT_BINARY_DIR} --with-gflags=${CMAKE_CURRENT_BINARY_DIR}
+  CONFIGURE_COMMAND autoreconf --install > /dev/null 2>&1 || autoreconf && ./configure CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} --disable-shared "CXX_FLAGS=-DNDEBUG ${EXTERNAL_CXX_FLAGS}" CFLAGS=-DNDEBUG "LDFLAGS=${EXTERNAL_LD_FLAGS}" --prefix=${CMAKE_CURRENT_BINARY_DIR}
   BUILD_COMMAND make -j
   BUILD_IN_SOURCE 1
   INSTALL_COMMAND make install
@@ -210,7 +214,7 @@ set(EXTRA_LIBS ${EXTRA_LIBS} "glog")
 ################################################################
 ExternalProject_Add(GTEST
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/googletest.git
+  GIT_REPOSITORY https://github.com/dreal-deps/googletest.git
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
   CONFIGURE_COMMAND cmake -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} "-DCMAKE_CXX_FLAGS=${EXTERNAL_CXX_FLAGS} -w" -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR} ./
@@ -225,7 +229,7 @@ set(EXTRA_LIBS ${EXTRA_LIBS} "gtest")
 ################################################################
 ExternalProject_Add(JSON11
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external
-  GIT_REPOSITORY https://github.com/soonhokong/json11.git
+  GIT_REPOSITORY https://github.com/dreal-deps/json11.git
   GIT_TAG origin/master
   UPDATE_COMMAND ${GIT_EXECUTABLE} pull -s recursive -X theirs origin master
   CONFIGURE_COMMAND cmake -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER} "-DCMAKE_CXX_FLAGS=${EXTERNAL_CXX_FLAGS}" "-DCMAKE_EXE_LINKER_FLAGS=${EXTERNAL_LD_FLAGS}" -DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_CURRENT_BINARY_DIR} ./
@@ -306,7 +310,6 @@ set(DREAL_LIBS ${DREAL_LIBS} opensmt_api)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_cnfizers)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_common)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_egraph)
-set(DREAL_LIBS ${DREAL_LIBS} opensmt_emptysolver)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_simplifiers)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_smt2parser)
 set(DREAL_LIBS ${DREAL_LIBS} opensmt_smtsolvers)
@@ -333,14 +336,12 @@ target_link_libraries(dReal ${EXTRA_LIBS})
 #add tests
 add_subdirectory(tests/nra)
 add_subdirectory(tests/nra_ode)
+add_subdirectory(tests/pintegral)
 # add_subdirectory(tests/capd4)
 add_subdirectory(tests/realpaver)
 add_subdirectory(tests/c_api)
 
 #dependencies
-add_dependencies(GLOG GFLAGS)
-add_dependencies(util GLOG)
-add_dependencies(util GFLAGS)
 add_dependencies(dsolvers JSON11)
 add_dependencies(dsolvers realpaver)
 add_dependencies(dsolvers CAPD4)

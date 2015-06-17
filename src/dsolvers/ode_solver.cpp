@@ -183,6 +183,7 @@ ode_solver::ode_solver(SMTConfig& c,
         m_funcs.push_back(IFunction(func_str));
     };
     m_inv = extract_invariants();
+    m_pinv = extract_param_invariants();
 }
 
 // constructor with holder to flow map
@@ -203,28 +204,15 @@ ode_solver::ode_solver(SMTConfig& c,
     Enode * head = l_pint->getCdr();
     vector<int> flow_list;
 
-    cout << "initial";
-    head->print(cout);
-
-    head->getCar()->print(cout);
-    cout << head->getCar()->isHolder;
-
-    cout << "break0";
-
     // move head through all holders
     while (head->getCar()->isHolder) {
-        cout << "in the loop";
         flow_list.push_back(hfmap[head->getCar()->getValue()]);
-        cout<< head->getCar()->getValue();
         head = head -> getCdr();
     }
 
-    cout << "above should be holder numbers.";
     // m_mode = l_pint->getCdr()->getCar()->getValue();
     m_time = head->getCdr()->getCar(); // this is only getting time_t ...|time(0.0)|time_t|vars|tail|
     string time_str = m_time->getCar()->getName();                       // i.e. "time_1"
-
-    cout << time_str;
 
     m_step = stoi(time_str.substr(time_str.find_last_of("_") + 1));      // i.e. 1
 
@@ -242,8 +230,6 @@ ode_solver::ode_solver(SMTConfig& c,
         }
     } // flow_map should collect a complete set of equations now
 
-    cout << "break1";
-
     // next, collect vars
     Enode * var_list = head->getCdr()->getCdr();
 
@@ -252,8 +238,6 @@ ode_solver::ode_solver(SMTConfig& c,
         string name = var_list->getCar()->getCar()->getName();
         size_t second_ = name.find_last_of("_");
         size_t first_ = name.find_last_of("_", second_ - 1);
-
-        cout << name;
 
         string name_prefix, name_postfix;
         if (first_ == string::npos) {
@@ -267,7 +251,6 @@ ode_solver::ode_solver(SMTConfig& c,
             cerr << name_prefix << " is not found in flow_map." << endl;
             assert(flow_map.find(name_prefix) != flow_map.end());
         }
-        cout << "break3";
 
         Enode * const rhs = flow_map[name_prefix];
         stringstream ss;
@@ -294,8 +277,6 @@ ode_solver::ode_solver(SMTConfig& c,
         }
         var_list = var_list->getCdr()->getCdr();
     }
-
-    cout << "break2";
 
     // join var_list to make diff_var, ode_list to diff_fun_forward
     string diff_var = "";
@@ -331,6 +312,7 @@ ode_solver::ode_solver(SMTConfig& c,
         m_funcs.push_back(IFunction(func_str));
     };
     m_inv = extract_invariants();
+    m_pinv = extract_param_invariants();
 }
 
 ode_solver::~ode_solver() {
@@ -370,6 +352,38 @@ void ode_solver::print_trace(ostream& out,
     out << "}" << endl;
 }
 
+void ode_solver::print_par_trace(ostream& out,
+                             string const & key,
+                             int const idx,
+                             list<pair<interval, IVector>> const & trajectory) const {
+    out << "{" << endl;
+    out << "\t" << "\"key\": \"" << key << "\"," << endl;
+    out << "\t" << "\"mode\": \"" << m_mode << "\"," << endl;
+    out << "\t" << "\"step\": \"" << m_step << "\"," << endl;
+    out << "\t" << "\"values\": [" << endl;
+    Enode * const _0_par = m_0_pars[idx];
+    interval _0_intv = interval(get_lb(_0_par), get_ub(_0_par));
+
+    if (!trajectory.empty()) {
+      //      interval time = interval(0, m_time);
+      auto iter = trajectory.cbegin();
+        print_datapoint(out, iter->first, _0_intv);
+        for (++iter; iter != trajectory.cend(); iter++) {
+            out << ", " << endl;
+            print_datapoint(out, iter->first, _0_intv);
+        }
+        // print_datapoint(out, m_T, _0_intv);
+        out << endl;
+    } else {
+      print_datapoint(out, m_T, _0_intv);
+      out << endl;
+    }
+    out << "\t" << "]" << endl;
+    out << ",\t" << "\"par\": 1 " << endl;
+
+    out << "}" << endl;
+}
+
 void ode_solver::print_trajectory(ostream& out) const {
     out.precision(12);
     out << "[" << endl;
@@ -379,6 +393,16 @@ void ode_solver::print_trajectory(ostream& out) const {
             out << ", " << endl;
             print_trace(out, m_var_list[i], i, m_trajectory);
         }
+    }
+    if (!m_par_list.empty()) {
+      if (!m_var_list.empty()){
+        out << ", " << endl;
+      }
+      print_par_trace(out, m_par_list[0], 0, m_trajectory);
+      for (size_t i = 1; i < m_par_list.size(); i++) {
+        out << ", " << endl;
+        print_par_trace(out, m_par_list[i], i, m_trajectory);
+      }
     }
     out << endl << "]" << endl;
 }
@@ -418,6 +442,7 @@ IVector ode_solver::varlist_to_IVector(vector<Enode*> const & vars) {
 IVector ode_solver::extract_invariants() {
     unordered_map<Enode*, pair<double, double>> inv_map;
     for (auto inv : m_invs) {
+      DREAL_LOG_INFO << "ode_solver::extract_invariant: Checking invariant: " << inv;
         Enode * p = inv->getCdr()->getCdr()->getCdr()->getCdr()->getCar();
         Enode * op = p->getCar();
         bool pos = true;
@@ -471,6 +496,70 @@ IVector ode_solver::extract_invariants() {
         } else {
             auto inv = interval(m_t_var->getLowerBound(), m_t_var->getUpperBound());
             DREAL_LOG_INFO << "ode_solver::extract_invariant: Default Invariant set for " << m_t_var << " = " << inv;
+            ret[i++] = inv;
+        }
+    }
+
+    return ret;
+}
+
+IVector ode_solver::extract_param_invariants() {
+    unordered_map<Enode*, pair<double, double>> inv_map;
+    for (auto inv : m_invs) {
+      DREAL_LOG_INFO << "ode_solver::extract_invariant: Checking invariant: " << inv;
+        Enode * p = inv->getCdr()->getCdr()->getCdr()->getCdr()->getCar();
+        Enode * op = p->getCar();
+        bool pos = true;
+
+        // Handle Negation
+        if (op->getId() == ENODE_ID_NOT) {
+            p = p->getCdr()->getCar();
+            op = p->getCar();
+            pos = false;
+        }
+        switch (op->getId()) {
+        case ENODE_ID_GEQ:
+        case ENODE_ID_GT:
+            // Handle >= & >
+            pos = !pos;
+        case ENODE_ID_LEQ:
+        case ENODE_ID_LT: {
+            // Handle <= & <
+            Enode * lhs = pos ? p->getCdr()->getCar() : p->getCdr()->getCdr()->getCar();
+            Enode * rhs = pos ? p->getCdr()->getCdr()->getCar() : p->getCdr()->getCar();
+            if (lhs->isVar() && rhs->isConstant()) {
+                if (inv_map.find(lhs) != inv_map.end()) {
+                    inv_map[lhs].second = std::min(inv_map[lhs].second, rhs->getValue());
+                } else {
+                    inv_map.emplace(lhs, make_pair(lhs->getLowerBound(), rhs->getValue()));
+                }
+            } else if (lhs->isConstant() && rhs->isVar()) {
+                if (inv_map.find(rhs) != inv_map.end()) {
+                    inv_map[rhs].first = std::max(inv_map[rhs].first, lhs->getValue());
+                } else {
+                    inv_map.emplace(rhs, make_pair(lhs->getValue(), rhs->getUpperBound()));
+                }
+            } else {
+                DREAL_LOG_ERROR << "ode_solver::extract_invariant: "
+                                << "The provided invariant (" << p << ") is not of the form that we support.";
+            }
+        }
+            break;
+        default:
+            DREAL_LOG_ERROR << "ode_solver::extract_invariant: "
+                            << "The provided invariant (" << p << ") is not of the form that we support.";
+        }
+    }
+    IVector ret (m_t_pars.size());
+    unsigned i = 0;
+    for (auto const & m_t_par : m_t_pars) {
+        if (inv_map.find(m_t_par) != inv_map.end()) {
+            auto inv = interval(inv_map[m_t_par].first, inv_map[m_t_par].second);
+            DREAL_LOG_INFO << "ode_solver::extract_invariant: Invariant extracted from  " << m_t_par << " = " << inv;
+            ret[i++] = inv;
+        } else {
+            auto inv = interval(m_t_par->getLowerBound(), m_t_par->getUpperBound());
+            DREAL_LOG_INFO << "ode_solver::extract_invariant: Default Invariant set for " << m_t_par << " = " << inv;
             ret[i++] = inv;
         }
     }
@@ -783,10 +872,17 @@ ode_solver::ODE_result ode_solver::compute_backward(vector<pair<interval, IVecto
 ode_solver::ODE_result ode_solver::prune_forward(vector<pair<interval, IVector>> & bucket) {
     // 1) Intersect each v in bucket with X_t.
     // 2) If there is no intersection in 1), set dt an empty interval [0, 0]
+  DREAL_LOG_INFO << "ode_solver::prune_forward";
+  if (m_T.rightBound() == m_T.leftBound()){
+    return ODE_result::SAT;
+  }
+
+
     for (pair<interval, IVector> & item : bucket) {
         interval & dt = item.first;
         IVector &  v  = item.second;
         // v = v union m_X_t
+        DREAL_LOG_INFO << "ode_solver::prune_forward: v = " << v << " m_X_t = " << m_X_t;
         if (!intersection(v, m_X_t, v)) {
             dt.setLeftBound(0.0);
             dt.setRightBound(0.0);
@@ -824,6 +920,11 @@ ode_solver::ODE_result ode_solver::prune_forward(vector<pair<interval, IVector>>
 ode_solver::ODE_result ode_solver::prune_backward(vector<pair<interval, IVector>> & bucket) {
     // 1) Intersect each v in bucket with X_0.
     // 2) If there is no intersection in 1), set dt an empty interval [0, 0]
+
+  if (m_T.rightBound() == m_T.leftBound()){
+    return ODE_result::SAT;
+  }
+
     for (pair<interval, IVector> & item : bucket) {
         interval & dt = item.first;
         IVector &  v  = item.second;
@@ -865,6 +966,7 @@ ode_solver::ODE_result ode_solver::prune_backward(vector<pair<interval, IVector>
 // Take an intersection of v and inv.
 // If there is no intersection, return false.
 bool ode_solver::check_invariant(IVector & v, IVector const & inv) {
+  DREAL_LOG_INFO << "ode_solver::check_invariant()";
     if (!intersection(v, inv, v)) {
         DREAL_LOG_INFO << "ode_solver::check_invariant: invariant violated!";
         for (unsigned i = 0; i < v.dimension(); i++) {
@@ -927,16 +1029,39 @@ bool ode_solver::union_and_join(vector<V> const & bucket, V & result) {
 // Run inner loop
 // return true if it violates invariant otherwise return false.
 bool ode_solver::inner_loop_forward(IOdeSolver & solver, interval const & prevTime, vector<pair<interval, IVector>> & bucket) {
-    DREAL_LOG_INFO << "ode_solver::inner_loop_forward";
+  DREAL_LOG_INFO << "ode_solver::inner_loop_forward prevTime = "
+                 << prevTime << " m_T = " << m_T;
+
+  if (m_T.rightBound() == m_T.leftBound()) {
+    DREAL_LOG_INFO << "ode_solver::inner_loop_forward No Need to Compute";
+    m_X_t  = intervalHull(m_X_t,  m_X_0);
+    m_X_0  = intervalHull(m_X_0,  m_X_t);
+
+    DREAL_LOG_INFO << "ode_solver::inner_loop_forward m_X_t = " << m_X_t;
+    DREAL_LOG_INFO << "ode_solver::inner_loop_forward m_X_0 = " << m_X_0;
+    return false;
+  }
+
 
     interval const stepMade = solver.getStep();
+
+    DREAL_LOG_INFO << "ode_solver::inner_loop_forward stepMade = " << stepMade;
+
     const IOdeSolver::SolutionCurve& curve = solver.getCurve();
     interval domain = interval(0, 1) * stepMade;
     list<interval> intvs;
     if (prevTime.rightBound() < m_T.leftBound()) {
         interval pre_T = interval(0, m_T.leftBound() - prevTime.rightBound());
+        DREAL_LOG_INFO << "ode_solver::inner_loop_forward: pre_T =" << pre_T;
         domain.setLeftBound(m_T.leftBound() - prevTime.rightBound());
-        intvs = split(domain, m_config.nra_ODE_grid_size);
+        DREAL_LOG_INFO << "ode_solver::inner_loop_forward: domain =" << domain << " " << (domain.rightBound() - domain.leftBound()) << " " << (1e-12);
+        if (domain.rightBound() - domain.leftBound() > 1e-11){
+          DREAL_LOG_INFO << "ode_solver::inner_loop_forward: split";
+          intvs = split(domain, m_config.nra_ODE_grid_size);
+        } else {
+          DREAL_LOG_INFO << "ode_solver::inner_loop_forward: no split";
+          intvs.push_back(domain);
+        }
         intvs.push_front(pre_T);
     } else {
         intvs = split(domain, m_config.nra_ODE_grid_size);
@@ -944,6 +1069,7 @@ bool ode_solver::inner_loop_forward(IOdeSolver & solver, interval const & prevTi
 
     for (interval subsetOfDomain : intvs) {
         interval dt = prevTime + subsetOfDomain;
+        // DREAL_LOG_INFO << "ode_solver::inner_loop_forward:" << dt;
         IVector v = curve(subsetOfDomain);
         if (!check_invariant(v, m_inv)) {
             // TODO(soonhok): invariant
@@ -962,14 +1088,35 @@ bool ode_solver::inner_loop_forward(IOdeSolver & solver, interval const & prevTi
 }
 
 bool ode_solver::inner_loop_backward(IOdeSolver & solver, interval const & prevTime, vector<pair<interval, IVector>> & bucket) {
+  DREAL_LOG_INFO << "ode_solver::inner_loop_backward prevTime = "
+                 << prevTime << " m_T = " << m_T;
+
+  if (m_T.rightBound() == m_T.leftBound()) {
+    DREAL_LOG_INFO << "ode_solver::inner_loop_backward No Need to Compute";
+    m_X_t  = intervalHull(m_X_t,  m_X_0);
+    m_X_0  = intervalHull(m_X_0,  m_X_t);
+
+    DREAL_LOG_INFO << "ode_solver::inner_loop_backward m_X_t = " << m_X_t;
+    DREAL_LOG_INFO << "ode_solver::inner_loop_backward m_X_0 = " << m_X_0;
+    return false;
+  }
+
     interval const stepMade = solver.getStep();
     const IOdeSolver::SolutionCurve& curve = solver.getCurve();
     interval domain = interval(0, 1) * stepMade;
     list<interval> intvs;
     if (prevTime.rightBound() < m_T.leftBound()) {
         interval pre_T = interval(0, m_T.leftBound() - prevTime.rightBound());
+        DREAL_LOG_INFO << "ode_solver::inner_loop_forward: pre_T =" << pre_T;
         domain.setLeftBound(m_T.leftBound() - prevTime.rightBound());
-        intvs = split(domain, m_config.nra_ODE_grid_size);
+        DREAL_LOG_INFO << "ode_solver::inner_loop_forward: domain =" << domain << " " << (domain.rightBound() - domain.leftBound());
+        if (domain.rightBound() - domain.leftBound() > 1e-11){
+          DREAL_LOG_INFO << "ode_solver::inner_loop_forward: split";
+          intvs = split(domain, m_config.nra_ODE_grid_size);
+        } else {
+          DREAL_LOG_INFO << "ode_solver::inner_loop_forward: no split";
+          intvs.push_back(domain);
+        }
         intvs.push_front(pre_T);
     } else {
         intvs = split(domain, m_config.nra_ODE_grid_size);
@@ -998,11 +1145,17 @@ bool ode_solver::prune_params() {
     for (unsigned i = 0; i < m_0_pars.size(); i++) {
         Enode * const _0_par = m_0_pars[i];
         Enode * const _t_par = m_t_pars[i];
+        auto const _p_intv = m_pinv[i];
+        DREAL_LOG_DEBUG << "ode_solver::prune_params " << _0_par << " " << _t_par;
         interval _0_intv = interval(get_lb(_0_par), get_ub(_0_par));
         interval const _t_intv = interval(get_lb(_t_par), get_ub(_t_par));
         DREAL_LOG_DEBUG << "ode_solver::prune_params _0_intv = " << _0_intv;
         DREAL_LOG_DEBUG << "ode_solver::prune_params _t_intv = " << _t_intv;
+        DREAL_LOG_DEBUG << "ode_solver::prune_params _p_intv = " << _p_intv;
         if (!intersection(_0_intv, _t_intv, _0_intv)) {
+            DREAL_LOG_DEBUG << "ode_solver::prune_params intersection = " << "empty";
+            return false;
+        } else if (!intersection(_0_intv, _p_intv, _0_intv)) {
             DREAL_LOG_DEBUG << "ode_solver::prune_params intersection = " << "empty";
             return false;
         } else {

@@ -178,23 +178,26 @@ struct SMTConfig
 
   // SMT related parameters used by dReal
   string       nra_bmc_heuristic;             // Use BMC variable selection heuristic in Minisat from file
-  bool         nra_ODE_sim_heuristic;         //Use ODE simulation to guide ICP
+  string       nra_plan_heuristic;            // Use planning variable selection heuristic in Minisat from file
+  bool         nra_ODE_sim_heuristic;         // Use ODE simulation to guide ICP
 
   // NRA-Solver related parameters (added for dReal2)
   bool         nra_delta_test;                // precision=(nra_delta_test ? delta : epsilon)
   bool         nra_use_delta_heuristic;       // Split variable in constraint with max residual delta?
+  bool         nra_time_split_heuristic;      // Perform non-uniform splits on time variables
   bool         nra_short_sat;                 // Test theory if CNF is SAT, before have full model.
   double       nra_precision;                 // the value of delta
   double       nra_icp_improve;               // improve value for realpaver(ICP)
   bool         nra_verbose;                   // --verbose option
   bool         nra_debug;                     // --verbose option
   bool         nra_proof;                     // --proof option
-  bool         nra_model;                     // --model option
   ofstream     nra_model_out;                 // file stream for model
+  bool         nra_model;                     // --model option
   string       nra_model_out_name;            // filename for model
   ofstream     nra_proof_out;                 // file stream for proof
   string       nra_proof_out_name;            // filename for proof
-  bool         nra_json;                      // --proof option
+  bool         nra_readable_proof;            // readable_proof
+  bool         nra_json;                      // --visualize option
   ofstream     nra_json_out;                  // file stream for json (visualization)
   string       nra_json_out_name;             // filename for json (visualization)
   unsigned     nra_ODE_taylor_order;          // --ode-order option

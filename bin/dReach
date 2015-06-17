@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#This version is slightly modified by Fedor Shmarov (FS) (email: f.shmarov@ncl.ac.uk)
 
 SCRIPT_PATHNAME=`python -c "import os,sys; print os.path.realpath(\"$0\")"`
 SCRIPT_PATH="$( cd "$( dirname "${SCRIPT_PATHNAME}" )" && pwd )"
@@ -6,7 +7,7 @@ SCRIPT_PATH="$( cd "$( dirname "${SCRIPT_PATHNAME}" )" && pwd )"
 # TODO: Specify the paths for BMC tool and DREAL
 for BMC_NAME in bmc bmc_main.native; do
     BMC=${SCRIPT_PATH}/${BMC_NAME}
-    if [ -e ${BMC} ] ; then
+    if [ -e ${BMC} ] ; then 
         break
     fi
 done
@@ -22,7 +23,13 @@ usage: $0 options <*.drh> <options to dReal>
 
 dReach: Bounded Model Checking for for Nonlinear Hybrid Systems
 
+
+
 OPTIONS:
+<<<<<<< HEAD
+=======
+
+>>>>>>> remote_dreal/master
    -k <N> / -u <N>  specify the upperbound of unrolling steps (default: 3)
 
    -l <N>           specify the lowerbound of unrolling steps (default: 0)
@@ -34,6 +41,14 @@ OPTIONS:
    -e               -r and filter continuous variables from SMT encoding (default: do not use)
 
    -d               disjunctive path encoding (default: do not use)
+<<<<<<< HEAD
+=======
+
+   -z               apply exit codes (default: do not use): 
+                                51 if SAT, 
+                                52 if UNSAT,
+                                1 abnormal termination
+>>>>>>> remote_dreal/master
 
 EXAMPLE:
 
@@ -50,13 +65,19 @@ K=NONE
 L=0
 U=NONE
 DEFAULT_U=3
+<<<<<<< HEAD
 
 while getopts "hbdk:l:u:ep:ir" OPTION
+=======
+Z_OPT=FALSE #(edited: FS)
+
+while getopts "zhbdk:l:u:ep:ir" OPTION
+>>>>>>> remote_dreal/master
 do
     case $OPTION in
         h)
             usage
-            exit 1
+            exit 0          #(edited: FS)
             ;;
         k)
             K=$OPTARG
@@ -79,9 +100,12 @@ do
         e)
             BMCH=4
             ;;
+        z)                  #(edited: FS)
+            Z_OPT=TRUE      #
+            ;;              #
         \?)
             usage
-            exit
+            exit 1
             ;;
     esac
 done
@@ -149,8 +173,6 @@ echo dReal Options: $SOLVER_OPT
 # Preprocessing
 sed "s/\/\/.*//g" $DRH | cpp -P -w > $PDRH
 
-
-
 UNROLLS=`seq $L $U`
 for K in $UNROLLS
 do
@@ -168,6 +190,26 @@ do
             SOLVER_OPT="${SOLVER_OPT} --bmc_heuristic ${HEURISTIC}"
         fi
 
+<<<<<<< HEAD
+UNROLLS=`seq $L $U`
+for K in $UNROLLS
+do
+    if [ $BMCH ]
+    then
+        #  invoke dReal w/o paths
+        SMT=${BASE}_${K}.smt2
+        OUT=${BASE}_${K}.output
+        HEURISTIC=${BASE}_${K}.bh
+
+        if [ $BMCH -eq 1 ]
+        then
+            # Construct Heuristic function
+            $BMC -k $K --bmc_heuristic ${HEURISTIC} $PDRH
+            SOLVER_OPT="${SOLVER_OPT} --bmc_heuristic ${HEURISTIC}"
+        fi
+
+=======
+>>>>>>> remote_dreal/master
         if [ $BMCH -lt 3 ]
         then
             #Generate Disjunctive Encoding w/o pruning
@@ -192,12 +234,27 @@ do
         echo SMT: ${SMT}
 
         #Solve
+<<<<<<< HEAD
         ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat --delta_heuristic --delta 2>&1 | tee $OUT
+=======
+        ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat --delta_heuristic --delta --time_split_heuristic 2>&1 | tee $OUT
+>>>>>>> remote_dreal/master
         RESULT=`tail -n 1 $OUT`
         if [[ $RESULT == "sat" ]]
         then
             echo "For k = $K, $P -- SAT"
+<<<<<<< HEAD
             exit 0
+=======
+            if [ $Z_OPT == TRUE ];      # (edited: FS)
+            then                        #
+                rm $OUT                 #
+                rm $PDRH                #
+                exit 51                 #
+            else                        #
+                exit 0
+            fi
+>>>>>>> remote_dreal/master
         fi
     else
         # Enumerate all paths and call dReal with options
@@ -208,15 +265,54 @@ do
             do
                 SMT=${BASE}_${K}_${PATH_NUM}.smt2
                 OUT=${BASE}_${K}_${PATH_NUM}.output
+<<<<<<< HEAD
                 $BMC -k $K --path "$P" $PDRH > ${SMT}
                 echo SMT: ${SMT}, PATH : $P
                 ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat 2>&1 | tee $OUT
+=======
+                ERR=${BASE}.err
+                $BMC -k $K --path "$P" $PDRH > ${SMT}
+                echo SMT: ${SMT}, PATH : $P
+                if [ $Z_OPT == TRUE ];                                          # (edited: FS)
+                then                                                            #
+                    ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat 2>$ERR 1>$OUT    #
+                    if [ $? == 0 ];                                             #
+                    then                                                        #
+                        rm $ERR                                                 #
+                        rm $SMT                                                 #
+                    else                                                        #
+                        echo "dReal terminated abnormally. ERROR LOG is written to" $ERR #
+                        rm $SMT                                                 #
+                        rm $OUT                                                 #
+                        rm $PDRH                                                #
+                        exit 1                                                  #
+                    fi                                                          #
+                else                                                            
+                    ${SOLVER} ${SOLVER_OPT} ${SMT} --short_sat 2>&1 | tee $OUT
+                fi
+>>>>>>> remote_dreal/master
                 RESULT=`tail -n 1 $OUT`
                 if [[ $RESULT == "sat" ]]
                 then
                     echo "For k = $K, $P -- SAT"
+<<<<<<< HEAD
                     exit 0
                 fi
+=======
+                    if [ $Z_OPT == TRUE ];      # (edited: FS)
+                    then                        #
+                        rm $OUT                 #
+                        rm $PDRH                #
+                        exit 51                 #
+                    else                        #
+                        exit 0
+                    fi
+                fi
+                if [ $Z_OPT == TRUE ];      # (edited: FS)
+                then                        #
+                    rm $OUT                 #
+                fi                          #
+>>>>>>> remote_dreal/master
                 PATH_NUM=$((${PATH_NUM} + 1))
             done
             echo "For k = $K, dReach tried ${PATH_NUM} feasible paths, all of them are unsat."
@@ -225,3 +321,11 @@ do
         fi
     fi
 done
+<<<<<<< HEAD
+=======
+if [ $Z_OPT == TRUE ];  # (edited: FS)
+then                    #
+    rm $PDRH            #
+    exit 52             #
+fi                      #
+>>>>>>> remote_dreal/master
